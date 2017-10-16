@@ -12,14 +12,15 @@ import java.util.List;
  */
 
 public class ViewPagerAdapter extends FragmentPagerAdapter {
-    private String[] mTitles = new String[]{"首页", "图书馆", "课表","新闻","我的"};
+    private String[] Titles = new String[]{"首页", "图书馆", "课表","新闻","我的"};
+    private List<String> mTitles;
     private List<Fragment> list_fragment;                         //fragment列表
 
-    public ViewPagerAdapter(FragmentManager fm,List<Fragment> list_fragment) {
-        super(fm);
-        this.list_fragment = list_fragment;
+    public ViewPagerAdapter(FragmentManager manager, List<Fragment> fragments, List<String> titles) {
+        super(manager);
+        this.list_fragment = fragments;
+        this.mTitles = titles;
     }
-
     //getCount()返回List<View>的size:
     @Override
     public int getCount() {
@@ -31,12 +32,6 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
         return list_fragment.get( position );
     }
 
-    //    //destroyItem()：删除当前的View;
-    //    @Override
-    //    public void destroyItem(ViewGroup container, int position, Object object) {
-    //        container.removeView(list_fragment.get( position ));
-    //    }
-
     /**
      * 这个方法一定要注意了！！！！！！！！！！可把我坑惨了
      * 必须手动添加这个方法，否则下方的Tablayout的字不显示
@@ -44,6 +39,6 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
      */
     @Override
     public CharSequence getPageTitle(int position) {
-        return mTitles[position];
+        return Titles[position];
     }
 }
