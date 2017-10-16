@@ -6,4 +6,14 @@
     <color name="white">#ffffff</color>
     <color name="tabtext">#b7b6b6</color>
     <color name="course_left_bg">#e2e0e0</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorLightBlue">#9cd9e2</color>
+    <color name="colorGray">#cecece</color>
+    <color name="colorBlue">#2791f4</color>
+    <color name="colorBlack">#000000</color>
+    <color name="title_color">#259b24</color>
+    <color name="colorLightBlue_1">#f1fbfb</color>
+    <color name="colorDark">#727272</color>
+    <color name="lightGray">#ececec</color>
+    <color name="colorYellow">#ebc509</color>
 </resources>

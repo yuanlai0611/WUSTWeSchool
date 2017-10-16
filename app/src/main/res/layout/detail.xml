@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="300dp"
+        android:layout_height="360dp">
+
+        <LinearLayout
+            android:background="@drawable/detail_message"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="135dp">
+        <ImageView
+            android:padding="3dp"
+            android:background="@drawable/photo"
+            android:src="@drawable/girlfriend"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
+
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_marginTop="40dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp">
+                    <TextView
+                        android:textStyle="bold"
+                        android:textColor="#1ab2df"
+                        android:paddingTop="2dp"
+                        android:paddingLeft="7dp"
+                        android:textSize="12sp"
+                        android:text="姓名"
+                        android:layout_weight="1.1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent" />
+            <TextView
+                android:text="袁来"
+                android:textColor="@color/colorBlack"
+                android:paddingLeft="15dp"
+                android:textSize="14sp"
+                android:layout_width="0dp"
+                android:layout_weight="4.5"
+                android:layout_height="match_parent" />
+            </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp">
+                    <TextView
+                        android:textStyle="bold"
+                        android:textSize="12sp"
+                        android:paddingLeft="7dp"
+                        android:paddingTop="2dp"
+                        android:textColor="#1ab2df"
+                        android:text="学号"
+                        android:layout_weight="1.1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent" />
+            <TextView
+                android:layout_weight="4.5"
+                android:text="201613137217"
+                android:paddingLeft="18dp"
+                android:textSize="14sp"
+                android:textColor="@color/colorBlack"
+                android:layout_width="0dp"
+                android:layout_height="40dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:background="@drawable/detail_message"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="200dp"
+                android:layout_height="match_parent">
+            <TextView
+                android:textStyle="bold"
+                android:textColor="#1ab2df"
+                android:textSize="13sp"
+                android:paddingTop="17dp"
+                android:paddingLeft="17dp"
+                android:text="未归还的图书"
+                android:layout_width="match_parent"
+                android:layout_height="40dp" />
+        <TextView
+            android:text="· 三国演义\n \n· 水浒传"
+            android:textColor="@color/colorBlack"
+            android:textSize="14sp"
+            android:paddingLeft="23dp"
+            android:paddingRight="23dp"
+            android:paddingTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+            </LinearLayout>
+            <TextView
+                android:paddingLeft="15dp"
+                android:paddingTop="10dp"
+                android:textColor="@color/colorBlack"
+                android:textSize="14sp"
+                android:layout_marginTop="40dp"
+                android:text="21天\n\n56天"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+    </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

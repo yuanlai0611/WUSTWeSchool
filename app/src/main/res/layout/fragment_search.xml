@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/search_button"
+    android:orientation="vertical"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="72dp">
+        <include layout="@layout/search_title"
+            />
+        <EditText
+            android:id="@+id/search_text"
+            android:singleLine="true"
+            android:paddingLeft="10dp"
+            android:layout_centerInParent="true"
+            android:drawableLeft="@drawable/search"
+            android:hint="   输入要搜索的图书"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/search_view"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="36dp"
+            android:textSize="15sp"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="34dp"/>
+    </RelativeLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+
+        <ImageView
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/hot"
+            android:layout_width="23dp"
+            android:layout_height="23dp" />
+        <TextView
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:text="热点搜索"
+            android:layout_width="60dp"
+            android:layout_height="30dp" />
+
+    </LinearLayout>
+    <com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai.FlowLayout
+        android:id="@+id/flowlayout"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai.FlowLayout>
+</LinearLayout>
