@@ -268,7 +268,7 @@
                     <TextView
                         android:textStyle="italic"
                         android:gravity="center"
-                        android:textSize="16sp"
+                        android:textSize="17sp"
                         android:text="第一节课"
                         android:textColor="@color/colorYellow"
                         android:layout_width="80dp"
@@ -276,17 +276,15 @@
                     <TextView
                             android:paddingTop="10dp"
                             android:paddingLeft="15dp"
-                            android:textSize="17sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/colorDark"
+                            android:textSize="15sp"
+                            android:textColor="@color/colorBlack"
                             android:text="java 编程技术"
-                            android:layout_width="180dp"
+                            android:layout_width="200dp"
                             android:layout_height="50dp" />
                     <TextView
                         android:paddingTop="20dp"
                         android:textColor="@color/colorBlack"
                         android:text="11404"
-                        android:textSize="12sp"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
 
@@ -303,26 +301,24 @@
                     android:layout_height="50dp">
                     <TextView
                         android:gravity="center"
-                        android:textSize="16sp"
+                        android:textSize="17sp"
                         android:textStyle="italic"
                         android:text="第二节课"
                         android:textColor="@color/colorYellow"
                         android:layout_width="80dp"
                         android:layout_height="match_parent" />
                     <TextView
-                        android:textSize="17sp"
+                        android:textSize="15sp"
                         android:paddingTop="10dp"
                         android:paddingLeft="15dp"
-                        android:textStyle="bold"
-                        android:textColor="@color/colorDark"
+                        android:textColor="@color/colorBlack"
                         android:text="大学物理（二）"
-                        android:layout_width="180dp"
+                        android:layout_width="200dp"
                         android:layout_height="50dp" />
                     <TextView
                         android:paddingTop="20dp"
                         android:textColor="@color/colorBlack"
                         android:text="31306"
-                        android:textSize="12sp"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
 
@@ -339,26 +335,24 @@
                     android:layout_height="50dp">
                     <TextView
                         android:gravity="center"
-                        android:textSize="16sp"
+                        android:textSize="17sp"
                         android:textStyle="italic"
                         android:text="第三节课"
                         android:textColor="@color/colorYellow"
                         android:layout_width="80dp"
                         android:layout_height="match_parent" />
                     <TextView
-                        android:textSize="17sp"
+                        android:textSize="15sp"
                         android:paddingTop="10dp"
                         android:paddingLeft="15dp"
-                        android:textStyle="bold"
-                        android:textColor="@color/colorDark"
+                        android:textColor="@color/colorBlack"
                         android:text="大学综合英语（三）"
-                        android:layout_width="180dp"
+                        android:layout_width="200dp"
                         android:layout_height="50dp" />
                     <TextView
                         android:paddingTop="20dp"
                         android:textColor="@color/colorBlack"
                         android:text="11307"
-                        android:textSize="12sp"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
 
@@ -376,7 +370,7 @@
                     <TextView
                         android:textStyle="italic"
                         android:gravity="center"
-                        android:textSize="16sp"
+                        android:textSize="17sp"
                         android:text="第四节课"
                         android:textColor="@color/colorYellow"
                         android:layout_width="80dp"
@@ -384,17 +378,15 @@
                     <TextView
                         android:paddingTop="10dp"
                         android:paddingLeft="15dp"
-                        android:textColor="@color/colorDark"
-                        android:textSize="17sp"
-                        android:textStyle="bold"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="15sp"
                         android:text="线性代数"
-                        android:layout_width="180dp"
+                        android:layout_width="200dp"
                         android:layout_height="50dp" />
                     <TextView
                         android:paddingTop="20dp"
                         android:textColor="@color/colorBlack"
                         android:text="11807"
-                        android:textSize="12sp"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
 
@@ -412,7 +404,7 @@
                     <TextView
                         android:textStyle="italic"
                         android:gravity="center"
-                        android:textSize="16sp"
+                        android:textSize="17sp"
                         android:text="第五节课"
                         android:textColor="@color/colorYellow"
                         android:layout_width="80dp"
@@ -420,17 +412,15 @@
                     <TextView
                         android:paddingTop="10dp"
                         android:paddingLeft="15dp"
-                        android:textColor="@color/colorDark"
-                        android:textStyle="bold"
+                        android:textColor="@color/colorBlack"
                         android:text="数据结构"
-                        android:textSize="17sp"
-                        android:layout_width="180dp"
+                        android:textSize="15sp"
+                        android:layout_width="200dp"
                         android:layout_height="50dp" />
                     <TextView
                         android:paddingTop="20dp"
                         android:textColor="@color/colorBlack"
                         android:text="11307"
-                        android:textSize="12sp"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
 

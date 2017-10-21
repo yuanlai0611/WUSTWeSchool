@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/activity_main"
+    android:id="@+id/pager_library"
     >
 
     <android.support.v7.widget.CardView
@@ -17,116 +17,114 @@
     </android.support.v7.widget.CardView>
 
 
-    <android.support.design.widget.CoordinatorLayout
+    <LinearLayout
         android:layout_below="@+id/title"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <android.support.design.widget.AppBarLayout
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.CardView
+            android:background="@color/colorLightBlue_1"
             android:id="@+id/user_library_message"
+            android:layout_below="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <android.support.v7.widget.Toolbar
-                android:minHeight="40dp"
-                app:layout_scrollFlags="scroll|exitUntilCollapsed"
-                app:contentInsetStart="0dp"
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="110dp">
-                <android.support.v7.widget.CardView
-                    android:background="@color/colorLightBlue_1"
-                    android:layout_below="@+id/title"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:visibility="gone"
+                    android:background="@drawable/detail_btn_pressed"
+                    android:id="@+id/btn_detail"
                     android:layout_width="match_parent"
-                    android:layout_height="110dp">
+                    android:layout_height="70dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:background="@drawable/photo"
+                        android:id="@+id/imageView"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:padding="1dp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="30dp"
+                        android:layout_marginTop="6dp"
+                        android:src="@drawable/girlfriend" />
+
                     <LinearLayout
-                        android:orientation="vertical"
-                        android:layout_width="match_parent"
-                        android:layout_height="110dp">
-                        <LinearLayout
-                            android:background="@drawable/detail_btn_pressed"
-                            android:id="@+id/btn_detail"
+                        android:layout_width="0dp"
+                        android:layout_weight="9"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <View
                             android:layout_width="match_parent"
-                            android:layout_height="70dp"
-                            android:orientation="horizontal">
+                            android:layout_height="12dp" />
 
-                            <ImageView
-                                android:background="@drawable/photo"
-                                android:id="@+id/imageView"
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:padding="1dp"
-                                android:layout_marginLeft="30dp"
-                                android:layout_marginRight="30dp"
-                                android:layout_marginTop="6dp"
-                                android:src="@drawable/girlfriend" />
-
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_weight="9"
-                                android:layout_height="match_parent"
-                                android:orientation="vertical">
-
-                                <View
-                                    android:layout_width="match_parent"
-                                    android:layout_height="12dp" />
-
-                                <TextView
-                                    android:textStyle="bold"
-                                    android:textColor="@color/colorBlue"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="20dp"
-                                    android:paddingLeft="5dp"
-                                    android:textSize="16sp"
-                                    android:text="学号：201613137217" />
-
-                                <TextView
-                                    android:textStyle="bold"
-                                    android:textColor="@color/colorBlue"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="20dp"
-                                    android:paddingLeft="5dp"
-                                    android:textSize="16sp"
-                                    android:text="姓名：袁来" />
-
-
-
-                            </LinearLayout>
-                            <Button
-                                android:id="@+id/detail_message"
-                                android:layout_gravity="center_vertical"
-                                android:background="@drawable/detail"
-                                android:layout_width="0dp"
-                                android:layout_weight="1"
-                                android:layout_height="30dp"
-                                android:layout_marginRight="5dp"/>
-
-                        </LinearLayout>
-
-                        <android.support.design.widget.TabLayout
-                            android:id="@+id/tabLayout"
+                        <TextView
+                            android:textStyle="bold"
+                            android:textColor="@color/colorBlue"
                             android:layout_width="match_parent"
-                            android:layout_height="40dp"
-                            app:tabIndicatorColor="#33bbff"
-                            app:tabIndicatorHeight="2dp"
-                            app:tabTextColor="@color/colorDark"
-                            app:tabSelectedTextColor="#f9f9f9"
-                            app:tabMode="fixed"
-                            app:tabBackground="@drawable/selected"/>
+                            android:layout_height="20dp"
+                            android:paddingLeft="5dp"
+                            android:textSize="16sp"
+                            android:text="学号：201613137217" />
+
+                        <TextView
+                            android:textStyle="bold"
+                            android:textColor="@color/colorBlue"
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp"
+                            android:paddingLeft="5dp"
+                            android:textSize="16sp"
+                            android:text="姓名：袁来" />
+
+
 
                     </LinearLayout>
-                </android.support.v7.widget.CardView>
-            </android.support.v7.widget.Toolbar>
-        </android.support.design.widget.AppBarLayout>
+                    <Button
+                        android:id="@+id/detail_message"
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/detail"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="30dp"
+                        android:layout_marginRight="5dp"/>
+
+                </LinearLayout>
+
+                <android.support.design.widget.TabLayout
+                    android:id="@+id/tabLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    app:tabIndicatorColor="#33bbff"
+                    app:tabIndicatorHeight="2dp"
+                    app:tabTextColor="@color/colorDark"
+                    app:tabSelectedTextColor="#f9f9f9"
+                    app:tabMode="fixed"
+                    app:tabBackground="@drawable/selected"/>
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
 
 
 
 
-        <android.support.v4.view.ViewPager
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            android:id="@+id/viewPager"
+        <LinearLayout
+            android:layout_below="@+id/user_library_message"
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            />
+            android:layout_height="match_parent">
 
 
-    </android.support.design.widget.CoordinatorLayout>
+            <android.support.v4.view.ViewPager
+                android:id="@+id/viewPager"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+
 </RelativeLayout>

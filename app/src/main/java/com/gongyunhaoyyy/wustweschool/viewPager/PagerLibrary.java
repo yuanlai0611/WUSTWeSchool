@@ -42,32 +42,32 @@ public class PagerLibrary extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view= inflater.inflate( R.layout.pager_library, container, false);
 
-//        linearLayout = (LinearLayout) view.findViewById(R.id.btn_detail);
+        linearLayout = (LinearLayout) view.findViewById(R.id.btn_detail);
+
+        linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mLayoutPopupWindowView = LayoutInflater.from(getActivity()).inflate(R.layout
+                        .detail, null);
+                mCustomPopupWindow = new CustomPopupWindow(v.findViewById(R.id.pager_library),
+                        getActivity(), mLayoutPopupWindowView, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout
+                        .LayoutParams.WRAP_CONTENT, true);
+//                mCustomPopupWindow.setOnPopupWindowListener(new CustomPopupWindow
+//                        .PopupWindowListener() {
 //
-//        linearLayout.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                mLayoutPopupWindowView = LayoutInflater.from(getActivity()).inflate(R.layout
-//                        .detail, null);
-//                mCustomPopupWindow = new CustomPopupWindow(v.findViewById(R.id.pager_library),
-//                        getActivity(), mLayoutPopupWindowView, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout
-//                        .LayoutParams.WRAP_CONTENT, true);
-////                mCustomPopupWindow.setOnPopupWindowListener(new CustomPopupWindow
-////                        .PopupWindowListener() {
-////
-////                    // TODO 设置活动内容
-////                    @Override
-////                    public void initView() {
-////
-////                    }
-////                });
-////
-//                mCustomPopupWindow.showView();
-//                Animation scaleAanimation = AnimationUtils.loadAnimation(getActivity(),R.anim.popupwindow_fade_in);
-//                mLayoutPopupWindowView.startAnimation(scaleAanimation);
-//                mCustomPopupWindow.setBackgroundAlpha(0.85f);
-//            }
-//        });
+//                    // TODO 设置活动内容
+//                    @Override
+//                    public void initView() {
+//
+//                    }
+//                });
+//
+                mCustomPopupWindow.showView();
+                Animation scaleAanimation = AnimationUtils.loadAnimation(getActivity(),R.anim.popupwindow_fade_in);
+                mLayoutPopupWindowView.startAnimation(scaleAanimation);
+                mCustomPopupWindow.setBackgroundAlpha(0.85f);
+            }
+        });
 
         search = (Button) view.findViewById(R.id.search);
         search.setOnClickListener(new View.OnClickListener() {
