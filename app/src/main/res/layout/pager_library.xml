@@ -2,7 +2,6 @@
 <RelativeLayout
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/pager_library"
@@ -105,28 +104,13 @@
 
             </LinearLayout>
         </android.support.v7.widget.CardView>
-                </android.support.v7.widget.CardView>
-            </android.support.v7.widget.Toolbar>
-        </android.support.design.widget.AppBarLayout>
 
-        <LinearLayout
-            android:layout_below="@+id/user_library_message"
-            android:orientation="vertical"
         <android.support.v4.view.ViewPager
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
             android:id="@+id/viewPager"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"/>
 
-
-            <android.support.v4.view.ViewPager
-                android:id="@+id/viewPager"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"/>
         </LinearLayout>
-    </LinearLayout>
-
-
 
 </RelativeLayout>
