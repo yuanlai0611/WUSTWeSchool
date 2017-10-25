@@ -2,17 +2,12 @@ package com.gongyunhaoyyy.wustweschool.viewPager;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.ArrayAdapter;
 import android.widget.GridView;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.gongyunhaoyyy.wustweschool.Adapter.AbsGridAdapter;
@@ -28,7 +23,7 @@ import java.util.List;
 
 public class PagerCourse extends Fragment {
     private Context mContext;
-    private Spinner spinner;
+//    private Spinner spinner;
     private GridView detailCource;
     private String[][] contents;
     private AbsGridAdapter absGridAdapter;
@@ -45,22 +40,22 @@ public class PagerCourse extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate( R.layout.pager_course,container,false);
         Log.d( "PagerCourse","onCreate execute" );
-        spinner = (Spinner)view.findViewById(R.id.switchWeek);
+//        spinner = (Spinner)view.findViewById(R.id.switchWeek);
         detailCource = (GridView)view.findViewById(R.id.courceDetail);
         fillStringArray();
         absGridAdapter = new AbsGridAdapter(mContext);
         absGridAdapter.setContent(contents, 6, 7);
         detailCource.setAdapter( absGridAdapter );
         //创建Spinner数据
-        mySpinnerAdapter=new MySpinnerAdapter(mContext, getData());
-        spinner.setAdapter(mySpinnerAdapter);
+//        mySpinnerAdapter=new MySpinnerAdapter(mContext, getData());
+//        spinner.setAdapter(mySpinnerAdapter);
+
         view.findViewById(R.id.course_setting).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(mContext, "我是课程表按钮", Toast.LENGTH_SHORT).show();
             }
         });
-
         return view;
     }
 
@@ -113,12 +108,12 @@ public class PagerCourse extends Fragment {
         contents[5][6] = "龚云浩\n哈哈|:)";
     }
 
-    public List<String> getData() {
-        dataList = new ArrayList<>();
-        for(int i = 1; i < 21; i++) {
-            dataList.add("第" + i + "周");
-        }
-        return dataList;
-    }
+//    public List<String> getData() {
+//        dataList = new ArrayList<>();
+//        for(int i = 1; i < 21; i++) {
+//            dataList.add("第" + i + "周");
+//        }
+//        return dataList;
+//    }
 
 }

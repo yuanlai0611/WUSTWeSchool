@@ -88,11 +88,6 @@ public class PagerLibrary extends Fragment {
         one = mTabLayout.getTabAt(0);
         two = mTabLayout.getTabAt(1);
         three = mTabLayout.getTabAt(2);
-        /**
-         * 袁来，建议你在这个界面加入推荐好书热门书用来吸引眼球
-         * 就像学长的空手那样，如果能搜书，看书，下载书更好，尽力
-         * 不然这个界面只是查找一些书就太废了，没人看这个界面
-         */
         return view;
     }
 
