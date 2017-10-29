@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="85dp"
+    android:background="@drawable/course_set_shape">
+
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="38dp">
+            <TextView
+                android:id="@+id/bx"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:textSize="12sp"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:background="@color/colorPrimary"
+                android:text="必修"/>
+            <TextView
+                android:id="@+id/kcmc"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="13dp"
+                android:text="程序设计基础"
+                android:textSize="20sp"
+                android:gravity="bottom"/>
+            <TextView
+                android:id="@+id/ksxz"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:text="正常考试"
+                android:gravity="bottom"
+                android:textSize="15sp"/>
+            <ImageView
+                android:src="@drawable/score_good"
+                android:layout_width="35dp"
+                android:layout_marginLeft="20dp"
+                android:layout_height="35dp"/>
+        </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="45dp">
+        <TextView
+            android:id="@+id/xf"
+            android:text="学分：3.0"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:id="@+id/jd"
+            android:text="绩点：3.7"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:id="@+id/cj"
+            android:text="成绩：87"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:textColor="@color/colorgreen"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
+</LinearLayout>
+    </android.support.v7.widget.CardView>
+

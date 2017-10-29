@@ -16,7 +16,10 @@
         android:background="?attr/colorPrimary"
         app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        app:layout_scrollFlags="scroll|enterAlways"/>
+        app:layout_scrollFlags="scroll|enterAlways">
+
+
+    </android.support.v7.widget.Toolbar>
 </android.support.design.widget.AppBarLayout>
 
     <android.support.v7.widget.RecyclerView

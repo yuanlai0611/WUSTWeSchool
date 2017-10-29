@@ -18,15 +18,6 @@ public class PagerAboutUs extends Fragment {
         View view= inflater.inflate( R.layout.pager_aboutus, container, false);
 
 
-        /**
-         * 吴贝
-         * 我的建议是在这个界面头部放user的详细信息（类似支付宝）
-         * 然后下方item有我的资产（我的余额，我的书架之类的）仿支付宝*_*
-         * 所以这个页面不仅仅是关于我们哦
-         */
-
-
-
         return view;
     }
 }

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/course_set_shape">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp">
+
+        <TextView
+            android:layout_marginLeft="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="@color/colorLightBlack"
+            android:text="  设置"
+            android:textSize="26sp"
+            android:gravity="center"
+            android:drawableLeft="@drawable/course_setting_image_blue"/>
+    </LinearLayout>
+</android.support.v7.widget.CardView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="25dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="42dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="@color/colorLightBlack"
+            android:text="@string/xueqi"
+            android:gravity="center"
+            android:textSize="24sp"
+            android:paddingLeft="1dp"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"/>
+        <TextView
+            android:id="@+id/course_xq"
+            android:layout_alignParentEnd="true"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="大二 第一学期"
+            android:gravity="center"
+            android:drawableRight="@drawable/detail"
+            android:textColor="@color/colorDark"
+            android:textSize="20sp"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/tabtext"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="42dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="@color/colorLightBlack"
+            android:text="@string/zhoushu"
+            android:gravity="center"
+            android:textSize="24sp"
+            android:paddingLeft="1dp"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"/>
+        <TextView
+            android:id="@+id/course_zs"
+            android:layout_alignParentEnd="true"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="6"
+            android:gravity="center"
+            android:drawableRight="@drawable/detail"
+            android:textColor="@color/colorDark"
+            android:textSize="20sp"/>
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/colorPrimary"/>
+</LinearLayout>
+
+    <Button
+        android:layout_gravity="end"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/yes"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:background="@drawable/btn_know"
+        android:layout_width="120dp"
+        android:layout_height="38dp"/>
+
+</LinearLayout>

@@ -42,32 +42,32 @@ public class PagerLibrary extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view= inflater.inflate( R.layout.pager_library, container, false);
 
-//        linearLayout = (LinearLayout) view.findViewById(R.id.btn_detail);
+        linearLayout = (LinearLayout) view.findViewById(R.id.btn_detail);
+
+        linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mLayoutPopupWindowView = LayoutInflater.from(getActivity()).inflate(R.layout
+                        .detail, null);
+                mCustomPopupWindow = new CustomPopupWindow(v.findViewById(R.id.pager_library),
+                        getActivity(), mLayoutPopupWindowView, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout
+                        .LayoutParams.WRAP_CONTENT, true);
+//                mCustomPopupWindow.setOnPopupWindowListener(new CustomPopupWindow
+//                        .PopupWindowListener() {
 //
-//        linearLayout.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                mLayoutPopupWindowView = LayoutInflater.from(getActivity()).inflate(R.layout
-//                        .detail, null);
-//                mCustomPopupWindow = new CustomPopupWindow(v.findViewById(R.id.pager_library),
-//                        getActivity(), mLayoutPopupWindowView, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout
-//                        .LayoutParams.WRAP_CONTENT, true);
-////                mCustomPopupWindow.setOnPopupWindowListener(new CustomPopupWindow
-////                        .PopupWindowListener() {
-////
-////                    // TODO 设置活动内容
-////                    @Override
-////                    public void initView() {
-////
-////                    }
-////                });
-////
-//                mCustomPopupWindow.showView();
-//                Animation scaleAanimation = AnimationUtils.loadAnimation(getActivity(),R.anim.popupwindow_fade_in);
-//                mLayoutPopupWindowView.startAnimation(scaleAanimation);
-//                mCustomPopupWindow.setBackgroundAlpha(0.85f);
-//            }
-//        });
+//                    // TODO 设置活动内容
+//                    @Override
+//                    public void initView() {
+//
+//                    }
+//                });
+//
+                mCustomPopupWindow.showView();
+                Animation scaleAanimation = AnimationUtils.loadAnimation(getActivity(),R.anim.popupwindow_fade_in);
+                mLayoutPopupWindowView.startAnimation(scaleAanimation);
+                mCustomPopupWindow.setBackgroundAlpha(0.85f);
+            }
+        });
 
         search = (Button) view.findViewById(R.id.search);
         search.setOnClickListener(new View.OnClickListener() {
@@ -88,11 +88,6 @@ public class PagerLibrary extends Fragment {
         one = mTabLayout.getTabAt(0);
         two = mTabLayout.getTabAt(1);
         three = mTabLayout.getTabAt(2);
-        /**
-         * 袁来，建议你在这个界面加入推荐好书热门书用来吸引眼球
-         * 就像学长的空手那样，如果能搜书，看书，下载书更好，尽力
-         * 不然这个界面只是查找一些书就太废了，没人看这个界面
-         */
         return view;
     }
 
