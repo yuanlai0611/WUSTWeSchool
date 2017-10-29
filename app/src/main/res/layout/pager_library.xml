@@ -8,13 +8,11 @@
     android:id="@+id/activity_main"
     >
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+
         <include layout="@layout/title"
+            android:id="@+id/title"
             />
-    </android.support.v7.widget.CardView>
+
 
 
     <android.support.design.widget.CoordinatorLayout
@@ -31,21 +29,17 @@
                 app:layout_scrollFlags="scroll|exitUntilCollapsed"
                 app:contentInsetStart="0dp"
                 android:layout_width="match_parent"
-                android:layout_height="110dp">
-                <android.support.v7.widget.CardView
-                    android:background="@color/colorLightBlue_1"
-                    android:layout_below="@+id/title"
-                    android:layout_width="match_parent"
-                    android:layout_height="110dp">
+                android:layout_height="130dp">
+
                     <LinearLayout
                         android:orientation="vertical"
                         android:layout_width="match_parent"
-                        android:layout_height="110dp">
+                        android:layout_height="130dp">
                         <LinearLayout
-                            android:background="@drawable/detail_btn_pressed"
+                            android:background="@color/colorPrimaryDark"
                             android:id="@+id/btn_detail"
                             android:layout_width="match_parent"
-                            android:layout_height="70dp"
+                            android:layout_height="90dp"
                             android:orientation="horizontal">
 
                             <ImageView
@@ -71,7 +65,7 @@
 
                                 <TextView
                                     android:textStyle="bold"
-                                    android:textColor="@color/colorBlue"
+                                    android:textColor="@color/colorWhite"
                                     android:layout_width="match_parent"
                                     android:layout_height="20dp"
                                     android:paddingLeft="5dp"
@@ -80,7 +74,7 @@
 
                                 <TextView
                                     android:textStyle="bold"
-                                    android:textColor="@color/colorBlue"
+                                    android:textColor="@color/colorWhite"
                                     android:layout_width="match_parent"
                                     android:layout_height="20dp"
                                     android:paddingLeft="5dp"
@@ -113,7 +107,7 @@
                             app:tabBackground="@drawable/selected"/>
 
                     </LinearLayout>
-                </android.support.v7.widget.CardView>
+
             </android.support.v7.widget.Toolbar>
         </android.support.design.widget.AppBarLayout>
 

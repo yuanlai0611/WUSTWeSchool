@@ -20,10 +20,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by 99460 on 2017/10/14.
+ * Created by 99460 on 2017/10/28.
  */
 
-public class notification_fragment extends Fragment implements View.OnClickListener {
+public class combined_news_fragment extends Fragment implements View.OnClickListener {
 
     private CustomPopupWindow mCustomPopupWindow;
     private Button mImageButton;//悬浮窗的关闭按钮
@@ -35,7 +35,6 @@ public class notification_fragment extends Fragment implements View.OnClickListe
 
     RecyclerView recyclerView;
     LinearLayoutManager layoutManager;
-    LinearLayout linearLayout;
 
     @Override
     public void onCreate(Bundle savedInstanceState){
@@ -43,10 +42,10 @@ public class notification_fragment extends Fragment implements View.OnClickListe
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle saveInstanceState){
-        final View v = inflater.inflate(R.layout.fragment_notification,parent,false);
-        linearLayout = (LinearLayout) getActivity().findViewById(R.id.btn_detail);
+        final View v = inflater.inflate(R.layout.fragment_combined_news,parent,false);
+
         initNotification();
-        recyclerView = (RecyclerView) v.findViewById(R.id.recycleview_1);
+        recyclerView = (RecyclerView) v.findViewById(R.id.recycleview_6);
         layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
         Element_item_Adapter adapter = new Element_item_Adapter(notifications);
@@ -58,7 +57,7 @@ public class notification_fragment extends Fragment implements View.OnClickListe
             public void onItemClick(View view, final int position) {
                 mLayoutPopupWindowView = LayoutInflater.from(getActivity()).inflate(R.layout
                         .popupwindow_activity_rule, null);
-                mCustomPopupWindow = new CustomPopupWindow(v.findViewById(R.id.test_1),
+                mCustomPopupWindow = new CustomPopupWindow(v.findViewById(R.id.test_6),
                         getActivity(), mLayoutPopupWindowView, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout
                         .LayoutParams.WRAP_CONTENT, true);
                 mCustomPopupWindow.setOnPopupWindowListener(new CustomPopupWindow
@@ -69,7 +68,7 @@ public class notification_fragment extends Fragment implements View.OnClickListe
                     public void initView() {
                         mImageButton = (Button) mLayoutPopupWindowView.findViewById(R.id
                                 .i_know);
-                        mImageButton.setOnClickListener(notification_fragment.this);
+                        mImageButton.setOnClickListener(combined_news_fragment.this);
                         mTvActivityRule = (TextView) mLayoutPopupWindowView.findViewById(R.id
                                 .popupwindow_activity_rule_text);
                         mTvActivityRule.setText(notifications.get(position).toString());
@@ -164,6 +163,5 @@ public class notification_fragment extends Fragment implements View.OnClickListe
                 break;
         }
     }
-
 
 }
