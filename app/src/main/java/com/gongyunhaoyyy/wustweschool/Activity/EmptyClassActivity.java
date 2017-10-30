@@ -32,7 +32,7 @@ public class EmptyClassActivity extends AppCompatActivity {
                     public void run() {
                         try {
                             Ksoap2 ksoap2=new Ksoap2();
-                            score=ksoap2.getScoreInfo( xh );
+                            score=ksoap2.getCourseInfo( xh,"2017-2018-1" );
                             //回到主线程更新UI
                             runOnUiThread( new Runnable( ) {
                                 @Override
@@ -47,7 +47,6 @@ public class EmptyClassActivity extends AppCompatActivity {
                 } ).start();
             }
         } );
-
 
     }
 }

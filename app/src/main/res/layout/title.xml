@@ -13,7 +13,7 @@
 
 
     <TextView
-        android:textColor="@color/colorWhite"
+        android:textColor="@color/white"
         android:text="图书馆"
         android:textStyle="bold"
         android:gravity="bottom"

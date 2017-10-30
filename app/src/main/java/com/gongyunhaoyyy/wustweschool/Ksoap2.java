@@ -60,7 +60,6 @@ public class Ksoap2 {
         // 等价于envelope.bodyOut = rpc;
         envelope.setOutputSoapObject(rpc);
 
-
         HttpTransportSE transport = new HttpTransportSE(endPoint);
         try {
             // 调用WebService
@@ -110,7 +109,6 @@ public class Ksoap2 {
         envelope.dotNet = true;
         // 等价于envelope.bodyOut = rpc;
         envelope.setOutputSoapObject(rpc);
-
 
         HttpTransportSE transport = new HttpTransportSE(endPoint);
         try {
@@ -163,7 +161,6 @@ public class Ksoap2 {
         envelope.dotNet = true;
         // 等价于envelope.bodyOut = rpc;
         envelope.setOutputSoapObject(rpc);
-
 
         HttpTransportSE transport = new HttpTransportSE(endPoint);
         try {

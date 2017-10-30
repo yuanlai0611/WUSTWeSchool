@@ -7,14 +7,13 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.PopupWindow;
 
-import com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai.CustomPopupWindow;
 
 /**
- * Created by acer on 2017/10/19.
+ * Created by acer on 2017/10/30.
  */
 
-public class coursesetpop implements PopupWindow.OnDismissListener{
-    private CustomPopupWindow.PopupWindowListener mPopupWindowListener;
+public class courseSetPopwindow implements PopupWindow.OnDismissListener{
+    private PopupWindowListener mPopupWindowListener;
     private PopupWindow mPopupWindow;
     private Activity mActivity;
     private View mParentView;
@@ -23,7 +22,7 @@ public class coursesetpop implements PopupWindow.OnDismissListener{
     private View mPopupWindowView;
     private boolean focusable;
 
-    public coursesetpop(View parentView, Activity activity, View contentView, int width, int
+    public courseSetPopwindow(View parentView, Activity activity, View contentView, int width, int
             height, boolean focusable) {
         this.mActivity = activity;
         this.mParentView = parentView;
@@ -42,7 +41,7 @@ public class coursesetpop implements PopupWindow.OnDismissListener{
             mPopupWindowListener.initView();
         }
         mPopupWindow.setBackgroundDrawable(new ColorDrawable(0xFFFFFF));
-        mPopupWindow.showAtLocation(mParentView, Gravity.CENTER | Gravity.CENTER, 0, 0);
+        mPopupWindow.showAtLocation(mParentView, Gravity.CENTER, 0, 0);
         mPopupWindow.update();
         mPopupWindow.setOnDismissListener(this);
     }
@@ -61,7 +60,7 @@ public class coursesetpop implements PopupWindow.OnDismissListener{
     }
 
     public void setOnPopupWindowListener(PopupWindowListener listener) {
-        this.mPopupWindowListener = (CustomPopupWindow.PopupWindowListener) listener;
+        this.mPopupWindowListener = listener;
     }
 
     /**
@@ -77,9 +76,8 @@ public class coursesetpop implements PopupWindow.OnDismissListener{
     //设置屏幕背景透明效果
     public void setBackgroundAlpha(float alpha) {
         WindowManager.LayoutParams lp = mActivity.getWindow().getAttributes();
-        mActivity.getWindow().addFlags( WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+        mActivity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
         lp.alpha = alpha;
         mActivity.getWindow().setAttributes(lp);
     }
-
 }

@@ -7,7 +7,6 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.gongyunhaoyyy.wustweschool.Adapter.ScoreAdapter;
 import com.gongyunhaoyyy.wustweschool.Ksoap2;
@@ -49,9 +48,7 @@ public class ScoreActivity extends AppCompatActivity {
                             score=ksoap2.getScoreInfo( xh );
                             Gson gson=new Gson();
                             List<score> slist=gson.fromJson( score,new TypeToken<List<score>>(){}.getType());
-                            for(score sc:slist){
-                                mScorelist.add( new score(sc.getJd(),sc.getZxs(),sc.getKclbmc(),sc.getZcj(),sc.getKkxq(),sc.getKcxzmc(),sc.getKsxzmc(),sc.getKcmc(),sc.getXf()) );
-                            }
+                            mScorelist.addAll( slist );
                             //回到主线程更新UI
                             runOnUiThread( new Runnable( ) {
                                 @Override
