@@ -1,6 +1,5 @@
-package com.gongyunhaoyyy.wustweschool;
+package com.gongyunhaoyyy.wustweschool.Activity;
 
-import android.os.Build;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -8,12 +7,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.WindowManager;
-import android.widget.ArrayAdapter;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.gongyunhaoyyy.wustweschool.Adapter.ViewPagerAdapter;
+import com.gongyunhaoyyy.wustweschool.R;
 import com.gongyunhaoyyy.wustweschool.viewPager.PagerAboutUs;
 import com.gongyunhaoyyy.wustweschool.viewPager.PagerCourse;
 import com.gongyunhaoyyy.wustweschool.viewPager.PagerLibrary;

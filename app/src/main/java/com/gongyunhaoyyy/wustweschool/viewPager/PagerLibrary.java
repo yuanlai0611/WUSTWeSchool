@@ -1,11 +1,11 @@
 package com.gongyunhaoyyy.wustweschool.viewPager;
 
-import android.app.Fragment;
+
 import android.content.Intent;
 import android.os.Build;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.view.LayoutInflater;
@@ -44,7 +44,6 @@ public class PagerLibrary extends Fragment {
         View view= inflater.inflate( R.layout.pager_library, container, false);
 
 
-
         search = (Button) view.findViewById(R.id.search);
         search.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,11 +63,6 @@ public class PagerLibrary extends Fragment {
         one = mTabLayout.getTabAt(0);
         two = mTabLayout.getTabAt(1);
         three = mTabLayout.getTabAt(2);
-        /**
-         * 袁来，建议你在这个界面加入推荐好书热门书用来吸引眼球
-         * 就像学长的空手那样，如果能搜书，看书，下载书更好，尽力
-         * 不然这个界面只是查找一些书就太废了，没人看这个界面
-         */
         return view;
     }
 

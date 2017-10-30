@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">Wust WeSchool</string>
     <string name="wustname">武汉科技大学</string>
+    <string name="xueqi">当前学期</string>
+    <string name="zhoushu">当前周数</string>
+    <string name="yes">确定</string>
+    <string name="inlibrary">进入图书馆</string>
+    <string name="incourse">查看课表</string>
+    <string name="score">成绩查询</string>
 </resources>
