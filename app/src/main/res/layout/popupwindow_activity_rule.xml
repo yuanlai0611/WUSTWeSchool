@@ -11,7 +11,7 @@
             android:orientation="vertical">
         <TextView
             android:gravity="center_horizontal"
-            android:textColor="@color/colorWhite"
+            android:textColor="@color/white"
             android:layout_marginTop="5dp"
             android:text="通知"
             android:textSize="20sp"
@@ -42,7 +42,7 @@
             </ScrollView>
             <Button
                 android:id="@+id/i_know"
-                android:textColor="@color/colorWhite"
+                android:textColor="@color/white"
                 android:layout_gravity="center"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/btn_know"

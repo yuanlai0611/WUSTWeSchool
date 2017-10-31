@@ -3,9 +3,30 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:id="@+id/pager_course">
 
     <!--模仿课程表的界面-->
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp">
+        <EditText
+            android:id="@+id/xuehao3"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/fasong3"
+            android:text="请求服务器"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -30,7 +51,7 @@
                     android:gravity="center"
                     android:text="第一周"
                     android:textColor="@color/white"
-                    android:textSize="18sp"/>
+                    android:textSize="18sp" />
 
                 <ImageView
                     android:id="@+id/course_setting"
@@ -40,7 +61,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginRight="12dp"
                     android:padding="4dp"
-                    android:src="@drawable/course_setting_image"/>
+                    android:src="@drawable/course_setting_image" />
             </RelativeLayout>
         </android.support.v7.widget.CardView>
         <!--显示星期-->
@@ -56,62 +77,62 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.06"
-                android:text=""/>
+                android:text="" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="周一"/>
+                android:text="周一" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="周二"/>
+                android:text="周二" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="周三"/>
+                android:text="周三" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="周四"/>
+                android:text="周四" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="周五"/>
+                android:text="周五" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="周六"/>
+                android:text="周六" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="周日"/>
+                android:text="周日" />
         </LinearLayout>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="#e6f2f4"/>
+            android:background="#e6f2f4" />
         <!--显示课表详细信息-->
         <ScrollView
             android:layout_width="match_parent"
@@ -134,7 +155,7 @@
                         android:background="@color/course_left_bg"
                         android:gravity="center"
                         android:text="1"
-                        android:textSize="12dp"/>
+                        android:textSize="12dp" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -143,7 +164,7 @@
                         android:background="@color/course_left_bg"
                         android:gravity="center"
                         android:text="2"
-                        android:textSize="12dp"/>
+                        android:textSize="12dp" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -152,7 +173,7 @@
                         android:background="@color/course_left_bg"
                         android:gravity="center"
                         android:text="3"
-                        android:textSize="12dp"/>
+                        android:textSize="12dp" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -161,7 +182,7 @@
                         android:background="@color/course_left_bg"
                         android:gravity="center"
                         android:text="4"
-                        android:textSize="12dp"/>
+                        android:textSize="12dp" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -170,7 +191,7 @@
                         android:background="@color/course_left_bg"
                         android:gravity="center"
                         android:text="5"
-                        android:textSize="12dp"/>
+                        android:textSize="12dp" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -179,7 +200,7 @@
                         android:background="@color/course_left_bg"
                         android:gravity="center"
                         android:text="6"
-                        android:textSize="12dp"/>
+                        android:textSize="12dp" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -188,7 +209,7 @@
                         android:background="@color/course_left_bg"
                         android:gravity="center"
                         android:text="7"
-                        android:textSize="12dp"/>
+                        android:textSize="12dp" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -197,7 +218,7 @@
                         android:background="@color/course_left_bg"
                         android:gravity="center"
                         android:text="8"
-                        android:textSize="12dp"/>
+                        android:textSize="12dp" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -206,7 +227,7 @@
                         android:background="@color/course_left_bg"
                         android:gravity="center"
                         android:text="9"
-                        android:textSize="12dp"/>
+                        android:textSize="12dp" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -215,7 +236,7 @@
                         android:background="@color/course_left_bg"
                         android:gravity="center"
                         android:text="10"
-                        android:textSize="12dp"/>
+                        android:textSize="12dp" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -224,7 +245,7 @@
                         android:background="@color/course_left_bg"
                         android:gravity="center"
                         android:text="11"
-                        android:textSize="12dp"/>
+                        android:textSize="12dp" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -233,14 +254,14 @@
                         android:background="@color/course_left_bg"
                         android:gravity="center"
                         android:text="12"
-                        android:textSize="12dp"/>
+                        android:textSize="12dp" />
 
                 </LinearLayout>
 
                 <View
                     android:layout_width="2dp"
                     android:layout_height="match_parent"
-                    android:background="#f5f5f5"/>
+                    android:background="#f5f5f5" />
 
                 <GridView
                     android:id="@+id/courceDetail"
@@ -252,8 +273,7 @@
                     android:numColumns="7"
                     android:scrollbars="none"
                     android:stretchMode="columnWidth"
-                    android:verticalSpacing="1dp">
-                </GridView>
+                    android:verticalSpacing="1dp"></GridView>
 
             </LinearLayout>
         </ScrollView>

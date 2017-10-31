@@ -66,10 +66,12 @@ public class AbsGridAdapter implements ListAdapter {
             convertView = LayoutInflater.from(mContext).inflate( R.layout.grib_item, null);
         }
         TextView textView = (TextView)convertView.findViewById(R.id.grid_item_text);
+        TextView tvid=(TextView)convertView.findViewById( R.id.courseid );
         //如果有课,那么添加数据
         if( !getItem(position).equals("")) {
             textView.setText((String)getItem(position));
-            textView.setTextColor( Color.WHITE);
+            tvid.setText( (int)getItem( position ) );
+//            textView.setTextColor( Color.WHITE);
             //变换颜色
             int rand = position % columnTotal;
             switch( rand ) {

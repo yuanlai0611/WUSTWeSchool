@@ -1,5 +1,7 @@
 package com.gongyunhaoyyy.wustweschool.Activity;
 
+import android.annotation.SuppressLint;
+import android.content.SharedPreferences;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -65,6 +67,8 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setAdapter(vpAdapter);
         //让刚打开app时，页面显示在第0个pager.
         viewPager.setCurrentItem(0);
+        //预加载2个pager（除当前pager外）
+        viewPager.setOffscreenPageLimit( 2 );
         //将TabLayout和ViewPager关联起来.
         tab_gyh.setupWithViewPager(viewPager);
         setupTabIcons();

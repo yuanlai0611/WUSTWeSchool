@@ -1,18 +1,27 @@
-package com.gongyunhaoyyy.wustweschool.LitePal;
-
-import com.gongyunhaoyyy.wustweschool.bean.Coursebean;
-
-import org.litepal.crud.DataSupport;
-
-import java.util.List;
+package com.gongyunhaoyyy.wustweschool.bean;
 
 /**
- * Created by acer on 2017/10/14.
+ * Created by acer on 2017/10/26.
  */
 
-public class Course extends DataSupport{
+public class Coursebean {
     private int id;
     private String dwmc,jsmc,kcxzmc,kcsj,ktmc,kcsxm,jsxm,xkjd,zxs,kkzc,kcmc,xf;
+
+    public Coursebean(String dwmc, String jsmc, String kcxzmc, String kcsj, String ktmc, String kcsxm, String jsxm, String xkjd, String zxs, String kkzc, String kcmc, String xf) {
+        this.dwmc = dwmc;
+        this.jsmc = jsmc;
+        this.kcxzmc = kcxzmc;
+        this.kcsj = kcsj;
+        this.ktmc = ktmc;
+        this.kcsxm = kcsxm;
+        this.jsxm = jsxm;
+        this.xkjd = xkjd;
+        this.zxs = zxs;
+        this.kkzc = kkzc;
+        this.kcmc = kcmc;
+        this.xf = xf;
+    }
 
     public int getId() {
         return id;

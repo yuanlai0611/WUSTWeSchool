@@ -13,7 +13,7 @@
 
 
     <TextView
-        android:textColor="@color/colorWhite"
+        android:textColor="@color/ColorWhite"
         android:text="武科大新闻"
         android:textStyle="bold"
         android:gravity="bottom"

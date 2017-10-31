@@ -1,34 +1,50 @@
 package com.gongyunhaoyyy.wustweschool.viewPager;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.GridView;
-import android.widget.Toast;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.gongyunhaoyyy.wustweschool.Adapter.AbsGridAdapter;
-import com.gongyunhaoyyy.wustweschool.Adapter.MySpinnerAdapter;
+import com.gongyunhaoyyy.wustweschool.Ksoap2;
+import com.gongyunhaoyyy.wustweschool.LitePal.Course;
 import com.gongyunhaoyyy.wustweschool.R;
+import com.gongyunhaoyyy.wustweschool.UI.courseSetPopwindow;
+import com.gongyunhaoyyy.wustweschool.bean.Coursebean;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static android.content.Context.MODE_PRIVATE;
 
 /**
  * Created by GongYunHao on 2017/10/10.
  */
 
-public class PagerCourse extends Fragment {
+public class PagerCourse extends Fragment implements View.OnClickListener{
+    private courseSetPopwindow mCoursePop;
+    private View mLayoutPopView;//悬浮窗的布局
+    Button set_yes;
     private Context mContext;
-//    private Spinner spinner;
     private GridView detailCource;
     private String[][] contents;
     private AbsGridAdapter absGridAdapter;
-    private List<String> dataList;
-    private MySpinnerAdapter mySpinnerAdapter;
+    private List<Coursebean> course_list=new ArrayList<>(  );
+    EditText xuehao3;
+    ImageView set;
+    int i,j,s,zhouc;
+    String xh,coursestr;
 
     @Override
     public void onAttach(Context context) {
@@ -38,24 +54,80 @@ public class PagerCourse extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate( R.layout.pager_course,container,false);
-        Log.d( "PagerCourse","onCreate execute" );
-//        spinner = (Spinner)view.findViewById(R.id.switchWeek);
+        final View view = inflater.inflate( R.layout.pager_course,container,false);
+        @SuppressLint("CommitPrefEdits") final SharedPreferences.Editor zceditor = mContext.getSharedPreferences( "zhouci", MODE_PRIVATE ).edit( );
         detailCource = (GridView)view.findViewById(R.id.courceDetail);
-        fillStringArray();
-        absGridAdapter = new AbsGridAdapter(mContext);
-        absGridAdapter.setContent(contents, 6, 7);
-        detailCource.setAdapter( absGridAdapter );
-        //创建Spinner数据
-//        mySpinnerAdapter=new MySpinnerAdapter(mContext, getData());
-//        spinner.setAdapter(mySpinnerAdapter);
+        xuehao3=(EditText)view.findViewById( R.id.xuehao3 );
+        set=(ImageView) view.findViewById( R.id.course_setting );
 
-        view.findViewById(R.id.course_setting).setOnClickListener(new View.OnClickListener() {
+        set.setOnClickListener( new View.OnClickListener( ) {
+            @Override
+            public void onClick(View v) {
+                mLayoutPopView = LayoutInflater.from(getActivity()).inflate(R.layout
+                        .pop_course_setting, null);
+                mCoursePop = new courseSetPopwindow(view.findViewById(R.id.pager_course), getActivity(), mLayoutPopView, LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT, true);
+                mCoursePop.setOnPopupWindowListener( new courseSetPopwindow.PopupWindowListener( ) {
+                    @Override
+                    public void initView() {
+                        set_yes=(Button)mLayoutPopView.findViewById( R.id.course_set_yes );
+                        set_yes.setOnClickListener( PagerCourse.this );
+                    }
+                } );
+//                zceditor.putInt( "huoquzhouci",8 );
+//                zceditor.apply();
+
+                mCoursePop.showView();
+                mCoursePop.setBackgroundAlpha(0.9f);
+            }
+        } );
+
+        view.findViewById(R.id.fasong3).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(mContext, "我是课程表按钮", Toast.LENGTH_SHORT).show();
+                xh=xuehao3.getText().toString();
+                new Thread( new Runnable( ) {
+                    @Override
+                    public void run() {
+                        try {
+                            Ksoap2 ksoap2=new Ksoap2();
+                            coursestr= ksoap2.getCourseInfo( xh,"2017-2018-1" );
+                            Gson gson=new Gson();
+                            List<Coursebean> slist=gson.fromJson(coursestr,new TypeToken<List<Coursebean>>(){}.getType());
+                            course_list.addAll( slist );
+                            for (int k=0;k<slist.size();k++){
+                                Course coursedata=new Course( );
+                                coursedata.setDwmc( course_list.get( k ).getDwmc() );
+                                coursedata.setJsmc( course_list.get( k ).getJsmc() );
+                                coursedata.setJsxm( course_list.get( k ).getJsxm() );
+                                coursedata.setKcmc( course_list.get( k ).getKcmc() );
+                                coursedata.setKcsj( course_list.get( k ).getKcsj() );
+                                coursedata.setKcsxm( course_list.get( k ).getKcsxm() );
+                                coursedata.setKcxzmc( course_list.get( k ).getKcxzmc() );
+                                coursedata.setKkzc( course_list.get( k ).getKkzc() );
+                                coursedata.setKtmc( course_list.get( k ).getKtmc() );
+                                coursedata.setXf( course_list.get( k ).getXf() );
+                                coursedata.setXkjd( course_list.get( k ).getXkjd() );
+                                coursedata.setZxs( course_list.get( k ).getZxs() );
+                                coursedata.save();
+                            }
+                            //回到主线程更新UI
+                            getActivity().runOnUiThread( new Runnable( ) {
+                                @Override
+                                public void run() {
+                                    fillStringArray();
+                                    absGridAdapter = new AbsGridAdapter(mContext);
+                                    absGridAdapter.setContent(contents, 6, 7);
+                                    detailCource.setAdapter( absGridAdapter );
+                                }
+                            } );
+                        }catch (Exception e){
+                            e.printStackTrace();
+                        }
+                    }
+                } ).start();
             }
         });
+
         return view;
     }
 
@@ -63,57 +135,39 @@ public class PagerCourse extends Fragment {
      * 准备数据
      */
     public void fillStringArray() {
+        String kkzc,kcsj;
         contents = new String[6][7];
-        contents[0][0] = "我是第一节\n&11304";
-        contents[1][0] = "我是第二节\n&11304";
-        contents[2][0] = "我是第三节\n&11304";
-        contents[3][0] = "我是第四节\n&11304";
-        contents[4][0] = "";
-        contents[5][0] = "";
-        contents[0][1] = "我是第七节\n&11304";
-        contents[1][1] = "";
-        contents[2][1] = "面向对象程序设计\n&30305";
-        contents[3][1] = "面向对象程序设计\nA309";
-        contents[4][1] = "";
-        contents[5][1] = "";
-        contents[0][2] = "微机原理及应用\nE203";
-        contents[1][2] = "电磁场理论\nA212";
-        contents[2][2] = "现代测试技术\nB211";
-        contents[3][2] = "";
-        contents[4][2] = "";
-        contents[5][2] = "";
-        contents[0][3] = "面向对象程序设计\nA309";
-        contents[1][3] = "传感器电子测量A\nC309";
-        contents[2][3] = "";
-        contents[3][3] = "";
-        contents[4][3] = "";
-        contents[5][3] = "";
-        contents[0][4] = "数据结构与算法\nB211";
-        contents[1][4] = "微机原理及应用\nE203";
-        contents[2][4] = "";
-        contents[3][4] = "";
-        contents[4][4] = "";
-        contents[5][4] = "";
-        contents[0][5] = "";
-        contents[1][5] = "";
-        contents[2][5] = "";
-        contents[3][5] = "";
-        contents[4][5] = "";
-        contents[5][5] = "";
-        contents[0][6] = "";
-        contents[1][6] = "";
-        contents[2][6] = "";
-        contents[3][6] = "";
-        contents[4][6] = "";
-        contents[5][6] = "龚云浩\n哈哈|:)";
+        for (i=0;i<6;i++){
+            for (j=0;j<7;j++){
+                contents[i][j]="";
+            }
+        }
+        for (s=0;s<course_list.size();s++){
+            course_list.get( s ).getKkzc();
+            if (isOKtoSetContent(course_list.get( s ).getKkzc(),course_list.get( s ).getKcsj())){
+                contents[i][j]=course_list.get( s ).getKcmc()+"@"+course_list.get( s ).getJsmc();
+            }
+        }
+
     }
 
-//    public List<String> getData() {
-//        dataList = new ArrayList<>();
-//        for(int i = 1; i < 21; i++) {
-//            dataList.add("第" + i + "周");
-//        }
-//        return dataList;
-//    }
+    private boolean isOKtoSetContent(String kkzc,String kcsj) {
+        String[] zc1=kkzc.split(",");
 
+        for(int i=0,len=zc1.length;i<len;i++){
+            System.out.println(zc1[i].toString());
+        }
+        return true;
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.course_set_yes:
+                mCoursePop.dismiss();
+                mCoursePop.setBackgroundAlpha(1);
+                break;
+        }
+
+    }
 }
