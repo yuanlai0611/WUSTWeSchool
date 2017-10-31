@@ -10,7 +10,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 public class NewsFragmentPagerAdapter extends FragmentPagerAdapter {
 
-    private String[] mTitles = new String[]{"教务处", "先锋在线", "综合新闻","学院新闻"};
+    private String[] mTitles = new String[]{"教务处", "聚焦科大", "综合新闻","学院新闻"};
 
     public NewsFragmentPagerAdapter(FragmentManager fm) {
         super(fm);
