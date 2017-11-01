@@ -5,28 +5,28 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 /**
- * Created by Carson_Ho on 16/7/22.
+ * Created by 99460 on 2017/10/23.
  */
-public class MyFragmentPagerAdapter extends FragmentPagerAdapter {
 
-    private String[] mTitles = new String[]{"通知", "借阅历史", "热门图书"};
+public class NewsFragmentPagerAdapter extends FragmentPagerAdapter {
 
-    public MyFragmentPagerAdapter(FragmentManager fm) {
+    private String[] mTitles = new String[]{"教务处", "聚焦科大", "综合新闻","学院新闻"};
+
+    public NewsFragmentPagerAdapter(FragmentManager fm) {
         super(fm);
     }
-
-
-
 
     @Override
     public Fragment getItem(int position) {
 
         if (position == 1) {
-            return new history_fragment();
+            return new online_news_fragment();
         } else if (position == 2) {
-            return new hot_book_fragment();
+            return new combined_news_fragment();
+        }else if (position == 3){
+            return new academy_news_fragment();
         }
-        return new notification_fragment();
+        return new dean_office_fragment();
     }
 
     @Override
@@ -39,4 +39,5 @@ public class MyFragmentPagerAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         return mTitles[position];
     }
+
 }

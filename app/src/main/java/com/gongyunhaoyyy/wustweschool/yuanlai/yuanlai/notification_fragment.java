@@ -164,23 +164,6 @@ public class notification_fragment extends Fragment implements View.OnClickListe
                 break;
         }
     }
-    private void setScrollListener() {
-        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-
-
-            int firstvisualItem = layoutManager.findFirstVisibleItemPosition();
-
-            @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-                if(dy>0&&firstvisualItem!=0){
-                    linearLayout.setVisibility(View.GONE);
-                }else if(!recyclerView.canScrollVertically(-1)){
-                    linearLayout.setVisibility(View.VISIBLE);
-                }
-            }
-        });
-    }
 
 
 }
