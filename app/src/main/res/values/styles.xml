@@ -8,4 +8,9 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="myCourseAnim">
+        <item name="android:windowEnterAnimation">@anim/popwindow_coursesetting</item>
+        <item name="android:windowExitAnimation">@anim/popupwindow_coursesetting_out</item>
+    </style>
+
 </resources>

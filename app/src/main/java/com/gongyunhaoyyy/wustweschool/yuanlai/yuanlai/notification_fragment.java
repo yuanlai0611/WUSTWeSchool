@@ -30,7 +30,6 @@ public class notification_fragment extends Fragment implements View.OnClickListe
     private View mLayoutPopupWindowView;//悬浮窗的布局
     private TextView mTvActivityRule;//悬浮窗的内容
 
-
     private List<element_item> notifications = new ArrayList<>();
 
     RecyclerView recyclerView;

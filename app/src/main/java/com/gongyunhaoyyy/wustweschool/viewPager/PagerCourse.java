@@ -5,14 +5,18 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.gongyunhaoyyy.wustweschool.Adapter.AbsGridAdapter;
 import com.gongyunhaoyyy.wustweschool.Ksoap2;
@@ -23,8 +27,12 @@ import com.gongyunhaoyyy.wustweschool.bean.Coursebean;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import org.litepal.crud.DataSupport;
+
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -38,13 +46,13 @@ public class PagerCourse extends Fragment implements View.OnClickListener{
     Button set_yes;
     private Context mContext;
     private GridView detailCource;
-    private String[][] contents;
+    private String[][][] contents;
     private AbsGridAdapter absGridAdapter;
     private List<Coursebean> course_list=new ArrayList<>(  );
     EditText xuehao3;
     ImageView set;
-    int i,j,s,zhouc;
-    String xh,coursestr;
+    int i,j;
+    String xh,coursestr,xq;
 
     @Override
     public void onAttach(Context context) {
@@ -59,6 +67,19 @@ public class PagerCourse extends Fragment implements View.OnClickListener{
         detailCource = (GridView)view.findViewById(R.id.courceDetail);
         xuehao3=(EditText)view.findViewById( R.id.xuehao3 );
         set=(ImageView) view.findViewById( R.id.course_setting );
+        List<Course> coud= DataSupport.findAll( Course.class );
+        if (coud.size()<1){
+//            LinkServiseWithCourse();
+        }else {
+            for (Course cs:coud){
+                course_list.add( new Coursebean(cs.getId(),cs.getDwmc(),cs.getJsmc(),cs.getKcxzmc(),cs.getKcsj(),cs.getKtmc(),cs.getKcsxm(),cs.getJsxm(),cs.getXkjd(),cs.getZxs(),cs.getKkzc(),cs.getKcmc(),cs.getXf() ) );
+            }
+//            ParseCourse(course_list);
+            fillStringArray();
+            absGridAdapter = new AbsGridAdapter(mContext);
+            absGridAdapter.setContent(contents, 6, 7);
+            detailCource.setAdapter( absGridAdapter );
+        }
 
         set.setOnClickListener( new View.OnClickListener( ) {
             @Override
@@ -73,91 +94,283 @@ public class PagerCourse extends Fragment implements View.OnClickListener{
                         set_yes.setOnClickListener( PagerCourse.this );
                     }
                 } );
-//                zceditor.putInt( "huoquzhouci",8 );
-//                zceditor.apply();
+
+                zceditor.putInt( "huoquzhouci",9 );
+                zceditor.apply();
 
                 mCoursePop.showView();
-                mCoursePop.setBackgroundAlpha(0.9f);
+                Animation scaleAanimation = AnimationUtils.loadAnimation(getActivity(),R.anim.popwindow_coursesetting);
+                mLayoutPopView.startAnimation(scaleAanimation);
+                mCoursePop.setBackgroundAlpha(1.0f);
             }
         } );
 
         view.findViewById(R.id.fasong3).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                xh=xuehao3.getText().toString();
-                new Thread( new Runnable( ) {
-                    @Override
-                    public void run() {
-                        try {
-                            Ksoap2 ksoap2=new Ksoap2();
-                            coursestr= ksoap2.getCourseInfo( xh,"2017-2018-1" );
-                            Gson gson=new Gson();
-                            List<Coursebean> slist=gson.fromJson(coursestr,new TypeToken<List<Coursebean>>(){}.getType());
-                            course_list.addAll( slist );
-                            for (int k=0;k<slist.size();k++){
-                                Course coursedata=new Course( );
-                                coursedata.setDwmc( course_list.get( k ).getDwmc() );
-                                coursedata.setJsmc( course_list.get( k ).getJsmc() );
-                                coursedata.setJsxm( course_list.get( k ).getJsxm() );
-                                coursedata.setKcmc( course_list.get( k ).getKcmc() );
-                                coursedata.setKcsj( course_list.get( k ).getKcsj() );
-                                coursedata.setKcsxm( course_list.get( k ).getKcsxm() );
-                                coursedata.setKcxzmc( course_list.get( k ).getKcxzmc() );
-                                coursedata.setKkzc( course_list.get( k ).getKkzc() );
-                                coursedata.setKtmc( course_list.get( k ).getKtmc() );
-                                coursedata.setXf( course_list.get( k ).getXf() );
-                                coursedata.setXkjd( course_list.get( k ).getXkjd() );
-                                coursedata.setZxs( course_list.get( k ).getZxs() );
-                                coursedata.save();
-                            }
-                            //回到主线程更新UI
-                            getActivity().runOnUiThread( new Runnable( ) {
-                                @Override
-                                public void run() {
-                                    fillStringArray();
-                                    absGridAdapter = new AbsGridAdapter(mContext);
-                                    absGridAdapter.setContent(contents, 6, 7);
-                                    detailCource.setAdapter( absGridAdapter );
-                                }
-                            } );
-                        }catch (Exception e){
-                            e.printStackTrace();
-                        }
-                    }
-                } ).start();
+                LinkServiseWithCourse();
             }
         });
-
         return view;
+    }
+
+    public void LinkServiseWithCourse(){
+        xh=xuehao3.getText().toString();
+        xq=getDate();
+        new Thread( new Runnable( ) {
+            @Override
+            public void run() {
+                try {
+                    Ksoap2 ksoap2=new Ksoap2();
+                    coursestr= ksoap2.getCourseInfo( xh,xq );
+                    Gson gson=new Gson();
+                    List<Coursebean> slist=gson.fromJson(coursestr,new TypeToken<List<Coursebean>>(){}.getType());
+                    if (slist.size()<1){
+
+                    }else {
+                        course_list.clear();
+                        course_list.addAll( slist );
+                        //解析
+                        ParseCourse();
+                        //保存到数据库
+//                        fillCourseData();
+                        //填充数据
+                        fillStringArray();
+                        //回到主线程更新UI
+                        getActivity().runOnUiThread( new Runnable( ) {
+                            @Override
+                            public void run() {
+                                absGridAdapter = new AbsGridAdapter(mContext);
+                                absGridAdapter.setContent(contents, 6, 7);
+                                detailCource.setAdapter( absGridAdapter );
+                            }
+                        } );
+                    }
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        } ).start();
     }
 
     /**
      * 准备数据
      */
+    public void ParseCourse(){
+        for (int l=0;l<course_list.size();l++){
+            course_list.get( l ).setJsmc1( getjsmc(course_list.get( l ),1) );
+            course_list.get( l ).setJsmc2( getjsmc(course_list.get( l ),2 ) );
+//            Log.d( "course66666", Course_list1.get( l ).getJsmc1() );
+            course_list.get( l ).setKkzc1s( getkkzc( course_list.get( l ),1,1 ) );
+            course_list.get( l ).setKkzc1e( getkkzc( course_list.get( l ),1,2 ) );
+            course_list.get( l ).setKkzc2s( getkkzc( course_list.get( l ),2,1 ) );
+            course_list.get( l ).setKkzc2e( getkkzc( course_list.get( l ),2,2 ) );
+            course_list.get( l ).setKcxq1( getkcxq( course_list.get( l ),1) );
+            course_list.get( l ).setKcxq2( getkcxq( course_list.get( l ),2) );
+            course_list.get( l ).setKcjc1( getkcjc( course_list.get( l ),1) );
+            course_list.get( l ).setKcjc2( getkcjc( course_list.get( l ),2) );
+        }
+    }
+
+    public String getDate(){
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat sDateFormat = new SimpleDateFormat("yyyy");
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat sDateFormat2 = new SimpleDateFormat("MM");
+        int mm= Integer.parseInt( sDateFormat2.format(new java.util.Date()) );
+        if (mm<9){
+            mm=2;
+        }else {
+            mm=1;
+        }
+        String date1 = sDateFormat.format(new java.util.Date());
+        int nextyear=Integer.parseInt( date1 )+1;
+        String date2=String.valueOf( nextyear );
+        String mm2=String.valueOf( mm );
+        String date3=date1+"-"+date2+"-"+mm2;
+        return date3;
+    }
+
+//    public void fillCourseData(){
+//        DataSupport.deleteAll( Course.class );
+//        for (int k=0;k<course_list.size();k++){
+//            Course coursedata=new Course( );
+//            coursedata.setKcxq1( course_list.get( k ).getKcxq1() );
+//            coursedata.setKcjc2( course_list.get( k ).getKcjc2() );
+//            coursedata.setKkzc1s( course_list.get( k ).getKkzc1s() );
+//            coursedata.setKkzc1e( course_list.get( k ).getKkzc1e() );
+//            coursedata.setKkzc2s( course_list.get( k ).getKkzc2s() );
+//            coursedata.setKkzc2e( course_list.get( k ).getKkzc2e() );
+//            coursedata.setDwmc( course_list.get( k ).getDwmc() );
+//            coursedata.setJsmc( course_list.get( k ).getJsmc() );
+//            coursedata.setJsxm( course_list.get( k ).getJsxm() );
+//            coursedata.setKcmc( course_list.get( k ).getKcmc() );
+//            coursedata.setKcsxm( course_list.get( k ).getKcsxm() );
+//            coursedata.setKcxzmc( course_list.get( k ).getKcxzmc() );
+//            coursedata.setKtmc( course_list.get( k ).getKtmc() );
+//            coursedata.setXf( course_list.get( k ).getXf() );
+//            coursedata.setXkjd( course_list.get( k ).getXkjd() );
+//            coursedata.setZxs( course_list.get( k ).getZxs() );
+//            coursedata.setKcsj1( course_list.get( k ).getKcsj1() );
+//            coursedata.setKcsj2( course_list.get( k ).getKcsj2() );
+//            coursedata.save();
+//            course_list.get( k ).setId( coursedata.getId() );
+//        }
+//    }
+
     public void fillStringArray() {
-        String kkzc,kcsj;
-        contents = new String[6][7];
+        SharedPreferences zzcc=mContext.getSharedPreferences( "zhouci", MODE_PRIVATE );
+        int myZC=zzcc.getInt( "huoquzhouci",1 );
+        contents = new String[6][7][2];
         for (i=0;i<6;i++){
             for (j=0;j<7;j++){
-                contents[i][j]="";
+                contents[i][j][0]="";
             }
         }
-        for (s=0;s<course_list.size();s++){
-            course_list.get( s ).getKkzc();
-            if (isOKtoSetContent(course_list.get( s ).getKkzc(),course_list.get( s ).getKcsj())){
-                contents[i][j]=course_list.get( s ).getKcmc()+"@"+course_list.get( s ).getJsmc();
+        for (int s=0;s<course_list.size();s++){
+            int kkzc1s=course_list.get( s ).getKkzc1s();
+            int kkzc1e=course_list.get( s ).getKkzc1e();
+            int kkzc2s=course_list.get( s ).getKkzc2s();
+            int kkzc2e=course_list.get( s ).getKkzc2e();
+            int kcxq1=course_list.get( s ).getKcxq1();
+            int kcxq2=course_list.get( s ).getKcxq2();
+            int kcjc1=course_list.get( s ).getKcjc1();
+            int kcjc2=course_list.get( s ).getKcjc2();
+            if (kkzc1s<=myZC&&kkzc1e>=myZC){
+                if (kcjc1==-1||kcjc2==-1){
+                    continue;
+                }else {
+                    contents[kcjc1][kcxq1-1][0]=course_list.get( s ).getKcmc()+"@"+course_list.get( s ).getJsmc1();
+                    contents[kcjc1][kcxq1-1][1]= String.valueOf( course_list.get( s ).getId() );
+                }
+            }
+            if (kkzc2s<=myZC&&kkzc2e>=myZC){
+                if (kcjc1==-1||kcjc2==-1){
+                    continue;
+                }else {
+                    contents[kcjc2][kcxq2-1][0]=course_list.get( s ).getKcmc()+"@"+course_list.get( s ).getJsmc2();
+                    contents[kcjc2][kcxq2-1][1]= String.valueOf( course_list.get( s ).getId() );
+                }
             }
         }
 
     }
-
-    private boolean isOKtoSetContent(String kkzc,String kcsj) {
-        String[] zc1=kkzc.split(",");
-
-        for(int i=0,len=zc1.length;i<len;i++){
-            System.out.println(zc1[i].toString());
+    private String getjsmc(Coursebean c,int a){
+        if (c.getJsmc()==null) {
+            return null;
         }
-        return true;
+        int x=0;
+        //遍历数组的每个元素
+        for(int i=0;i<=c.getJsmc().length()-1;i++) {
+            String getstr=c.getJsmc().substring(i,i+1);
+            if(getstr.equals(",")){
+                x++;
+            }
+        }
+        if (x==0){
+//            String reg = "[\\u4e00-\\u9fa5]+";
+            //全为汉字
+                return c.getJsmc();
+        }else {
+            String[] sj=c.getJsmc().split( "," );
+            //        Log.d( "course---------->", sj[a-1] );
+            return sj[a-1];
+        }
+    }
+    private int getkkzc(Coursebean c,int a,int b){
+        if (c.getKkzc()==null){
+            return -1;
+        }
+        if (c.getKkzc().length()==1||c.getKkzc().length()==2){
+            return Integer.parseInt( c.getKkzc() );
+        }
+        int x=0;
+        //遍历数组的每个元素
+        for(int i=0;i<=c.getKkzc().length()-1;i++) {
+            String getstr=c.getKkzc().substring(i,i+1);
+            if(getstr.equals(",")){
+                x++;
+            }
+        }
+        if (x==0){
+            String[] shj=c.getKkzc().split( "-" );
+            return Integer.parseInt( shj[b-1] );
+        }else {
+            String[] sj=c.getKkzc().split( "," );
+            if (sj[0].length()==1||sj[0].length()==2){
+                return Integer.parseInt( sj[0] );
+            }
+            if (sj[1].length()==1||sj[1].length()==2){
+                return Integer.parseInt( sj[1] );
+            }
+            String[] sjdetail=sj[a-1].split( "-" );
+            return Integer.parseInt( sjdetail[b-1] );
+        }
+    }
+    private int getkcxq(Coursebean c,int a){
+        if (c.getKcsj()==null){
+            return -1;
+        }
+        int x=0;
+        //遍历数组的每个元素
+        for(int i=0;i<=c.getKcsj().length()-1;i++) {
+            String getstr=c.getKcsj().substring(i,i+1);
+            if(getstr.equals(",")){
+                x++;
+            }
+        }
+        if (x==0){
+            return Integer.parseInt( c.getKcsj().substring( 0,1 ) );
+        }else {
+            String[] sj=c.getKcsj().split( "," );
+            String sjdetail=sj[a-1];
+//            Log.d( "Course**------------->",sjdetail.substring( 0,1 ) );
+            return Integer.parseInt( sjdetail.substring( 0,1 ) );
+        }
+    }
+    private int getkcjc(Coursebean c,int a){
+        if (c.getKcsj()==null){
+            return -1;
+        }
+        int x=0;
+        //遍历数组的每个元素
+        for(int i=0;i<=c.getKcsj().length()-1;i++) {
+            String getstr=c.getKcsj().substring(i,i+1);
+            if(getstr.equals(",")){
+                x++;
+            }
+        }
+        if (x==0){
+            String sjjc=c.getKcsj().substring( 1,5 );
+            if (Objects.equals( sjjc, "0102" )){
+                return 0;
+            }else if (Objects.equals( sjjc, "0304" )){
+                return 1;
+            }else if (Objects.equals( sjjc, "0506" )){
+                return 2;
+            }else if (Objects.equals( sjjc, "0708" )){
+                return 3;
+            }else if (Objects.equals( sjjc, "0910" )){
+                return 4;
+            }else{
+                return 5;
+            }
+        }else {
+            String[] sj=c.getKcsj().split( "," );
+            String sjdetail=sj[a-1];
+            String sjjc=sjdetail.substring( 1,5 );
+            if (Objects.equals( sjjc, "0102" )){
+                return 0;
+            }else if (Objects.equals( sjjc, "0304" )){
+                return 1;
+            }else if (Objects.equals( sjjc, "0506" )){
+                return 2;
+            }else if (Objects.equals( sjjc, "0708" )){
+                return 3;
+            }else if (Objects.equals( sjjc, "0910" )){
+                return 4;
+            }else{
+                return 5;
+            }
+        }
     }
 
     @Override

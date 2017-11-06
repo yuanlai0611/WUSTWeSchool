@@ -10,8 +10,6 @@
     android:background="@color/colorPrimaryDark"
     android:clipToPadding="true">
 
-
-
     <TextView
         android:textColor="@color/ColorWhite"
         android:text="武科大新闻"

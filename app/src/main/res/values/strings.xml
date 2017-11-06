@@ -7,4 +7,6 @@
     <string name="inlibrary">进入图书馆</string>
     <string name="incourse">查看课表</string>
     <string name="score">成绩查询</string>
+    <string name="username_hint">输入学号</string>
+    <string name="login">登录</string>
 </resources>
