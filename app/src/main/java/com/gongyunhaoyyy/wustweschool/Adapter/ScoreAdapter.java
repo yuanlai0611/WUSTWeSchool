@@ -1,9 +1,13 @@
 package com.gongyunhaoyyy.wustweschool.Adapter;
 
+import android.annotation.SuppressLint;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +26,7 @@ public class ScoreAdapter extends RecyclerView.Adapter<ScoreAdapter.ViewHolder> 
 
     static class ViewHolder extends RecyclerView.ViewHolder {
         View scoreview;
+        ImageView s90;
         TextView bx,kcmc,ksxz,xf,jd,cj;
 
         public ViewHolder(View itemView) {
@@ -33,11 +38,13 @@ public class ScoreAdapter extends RecyclerView.Adapter<ScoreAdapter.ViewHolder> 
             xf=(TextView)itemView.findViewById( R.id.xf );
             jd=(TextView)itemView.findViewById( R.id.jd );
             cj=(TextView)itemView.findViewById( R.id.cj );
+            s90=(ImageView)itemView.findViewById( R.id.score_90 );
         }
     }
     public ScoreAdapter(List<score> scorelist){
         mlist=scorelist;
     }
+
 
     @Override
     public ScoreAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -54,12 +61,26 @@ public class ScoreAdapter extends RecyclerView.Adapter<ScoreAdapter.ViewHolder> 
                 return viewHolder;
     }
 
+    @SuppressLint("ResourceAsColor")
     @Override
     public void onBindViewHolder(ScoreAdapter.ViewHolder holder, int position) {
         score s=mlist.get( position );
-        holder.bx.setText( s.getKclbmc() );
+        if (!(s.getZcj().charAt( 0 )>='A'&&s.getZcj().charAt( 0 )<='F')){
+            if (Integer.parseInt( s.getZcj() )>=90){
+                holder.s90.setVisibility( View.VISIBLE );
+                holder.cj.setTextColor( Color.rgb( 250,17,17 ) );
+                Log.d( ">90------->",s.getKcmc() );
+            }else {
+                holder.s90.setVisibility( View.INVISIBLE );
+                if (Integer.parseInt( s.getZcj() )>=70){
+                    holder.cj.setTextColor( Color.rgb( 255,129,33 ) );
+                    Log.d( "<90------->",s.getKcmc() );
+                }
+            }
+        }
+        holder.bx.setText( "性质："+s.getKclbmc() );
         holder.kcmc.setText( s.getKcmc() );
-        holder.ksxz.setText( s.getKsxzmc() );
+        holder.ksxz.setText( "考试状态："+s.getKsxzmc() );
         holder.xf.setText( "学分:"+s.getXf() );
         holder.jd.setText( "绩点："+s.getJd() );
         holder.cj.setText( "成绩："+s.getZcj() );

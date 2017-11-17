@@ -1,13 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textSize="25dp"
-        android:text="我的资料"/>
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:background="@color/colorPrimary"
+                android:layout_width="match_parent"
+                android:layout_height="80dp">
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="30dp"
+                    android:src="@drawable/wust_icon"
+                    android:id="@+id/imageView2"/>
+                <TextView
+                    android:id="@+id/us_name_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:layout_alignTop="@+id/imageView2"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
+                    android:text="你好，龚云浩"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:layout_below="@+id/us_name_tv"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
+                    android:text="学号：201613137110"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"/>
+            </RelativeLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="start|center"
+                android:textSize="18sp"
+                android:text="个人详细信息"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="start|center"
+                android:textSize="18sp"
+                android:text="@string/yue"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="start|center"
+                android:textSize="18sp"
+                android:text="消费记录"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="start|center"
+                android:textSize="18sp"
+                android:text="卡片挂失"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="start|center"
+                android:textSize="18sp"
+                android:text="关于小园"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="start|center"
+                android:textSize="18sp"
+                android:text="jasogshgosdsdfsdf"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="start|center"
+                android:textSize="18sp"
+                android:text="jasogshgosdsdfsdf"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="start|center"
+                android:textSize="18sp"
+                android:text="jasogshgosdsdfsdf"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="start|center"
+                android:textSize="18sp"
+                android:text="jasogshgosdsdfsdf"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="start|center"
+                android:textSize="18sp"
+                android:text="jasogshgosdsdfsdf"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="start|center"
+                android:textSize="18sp"
+                android:text="jasogshgosdsdfsdf"/>
+            <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="start|center"
+            android:textSize="18sp"
+            android:background="@color/lightGray"/>
+            <Button
+                android:id="@+id/exit_button"
+                android:layout_width="150dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_height="40dp"
+                android:background="@drawable/exitbutton_shape"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:textColor="@color/colorOrange"
+                android:textSize="16sp"
+                android:text="@string/logout"/>
+
+    </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

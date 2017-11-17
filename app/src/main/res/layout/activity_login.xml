@@ -3,28 +3,81 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@drawable/login_bg1">
 
     <TextView
-        android:id="@+id/tv_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="65dp"
+        android:layout_marginTop="100dp"
+        android:layout_gravity="center"
+        android:text="LOGIN"
+        android:textColor="@color/white"
+        android:textSize="35sp"/>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/TIL_username"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        app:hintTextAppearance="@style/mLoginTextHint"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:hint="@string/username_hint"
-        android:textSize="18sp"/>
-
-
+        android:layout_height="wrap_content">
     <EditText
-        android:id="@+id/tv_password"
+        android:id="@+id/et_username"
+        android:layout_width="match_parent"
+        android:background="@drawable/course_set_shape"
+        android:layout_height="38dp"
+        android:inputType="number"
+        android:textSize="18sp"
+        android:hint="@string/username_hint"
+        />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/TIL_password"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        app:hintTextAppearance="@style/mLoginTextHint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="12"
-        android:inputType="textPassword"/>
+        android:layout_gravity="center">
+
+        <EditText
+            android:id="@+id/et_password"
+            android:inputType="textPassword"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:background="@drawable/course_set_shape"
+            android:hint="@string/password_hint"
+            android:textSize="18sp"
+            />
+</android.support.design.widget.TextInputLayout>
 
     <Button
         android:id="@+id/login"
-        android:text="@string/login"
         android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/btn_know"
+        android:layout_gravity="center"
+        android:text="@string/login"
+        android:textColor="@color/white"/>
+
+    <TextView
+        android:id="@+id/no_login_tv"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        />
+        android:layout_gravity="end"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="20dp"
+        android:drawableRight="@drawable/detail"
+        android:gravity="center"
+        android:text="@string/no_want_login"
+        android:textColor="@color/white"
+        android:textSize="14sp"/>
 
 </LinearLayout>

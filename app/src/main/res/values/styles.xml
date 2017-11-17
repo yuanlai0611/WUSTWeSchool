@@ -12,5 +12,10 @@
         <item name="android:windowEnterAnimation">@anim/popwindow_coursesetting</item>
         <item name="android:windowExitAnimation">@anim/popupwindow_coursesetting_out</item>
     </style>
+    
+    <style name="mLoginTextHint">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">#f2fa1f</item>
+    </style>
 
 </resources>
