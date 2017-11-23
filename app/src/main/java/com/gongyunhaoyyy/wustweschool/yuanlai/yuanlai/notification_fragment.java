@@ -33,7 +33,16 @@ import java.util.List;
  * Created by 99460 on 2017/10/14.
  */
 
-public class notification_fragment extends Fragment {
+
+
+public class notification_fragment extends Fragment implements View.OnClickListener {
+
+    private CustomPopupWindow mCustomPopupWindow;
+    private Button mImageButton;//悬浮窗的关闭按钮
+    private View mLayoutPopupWindowView;//悬浮窗的布局
+    private TextView mTvActivityRule;//悬浮窗的内容
+
+    private List<element_item> notifications = new ArrayList<>();
 
     private boolean isPrepared;
     private boolean isHasLaodOnce;

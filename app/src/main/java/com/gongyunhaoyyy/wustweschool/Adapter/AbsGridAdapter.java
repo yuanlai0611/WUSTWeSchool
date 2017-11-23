@@ -20,7 +20,7 @@ public class AbsGridAdapter implements ListAdapter {
 
     private Context mContext;
 
-    private String[][] contents;
+    private String[][][] contents;
 
     private int rowTotal;
 
@@ -44,6 +44,15 @@ public class AbsGridAdapter implements ListAdapter {
         return positionTotal;
     }
 
+    @Override
+    public Object getItem(int position) {
+        //求余得到二维索引
+        int column = position % columnTotal;
+        //求商得到二维索引
+        int row = position / columnTotal;
+        return contents[row][column];
+    }
+
     public long getItemId(int position) {
         return position;
     }
@@ -53,12 +62,20 @@ public class AbsGridAdapter implements ListAdapter {
         return false;
     }
 
-    public Object getItem(int position) {
+    public Object getItem1(int position) {
         //求余得到二维索引
         int column = position % columnTotal;
         //求商得到二维索引
         int row = position / columnTotal;
-        return contents[row][column];
+        return contents[row][column][0];
+    }
+
+    public Object getItem2(int position) {
+        //求余得到二维索引
+        int column = position % columnTotal;
+        //求商得到二维索引
+        int row = position / columnTotal;
+        return contents[row][column][1];
     }
 
     public View getView(final int position, View convertView, ViewGroup parent) {
@@ -68,9 +85,9 @@ public class AbsGridAdapter implements ListAdapter {
         TextView textView = (TextView)convertView.findViewById(R.id.grid_item_text);
         TextView tvid=(TextView)convertView.findViewById( R.id.courseid );
         //如果有课,那么添加数据
-        if( !getItem(position).equals("")) {
-            textView.setText((String)getItem(position));
-            tvid.setText( (int)getItem( position ) );
+        if( !getItem1(position).equals("")) {
+            textView.setText((String)getItem1(position));
+            tvid.setText( (String)getItem2( position ) );
 //            textView.setTextColor( Color.WHITE);
             //变换颜色
             int rand = position % columnTotal;
@@ -105,7 +122,7 @@ public class AbsGridAdapter implements ListAdapter {
                 public void onClick(View v) {
                     int row = position / columnTotal;
                     int column = position % columnTotal;
-                    String con = "当前选中的是" + contents[row][column] + "课"+(position + 1);
+                    String con = "当前选中的是" + contents[row][column][0] + "课"+(position + 1);
                     Toast.makeText(mContext, con, Toast.LENGTH_SHORT).show();
                 }
             });
@@ -135,7 +152,7 @@ public class AbsGridAdapter implements ListAdapter {
     /**
      * 设置内容、行数、列数
      */
-    public void setContent(String[][] contents, int row, int column) {
+    public void setContent(String[][][] contents, int row, int column) {
         this.contents = contents;
         this.rowTotal = row;
         this.columnTotal = column;

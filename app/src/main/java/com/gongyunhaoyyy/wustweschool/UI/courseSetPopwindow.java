@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.PopupWindow;
 
+import com.gongyunhaoyyy.wustweschool.R;
+
 
 /**
  * Created by acer on 2017/10/30.
@@ -41,7 +43,8 @@ public class courseSetPopwindow implements PopupWindow.OnDismissListener{
             mPopupWindowListener.initView();
         }
         mPopupWindow.setBackgroundDrawable(new ColorDrawable(0xFFFFFF));
-        mPopupWindow.showAtLocation(mParentView, Gravity.CENTER, 0, 0);
+//        mPopupWindow.setAnimationStyle( R.style.myCourseAnim );
+        mPopupWindow.showAtLocation(mParentView, Gravity.TOP, 0, 200);
         mPopupWindow.update();
         mPopupWindow.setOnDismissListener(this);
     }

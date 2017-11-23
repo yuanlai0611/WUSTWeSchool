@@ -11,21 +11,30 @@
 <android.support.v7.widget.Toolbar
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/colorPrimary"
+    android:background="@color/white"
     app:layout_scrollFlags="scroll">
-<RelativeLayout
+<LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <TextView
-        android:layout_width="wrap_content"
-        android:gravity="center"
-        android:layout_height="wrap_content"
-        android:text="@string/score"
-        android:layout_centerInParent="true"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+    <Button
+        android:background="@drawable/btn_know"
+        android:id="@+id/score_all_bt"
+        android:text="@string/allscore"
+        android:layout_weight="1"
         android:textColor="@color/white"
-        android:textSize="16sp"
-        android:drawableRight="@drawable/switchweek_ic"/>
-</RelativeLayout>
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"/>
+    <Button
+        android:id="@+id/score_now_bt"
+        android:textColor="@color/white"
+        android:text="@string/nowscore"
+        android:layout_weight="1"
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"/>
+</LinearLayout>
 </android.support.v7.widget.Toolbar>
 </android.support.design.widget.AppBarLayout>
 
@@ -35,21 +44,5 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:layout_weight="0.1"
-        android:layout_height="wrap_content">
-        <EditText
-            android:id="@+id/xuehao2"
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <Button
-            android:id="@+id/fasong2"
-            android:text="请求服务器"
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
+
 </android.support.design.widget.CoordinatorLayout>

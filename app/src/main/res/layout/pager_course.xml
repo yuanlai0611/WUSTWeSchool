@@ -8,25 +8,6 @@
 
     <!--模仿课程表的界面-->
 
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp">
-        <EditText
-            android:id="@+id/xuehao3"
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <Button
-            android:id="@+id/fasong3"
-            android:text="请求服务器"
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -273,7 +254,9 @@
                     android:numColumns="7"
                     android:scrollbars="none"
                     android:stretchMode="columnWidth"
-                    android:verticalSpacing="1dp"></GridView>
+                    android:verticalSpacing="1dp">
+
+                </GridView>
 
             </LinearLayout>
         </ScrollView>

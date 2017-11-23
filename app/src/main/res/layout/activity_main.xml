@@ -12,17 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-<!--toolbar测试-->
-    <!--<android.support.v7.widget.Toolbar-->
-        <!--android:id="@+id/toolbar"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="?attr/actionBarSize"-->
-        <!--app:title="主页"-->
-        <!---->
-        <!--app:titleTextColor="@color/white"-->
-        <!--android:background="?attr/colorPrimary"-->
-        <!--app:layout_scrollFlags="scroll|enterAlways"-->
-        <!--app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />-->
 
     <com.gongyunhaoyyy.wustweschool.UI.NoScrollViewPager
         android:id="@+id/viewpager"
@@ -30,6 +19,12 @@
         android:layout_height="match_parent"
         android:layout_marginBottom="50dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_above="@id/tabs"
+            android:background="@color/colorGray"/>
 
     <android.support.design.widget.TabLayout
         android:id="@+id/tabs"

@@ -7,4 +7,13 @@
     <string name="inlibrary">进入图书馆</string>
     <string name="incourse">查看课表</string>
     <string name="score">成绩查询</string>
+    <string name="username_hint">请输入学号</string>
+    <string name="login">登录</string>
+    <string name="password_hint">请输入密码</string>
+    <string name="allscore">所有成绩</string>
+    <string name="nowscore">本学期成绩</string>
+    <string name="no_want_login">不想登录？那随便逛逛吧</string>
+    <string name="jwc">教务处登入</string>
+    <string name="yue">一卡通余额</string>
+    <string name="logout">退出当前账号</string>
 </resources>
