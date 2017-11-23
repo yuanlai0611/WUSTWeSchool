@@ -1,17 +1,12 @@
 package com.gongyunhaoyyy.wustweschool.Activity;
 
-import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.gongyunhaoyyy.wustweschool.Adapter.ScoreAdapter;
 import com.gongyunhaoyyy.wustweschool.Ksoap2;
@@ -25,7 +20,6 @@ import java.util.List;
 
 public class ScoreActivity extends AppCompatActivity {
     String xh,score;
-    TextView cjcx;
     private List<score> mScorelist=new ArrayList<>();
     ProgressDialog progressDialog;
     StaggeredGridLayoutManager layoutManager1;

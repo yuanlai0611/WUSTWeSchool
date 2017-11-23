@@ -36,7 +36,7 @@ public class EmptyClassActivity extends AppCompatActivity {
                     public void run() {
                         try {
                             Ksoap2 ksoap2=new Ksoap2();
-                            score=ksoap2.getLoginInfo( xh,"15334095661" );
+                            score=ksoap2.chooseCourse( xh );
                             //回到主线程更新UI
                             runOnUiThread( new Runnable( ) {
                                 @Override
