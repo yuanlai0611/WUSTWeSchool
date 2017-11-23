@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai.academy_news_activity">
+
+
+    <include
+        android:id="@+id/academy_news_title"
+        layout="@layout/academy_news_title"/>
+    <WebView
+        android:layout_below="@+id/academy_news_title"
+        android:id="@+id/webView4"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+</RelativeLayout>

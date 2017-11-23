@@ -30,8 +30,6 @@ public class PagerLibrary extends Fragment {
 
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
-    private CustomPopupWindow mCustomPopupWindow;
-    private View mLayoutPopupWindowView;//悬浮窗的布局
     private MyFragmentPagerAdapter myFragmentPagerAdapter;
     private TabLayout.Tab one;
     private TabLayout.Tab two;
@@ -54,6 +52,7 @@ public class PagerLibrary extends Fragment {
         });
 
         mViewPager= (ViewPager) view.findViewById(R.id.viewPager);
+      //  mViewPager.setOffscreenPageLimit(3);
         myFragmentPagerAdapter = new MyFragmentPagerAdapter(getChildFragmentManager());
         mViewPager.setAdapter(myFragmentPagerAdapter);
         //将TabLayout与ViewPager绑定在一起
