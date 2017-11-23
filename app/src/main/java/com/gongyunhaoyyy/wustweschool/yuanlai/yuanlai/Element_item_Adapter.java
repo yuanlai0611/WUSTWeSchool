@@ -8,6 +8,8 @@ import android.widget.TextView;
 
 import com.gongyunhaoyyy.wustweschool.R;
 
+import org.w3c.dom.Text;
+
 import java.util.List;
 
 /**
@@ -21,17 +23,20 @@ public class Element_item_Adapter extends RecyclerView.Adapter<Element_item_Adap
     private OnItemClickListener mOnItemClickListener = null;
 
     public static interface OnItemClickListener{
-
         void onItemClick(View view, int position);
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder{
         View element_item_view;
         TextView element_item_text;
+        TextView element_item_title;
+        TextView element_item_time;
         public ViewHolder(View view){
             super(view);
             element_item_view = view;
             element_item_text = (TextView) view.findViewById (R.id.notification_1);
+            element_item_title = (TextView) view.findViewById(R.id.news_title);
+            element_item_time = (TextView) view.findViewById(R.id.publish_time);
         }
     }
 
@@ -62,7 +67,9 @@ public class Element_item_Adapter extends RecyclerView.Adapter<Element_item_Adap
     @Override
     public void onBindViewHolder(ViewHolder holder, int position){
         element_item element_item = element_items.get(position);
-        holder.element_item_text.setText(element_item.toString());
+        holder.element_item_text.setText(element_item.getText());
+        holder.element_item_time.setText(element_item.getNews_time());
+        holder.element_item_title.setText(element_item.getNews_title());
         holder.itemView.setTag(position);
     }
 

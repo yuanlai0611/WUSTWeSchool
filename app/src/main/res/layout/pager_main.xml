@@ -140,74 +140,82 @@
                 android:layout_width="match_parent"
                 android:layout_height="196dp">
                 <RelativeLayout
-                    android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="40dp">
                 <TextView
+                    android:id="@+id/not_return_book"
                     android:background="@drawable/text_view_not_return"
                     android:textColor="@color/colorBlue"
-                    android:textSize="16dp"
+                    android:textSize="16sp"
                     android:paddingTop="10dp"
                     android:paddingLeft="10dp"
+                    android:textStyle="bold"
                     android:text="未还的图书"
-                    android:layout_width="250dp"
+                    android:layout_width="200dp"
                     android:layout_height="40dp" />
                     <TextView
-                        android:layout_alignParentEnd="true"
-                        android:gravity="center"
+                        android:layout_toLeftOf="@+id/enter_library"
                         android:textColor="@color/tabtext"
-                        android:layout_centerVertical="true"
+                        android:gravity="center_vertical"
                         android:text="@string/inlibrary"
-                        android:textSize="15sp"
-                        android:drawableRight="@drawable/detail"
+                        android:textSize="13sp"
+                        android:layout_marginRight="5dp"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="40dp"/>
+                    <ImageView
+                        android:layout_marginRight="5dp"
+                        android:id="@+id/enter_library"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/more_"
+                        android:layout_alignParentEnd="true"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp" />
                 </RelativeLayout>
                         <View
                             android:layerType="software"
-                            android:layout_marginLeft="40dp"
+                            android:layout_marginLeft="45dp"
+                            android:layout_marginRight="5dp"
                             android:background="@drawable/line_dotted"
                             android:layout_width="match_parent"
                             android:layout_height="2dp"/>
                         <TextView
-                            android:textStyle="bold"
                             android:textSize="16sp"
                             android:layout_marginLeft="40dp"
                             android:paddingTop="10dp"
-                            android:paddingLeft="15dp"
-                            android:textColor="@color/colorDark"
+                            android:paddingLeft="25dp"
+                            android:textColor="@color/colorBlack"
                             android:text="大学物理"
                             android:layout_width="match_parent"
                             android:layout_height="50dp" />
                 <View
                     android:layerType="software"
-                    android:layout_marginLeft="40dp"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginRight="5dp"
                     android:background="@drawable/line_dotted"
                     android:layout_width="match_parent"
                     android:layout_height="2dp"/>
                 <TextView
-                    android:textStyle="bold"
                     android:paddingTop="10dp"
-                    android:paddingLeft="15dp"
+                    android:paddingLeft="25dp"
                     android:layout_marginLeft="40dp"
                     android:textSize="16sp"
-                    android:textColor="@color/colorDark"
+                    android:textColor="@color/colorBlack"
                     android:text="第一行代码"
                     android:layout_width="match_parent"
                     android:layout_height="50dp" />
                 <View
                     android:layerType="software"
-                    android:layout_marginLeft="40dp"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginRight="5dp"
                     android:background="@drawable/line_dotted"
                     android:layout_width="match_parent"
                     android:layout_height="2dp"/>
                 <TextView
                     android:textSize="16sp"
-                    android:textStyle="bold"
                     android:paddingTop="10dp"
                     android:layout_marginLeft="40dp"
-                    android:paddingLeft="15dp"
-                    android:textColor="@color/colorDark"
+                    android:paddingLeft="25dp"
+                    android:textColor="@color/colorBlack"
                     android:text="Android 编程权威指南"
                     android:layout_width="match_parent"
                     android:layout_height="50dp" />
@@ -271,34 +279,48 @@
                 android:layout_height="300dp">
 
                 <RelativeLayout
-
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="40dp">
                 <TextView
+                    android:textStyle="bold"
+                    android:id="@+id/today_class"
                     android:background="@drawable/textview_today_class"
                     android:textColor="@color/colorYellow"
                     android:textSize="16sp"
                     android:paddingLeft="10dp"
                     android:paddingTop="10dp"
                     android:text="今日课程"
-                    android:layout_width="250dp"
+                    android:layout_width="200dp"
                     android:layout_height="40dp" />
 
                 <TextView
-                    android:layout_alignParentEnd="true"
-                    android:gravity="center"
+                    android:layout_toLeftOf="@+id/check_class"
+                    android:layout_marginRight="5dp"
+                    android:gravity="center_vertical"
                     android:textColor="@color/tabtext"
                     android:layout_centerVertical="true"
                     android:text="@string/incourse"
-                    android:textSize="15sp"
-                    android:drawableRight="@drawable/detail"
+                    android:textSize="13sp"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="40dp"/>
+
+                    <ImageView
+                        android:layout_marginRight="5dp"
+                        android:id="@+id/check_class"
+                        android:paddingLeft="20dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/more_"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp" />
+
+
         </RelativeLayout>
 
                         <View
                             android:layerType="software"
-                            android:layout_marginLeft="40dp"
+                            android:layout_marginLeft="45dp"
+                            android:layout_marginRight="5dp"
                             android:background="@drawable/line_dotted"
                             android:layout_width="match_parent"
                             android:layout_height="2dp"/>
@@ -309,36 +331,42 @@
                     android:layout_height="50dp">
                     <TextView
                         android:textStyle="italic"
-
                         android:gravity="center"
                         android:textSize="17sp"
-
                         android:text="第一节课"
                         android:textColor="@color/colorYellow"
                         android:layout_width="80dp"
                         android:layout_height="match_parent" />
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
 
-                    <TextView
-                            android:paddingTop="10dp"
-                            android:paddingLeft="15dp"
-                            android:textSize="15sp"
+                        <TextView
+                            android:paddingTop="2dp"
+                            android:paddingLeft="25dp"
+                            android:textSize="17sp"
                             android:textColor="@color/colorBlack"
                             android:text="java 编程技术"
-                            android:layout_width="200dp"
-                            android:layout_height="50dp" />
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp" />
 
-                    <TextView
-                        android:paddingTop="20dp"
-                        android:textColor="@color/colorDark"
-                        android:text="11404"
+                        <TextView
+                            android:paddingLeft="25dp"
+                            android:textColor="@color/colorDark"
+                            android:text="恒大楼一区104"
+                            android:textSize="12sp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+                    </LinearLayout>
 
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
+
 
                 </LinearLayout>
                 <View
                     android:layerType="software"
-                    android:layout_marginLeft="40dp"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginRight="5dp"
                     android:background="@drawable/line_dotted"
                     android:layout_width="match_parent"
                     android:layout_height="2dp"/>
@@ -348,38 +376,43 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp">
                     <TextView
-
                         android:gravity="center"
                         android:textSize="17sp"
-
                         android:textStyle="italic"
                         android:text="第二节课"
                         android:textColor="@color/colorYellow"
                         android:layout_width="80dp"
                         android:layout_height="match_parent" />
 
-                    <TextView
-
-                        android:textSize="15sp"
-                        android:paddingTop="10dp"
-                        android:paddingLeft="15dp"
-                        android:textColor="@color/colorBlack"
-                        android:text="大学物理（二）"
-                        android:layout_width="200dp"
-                        android:layout_height="50dp" />
-
-                    <TextView
-                        android:paddingTop="20dp"
-                        android:textColor="@color/colorDark"
-                        android:textStyle="bold"
-                        android:text="31306"
+                    <LinearLayout
+                        android:orientation="vertical"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:textSize="17sp"
+                            android:paddingTop="2dp"
+                            android:paddingLeft="25dp"
+                            android:textColor="@color/colorBlack"
+                            android:text="大学物理（二）"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp" />
+
+                        <TextView
+                            android:textColor="@color/colorDark"
+                            android:paddingLeft="25dp"
+                            android:text="教三楼108（黄家湖）"
+                            android:textSize="12sp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+                    </LinearLayout>
+
+
 
                 </LinearLayout>
                 <View
                     android:layerType="software"
-                    android:layout_marginLeft="40dp"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginRight="5dp"
                     android:background="@drawable/line_dotted"
                     android:layout_width="match_parent"
                     android:layout_height="2dp"/>
@@ -389,39 +422,43 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp">
                     <TextView
-
                         android:gravity="center"
                         android:textSize="17sp"
-
                         android:textStyle="italic"
                         android:text="第三节课"
                         android:textColor="@color/colorYellow"
                         android:layout_width="80dp"
                         android:layout_height="match_parent" />
 
-                    <TextView
-
-
-                        android:textSize="15sp"
-                        android:paddingTop="10dp"
-                        android:paddingLeft="15dp"
-                        android:textColor="@color/colorBlack"
-                        android:text="大学综合英语（三）"
-                        android:layout_width="200dp"
-                        android:layout_height="50dp" />
-
-                    <TextView
-                        android:paddingTop="20dp"
-                        android:textColor="@color/colorDark"
-                        android:textStyle="bold"
-                        android:text="11307"
+                    <LinearLayout
+                        android:orientation="vertical"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:textSize="17sp"
+                            android:paddingTop="2dp"
+                            android:paddingLeft="25dp"
+                            android:textColor="@color/colorBlack"
+                            android:text="大学综合英语（三）"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp" />
+
+                        <TextView
+                            android:textColor="@color/colorDark"
+                            android:text="恒大楼一区307"
+                            android:paddingLeft="25dp"
+                            android:textSize="12sp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+                    </LinearLayout>
+
+
 
                 </LinearLayout>
                 <View
                     android:layerType="software"
-                    android:layout_marginLeft="40dp"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginRight="5dp"
                     android:background="@drawable/line_dotted"
                     android:layout_width="match_parent"
                     android:layout_height="2dp"/>
@@ -432,40 +469,43 @@
                     android:layout_height="50dp">
                     <TextView
                         android:textStyle="italic"
-
                         android:gravity="center"
                         android:textSize="17sp"
-
                         android:text="第四节课"
                         android:textColor="@color/colorYellow"
                         android:layout_width="80dp"
                         android:layout_height="match_parent" />
 
-                    <TextView
-                        android:id="@+id/textView3"
-
-                        android:paddingTop="10dp"
-
-                        android:paddingLeft="15dp"
-                        android:textColor="@color/colorBlack"
-                        android:textSize="15sp"
-                        android:text="线性代数"
-                        android:layout_width="200dp"
-                        android:layout_height="50dp" />
-
-                    <TextView
-                        android:paddingTop="20dp"
-                        android:textColor="@color/colorDark"
-                        android:text="11807"
-
-
+                    <LinearLayout
+                        android:orientation="vertical"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:id="@+id/textView3"
+                            android:paddingTop="2dp"
+                            android:paddingLeft="25dp"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="17sp"
+                            android:text="线性代数"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp" />
+
+                        <TextView
+                            android:textColor="@color/colorDark"
+                            android:text="恒大楼一区807"
+                            android:paddingLeft="25dp"
+                            android:textSize="12sp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+
+                    </LinearLayout>
+
 
                 </LinearLayout>
                 <View
                     android:layerType="software"
-                    android:layout_marginLeft="40dp"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginRight="5dp"
                     android:background="@drawable/line_dotted"
                     android:layout_width="match_parent"
                     android:layout_height="2dp"/>
@@ -476,30 +516,35 @@
                     android:layout_height="50dp">
                     <TextView
                         android:textStyle="italic"
-
                         android:gravity="center"
                         android:textSize="17sp"
-
                         android:text="第五节课"
                         android:textColor="@color/colorYellow"
                         android:layout_width="80dp"
                         android:layout_height="match_parent" />
-                    <TextView
-                        android:paddingTop="10dp"
 
-                        android:paddingLeft="15dp"
-                        android:textColor="@color/colorBlack"
-                        android:text="数据结构"
-                        android:textSize="15sp"
-                        android:layout_width="200dp"
-                        android:layout_height="50dp" />
-                    <TextView
-                        android:paddingTop="20dp"
-                        android:textColor="@color/colorDark"
-                        android:textStyle="bold"
-                        android:text="11307"
+                    <LinearLayout
+                        android:orientation="vertical"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:paddingTop="2dp"
+                            android:paddingLeft="25dp"
+                            android:textColor="@color/colorBlack"
+                            android:text="数据结构"
+                            android:textSize="17sp"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp" />
+                        <TextView
+                            android:paddingLeft="25dp"
+                            android:textSize="12sp"
+                            android:textColor="@color/colorDark"
+                            android:text="恒大楼一区307"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+
+                    </LinearLayout>
+
 
                 </LinearLayout>
             </LinearLayout>

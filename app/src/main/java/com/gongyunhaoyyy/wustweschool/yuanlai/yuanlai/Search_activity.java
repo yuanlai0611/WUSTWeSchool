@@ -14,16 +14,16 @@ import android.widget.Toast;
 
 import com.gongyunhaoyyy.wustweschool.R;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.select.Elements;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class Search_activity extends AppCompatActivity {
     private FlowLayout mFlowLayout;
     private LayoutInflater mInflater;
-    private String[] mVals = new String[]{"Java", "Android", "iOS", "Python",
-            "Mac OS", "PHP", "JavaScript", "Objective-C",
-            "Groovy", "Pascal", "Ruby", "Go", "Swift"};//数据模拟，实际应从网络获取此数据
-    EditText editText;
 
 
 
@@ -61,21 +61,42 @@ public class Search_activity extends AppCompatActivity {
 
 
     private void initData() {
-        for (int i = 0; i < mVals.length; i++) {
-            TextView tv = (TextView) mInflater.inflate(
-                    R.layout.search_label_tv, mFlowLayout, false);
-            tv.setText(mVals[i]);
-            final String str = tv.getText().toString();
-            //点击事件
-            tv.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    //加入搜索历史纪录记录
-                    Toast.makeText(Search_activity.this, str, Toast.LENGTH_LONG).show();
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                final String search[] = new String[100];
+
+
+                try {
+
+                    Document document = Jsoup.connect("http://opac.lib.wust.edu.cn:8080/opac/top100.php").get();
+                    Elements elements = document.select("table.thinBorder").first().select("tbody").first().select("a");
+                    for (int i=0;i<elements.size();i++){
+                        search[i] = elements.get(i).text();
+                    }
+
+                }catch (Exception e){
+                    e.printStackTrace();
                 }
-            });
-            mFlowLayout.addView(tv);
-        }
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        for (int i = 0; i < search.length; i++) {
+                            TextView tv = (TextView) mInflater.inflate(
+                                    R.layout.search_label_tv, mFlowLayout, false);
+                            tv.setText(search[i]);
+                            mFlowLayout.addView(tv);
+                        }
+
+                    }
+                });
+
+            }
+        }).start();
+
     }
 
 

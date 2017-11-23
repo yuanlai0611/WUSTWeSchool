@@ -3,6 +3,7 @@ package com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.view.ViewGroup;
 
 /**
  * Created by Carson_Ho on 16/7/22.
@@ -38,5 +39,10 @@ public class MyFragmentPagerAdapter extends FragmentPagerAdapter {
     @Override
     public CharSequence getPageTitle(int position) {
         return mTitles[position];
+    }
+
+    @Override
+    public void destroyItem(ViewGroup container, int position, Object object){
+      //  super.destroyItem( container,position,object);
     }
 }
