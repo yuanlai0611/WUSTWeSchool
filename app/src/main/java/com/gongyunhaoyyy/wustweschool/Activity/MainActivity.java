@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         //让刚打开app时，页面显示在第0个pager.
         viewPager.setCurrentItem(0);
         //预加载2个pager（除当前pager外）
-        viewPager.setOffscreenPageLimit( 2 );
+        viewPager.setOffscreenPageLimit( 16 );
         //将TabLayout和ViewPager关联起来.
         tab_gyh.setupWithViewPager(viewPager);
         setupTabIcons();

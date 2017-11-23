@@ -15,7 +15,6 @@
     <TextView
         android:textColor="@color/white"
         android:text="图书馆"
-        android:textStyle="bold"
         android:gravity="bottom"
         android:paddingBottom="12dp"
         android:layout_alignParentBottom="true"

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.gongyunhaoyyy.wustweschool">
+    package="com.gongyunhaoyyy.wustweschool">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name="org.litepal.LitePalApplication"
@@ -12,21 +12,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".Activity.MainActivity">
+        <activity android:name=".Activity.MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".yuanlai.yuanlai.Search_activity"/>
-        <activity android:name=".Activity.ScoreActivity">
-        </activity>
-        <activity android:name=".Activity.ChooseLessonActivity">
-        </activity>
-        <activity android:name=".Activity.EmptyClassActivity">
-        </activity>
+        <activity android:name=".yuanlai.yuanlai.Search_activity" />
+        <activity android:name=".Activity.ScoreActivity" />
+        <activity android:name=".Activity.ChooseLessonActivity" />
+        <activity android:name=".Activity.EmptyClassActivity" />
+        <activity android:name=".yuanlai.yuanlai.dean_office_activity" />
+        <activity android:name=".yuanlai.yuanlai.online_news_activity" />
+        <activity android:name=".yuanlai.yuanlai.combined_news_activity" />
+        <activity android:name=".yuanlai.yuanlai.academy_news_activity" />
+        <activity android:name=".notification_activity"></activity>
     </application>
 
 </manifest>

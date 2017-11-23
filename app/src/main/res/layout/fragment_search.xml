@@ -28,6 +28,15 @@
             android:layout_width="match_parent"
             android:layout_height="34dp"/>
     </RelativeLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -47,12 +56,17 @@
             android:layout_height="30dp" />
 
     </LinearLayout>
-    <com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai.FlowLayout
-        android:id="@+id/flowlayout"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-    </com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai.FlowLayout>
+        <com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai.FlowLayout
+            android:id="@+id/flowlayout"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai.FlowLayout>
+    </LinearLayout>
+
+
+    </ScrollView>
 </LinearLayout>

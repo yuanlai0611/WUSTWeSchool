@@ -3,6 +3,11 @@ package com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.app.FragmentTransaction;
+import android.view.ViewGroup;
+
+import java.util.ArrayList;
 
 /**
  * Created by 99460 on 2017/10/23.
@@ -10,7 +15,20 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 public class NewsFragmentPagerAdapter extends FragmentPagerAdapter {
 
-    private String[] mTitles = new String[]{"教务处", "聚焦科大", "综合新闻","学院新闻"};
+//    private FragmentTransaction mCurTransaction = null;
+//    private ArrayList<Fragment.SavedState> mSavedState = new ArrayList<Fragment.SavedState>();
+//    private ArrayList<Fragment> mFragments = new ArrayList<Fragment>();
+//    private  FragmentManager mFragmentManager ;
+
+
+    @Override
+    public void destroyItem(ViewGroup container, int position, Object object) {
+//        super.destroyItem(container, position, object);
+    }
+
+
+
+    private String[] mTitles = new String[]{"学术动态", "聚焦科大", "综合新闻","学院新闻"};
 
     public NewsFragmentPagerAdapter(FragmentManager fm) {
         super(fm);
@@ -36,8 +54,9 @@ public class NewsFragmentPagerAdapter extends FragmentPagerAdapter {
 
     //ViewPager与TabLayout绑定后，这里获取到PageTitle就是Tab的Text
     @Override
-    public CharSequence getPageTitle(int position) {
-        return mTitles[position];
-    }
+    public CharSequence getPageTitle(int position) {return mTitles[position];}
+
+
+
 
 }

@@ -1,5 +1,6 @@
 package com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -15,6 +16,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.gongyunhaoyyy.wustweschool.R;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 import org.jsoup.Jsoup;
 import org.jsoup.select.Elements;
@@ -28,96 +31,110 @@ import java.util.List;
  * Created by 99460 on 2017/10/28.
  */
 
-public class academy_news_fragment extends Fragment implements View.OnClickListener {
+public class academy_news_fragment extends Fragment {
 
-    private CustomPopupWindow mCustomPopupWindow;
-    private Button mImageButton;//悬浮窗的关闭按钮
-    private View mLayoutPopupWindowView;//悬浮窗的布局
-    private TextView mTvActivityRule;//悬浮窗的内容
-
-
-    private List<element_item> notifications = new ArrayList<>();
-
+    private boolean isHasLaodOnce;
+    private boolean isCreate;
+    private static boolean isFirstIn = true;
+    private RefreshLayout mRefreshLayout;
+    Element_item_Adapter adapter;
+    private List<element_item> notifications ;
     RecyclerView recyclerView;
     LinearLayoutManager layoutManager;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
+        isCreate=true;
     }
+
+    @Override
+    public void setUserVisibleHint(boolean isVisbleToUser){
+        super.setUserVisibleHint(isVisbleToUser);
+      load();
+    }
+
+    private void load() {
+        if (isCreate && getUserVisibleHint() && !isHasLaodOnce){
+            mRefreshLayout.autoRefresh();
+            isCreate = false;
+            isHasLaodOnce = true;
+        }
+    }
+
+    @Override
+    public void onActivityCreated( Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        load();
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle saveInstanceState){
         final View v = inflater.inflate(R.layout.fragment_academy_news,parent,false);
-
-        initNotification();
+        mRefreshLayout = (RefreshLayout) v.findViewById(R.id.swipe_refresh_7);
+        mRefreshLayout.setPrimaryColorsId(R.color.colorPrimary, android.R.color.white);
+        notifications = new ArrayList<>();
         recyclerView = (RecyclerView) v.findViewById(R.id.recycleview_7);
+        mRefreshLayout.setOnRefreshListener(new OnRefreshListener() {
+            @Override
+            public void onRefresh(RefreshLayout refreshlayout) {
+                initNotification();
+            }
+        });
+//        if (isFirstIn == true) {
+//            mRefreshLayout.autoRefresh();
+//            isFirstIn = false;
+//        }
+
         layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
-        Element_item_Adapter adapter = new Element_item_Adapter(notifications);
+        adapter = new Element_item_Adapter(notifications);
         recyclerView.setAdapter(adapter);
-        //setScrollListener();
-        Toast.makeText(getActivity(),"hello",Toast.LENGTH_SHORT);
+
         adapter.setmOnItemClickListener(new Element_item_Adapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, final int position) {
-                mLayoutPopupWindowView = LayoutInflater.from(getActivity()).inflate(R.layout
-                        .popupwindow_activity_rule, null);
-                mCustomPopupWindow = new CustomPopupWindow(v.findViewById(R.id.test_7),
-                        getActivity(), mLayoutPopupWindowView, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout
-                        .LayoutParams.WRAP_CONTENT, true);
-                mCustomPopupWindow.setOnPopupWindowListener(new CustomPopupWindow
-                        .PopupWindowListener() {
-
-                    // TODO 设置活动内容
-                    @Override
-                    public void initView() {
-                        mImageButton = (Button) mLayoutPopupWindowView.findViewById(R.id
-                                .i_know);
-                        mImageButton.setOnClickListener(academy_news_fragment.this);
-                        mTvActivityRule = (TextView) mLayoutPopupWindowView.findViewById(R.id
-                                .popupwindow_activity_rule_text);
-                        mTvActivityRule.setText(notifications.get(position).toString());
-
-                    }
-                });
-                mCustomPopupWindow.showView();
-                Animation scaleAanimation = AnimationUtils.loadAnimation(getActivity(),R.anim.popupwindow_fade_in);
-                mLayoutPopupWindowView.startAnimation(scaleAanimation);
-                mCustomPopupWindow.setBackgroundAlpha(0.85f);
+                final String detailUrl = notifications.get(position).getUrl();
+                Intent intent = new Intent(getActivity(),combined_news_activity.class);
+                intent.putExtra("url3",detailUrl);
+                startActivity(intent);
             }
         });
         return v;
     }
 
+
+
     private void initNotification() {
-       new Thread(new Runnable() {
-           @Override
-           public void run() {
-               try{
-                   org.jsoup.nodes.Document document = Jsoup.connect("http://www.cnwust.com/default.html").get();
-                   Elements elements = document.getElementsByClass("newslist_147813878340454123").select("div.con").select("li");
-                   for (int i=0;i<elements.size();i++){
-                       org.jsoup.nodes.Document document1 = Jsoup.connect(elements.get(i).select("a").attr("href")).get();
-                       Elements elements1 = document1.select("div.con").select("div.xwcon").select("p");
-                       String s = elements1.text();
-                       element_item element_item = new element_item(s);
-                       notifications.add(element_item);
-                   }
-
-               }catch(IOException e){
-                   e.printStackTrace();
-               }
-           }
-       }).start();
-    }
-    public void onClick(View v) {
-        switch (v.getId()) {
-
-            //关闭悬浮窗
-            case R.id.i_know:
-                mCustomPopupWindow.dismiss();
-                mCustomPopupWindow.setBackgroundAlpha(1);
-                break;
-        }
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try{
+                    notifications.clear();
+                    org.jsoup.nodes.Document document = Jsoup.connect("http://www.cnwust.com/default.html").get();
+                    Elements elements = document.getElementsByClass("newslist_147813878340454123").select("div.con").select("li");
+                    for (int i=0;i<elements.size();i++){
+                        org.jsoup.nodes.Document document1 = Jsoup.connect(elements.get(i).select("a").attr("href")).get();
+                        Elements elements1 = document1.select("div.con").select("div.xwcon").select("p");
+                        String s = elements1.text();
+                        element_item element_item = new element_item(s);
+                        element_item.setNews_time(document1.select("div.title").select("h4").select("span.pubtime").text());
+                        element_item.setNews_title(elements.get(i).select("a").attr("title"));
+                        element_item.setUrl(elements.get(i).select("a").attr("href"));
+                        notifications.add(element_item);
+                    }
+                }catch(IOException e){
+                    e.printStackTrace();
+                }
+                getActivity().runOnUiThread(new Runnable(){
+                    @Override
+                    public void run() {
+                        adapter.notifyDataSetChanged();
+                        mRefreshLayout.finishRefresh();
+                    }
+                });
+            }
+        }).start();
     }
 }

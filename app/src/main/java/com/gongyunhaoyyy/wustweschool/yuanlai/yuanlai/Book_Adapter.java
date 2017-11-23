@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.gongyunhaoyyy.wustweschool.R;
@@ -26,11 +27,15 @@ public class Book_Adapter extends RecyclerView.Adapter<Book_Adapter.ViewHolder> 
 
     static class ViewHolder extends RecyclerView.ViewHolder{
         View bookView;
-        TextView book_text;
+        TextView book_name;
+        TextView book_author;
+        ImageView book_pic;
         public ViewHolder(View view){
             super(view);
             bookView = view;
-            book_text = (TextView) view.findViewById (R.id.book);
+            book_name = (TextView) view.findViewById (R.id.book_name);
+            book_pic = (ImageView) view.findViewById(R.id.book_pic);
+            book_author = (TextView) view.findViewById(R.id.author_name);
         }
     }
 
@@ -61,7 +66,9 @@ public class Book_Adapter extends RecyclerView.Adapter<Book_Adapter.ViewHolder> 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position){
         element_item book = books.get(position);
-        holder.book_text.setText(book.toString());
+        holder.book_name.setText(book.getText());
+        holder.book_pic.setImageBitmap(book.getBitmap());
+        holder.book_author.setText(book.getAuthor_name());
         holder.itemView.setTag(position);
     }
 

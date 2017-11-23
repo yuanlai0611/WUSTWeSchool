@@ -6,40 +6,22 @@
     android:orientation="vertical">
 
         <LinearLayout
-            android:layout_width="300dp"
-            android:layout_height="405dp"
+            android:layout_width="380dp"
+            android:layout_height="600dp"
             android:orientation="vertical">
         <TextView
-            android:gravity="center_horizontal"
-            android:textColor="@color/white"
+            android:gravity="center"
+            android:textColor="@color/colorDark"
             android:layout_marginTop="5dp"
-            android:text="通知"
+            android:text="新闻"
             android:textSize="20sp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="40dp" />
 
-            <ScrollView
+            <WebView
+                android:id="@+id/webView"
                 android:layout_width="match_parent"
-                android:layout_height="325dp">
-            <TextView
-                android:text="全体同学请注意：
-    根据教育部、学校有关通知要求，为公平、公正、合理地分配资助资源，切实保证国家制定的各项资助政策和措施真正落实到家庭经济困难学生身上，现特在我院16级开展家庭经济困难学生认定。
-    请需要申请认定为家庭经济困难学生，于明天晚上11点之前，向班级评议小组组长递交如下材料：
-    1、去年向学院递交了材料、已经被认定为家庭经济困难学生的（不管有没有获得助学金），如果今年还想认定，请上交盖章了的《武汉科技大学家庭经济困难学生认定申请表》（群共享，7月1日，附件2）；此外，还要用武科大信纸写一份家庭经济情况说明，要求至少800字。
-    2、去年没有向学院递交了材料、没有被认定为家庭经济困难学生的，如果今年想认定，请上交盖章了的《高等学校学生及家庭情况调查表》（群共享，7月1日，附件1）；同时，一并上交《武汉科技大学家庭经济困难学生认定申请表》（群共享，7月1日，附件2），这个表的盖章处不要求盖章，不用家长签字；此外，还要用武科大信纸写一份家庭经济情况说明，要求至少800字。
-
-    凡与班长或者生活委员要求不符的，以我的通知为准。
-
-    特此通知。
-"
-                android:paddingTop="8dp"
-                android:paddingLeft="15dp"
-                android:paddingRight="15dp"
-                android:textSize="13sp"
-                android:id="@+id/popupwindow_activity_rule_text"
-                android:layout_width="match_parent"
-                android:layout_height="320dp" />
-            </ScrollView>
+                android:layout_height="520dp"/>
             <Button
                 android:id="@+id/i_know"
                 android:textColor="@color/white"
