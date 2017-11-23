@@ -48,76 +48,271 @@
             </RelativeLayout>
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:gravity="start|center"
-                android:textSize="18sp"
-                android:text="个人详细信息"/>
+                android:layout_height="35dp"
+                android:gravity="start|bottom"
+                android:textSize="14sp"
+                android:paddingLeft="15dp"
+                android:paddingBottom="3dp"
+                android:background="@color/course_left_bg"
+                android:textColor="@color/colorOrange"
+                android:text="一卡通"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/yue"/>
+
+                <TextView
+                    android:layout_weight="1"
+                    android:paddingLeft="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/colorLightBlack"
+                    android:gravity="start|center"
+                    android:textSize="17sp"
+                    android:text="@string/yue"/>
+
+                <TextView
+                    android:layout_weight="1.5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="end|center"
+                    android:layout_marginRight="3dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/colorDark"
+                    android:drawableRight="@drawable/detail_gray"
+                    android:text="45.2元"/>
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/colorGray"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="10dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/xiaofeijilu"/>
+
+                <TextView
+                    android:layout_weight="1"
+                    android:paddingLeft="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="start|center"
+                    android:textSize="17sp"
+                    android:textColor="@color/colorLightBlack"
+                    android:text="消费记录"/>
+
+                <TextView
+                    android:layout_weight="1.5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="end|center"
+                    android:layout_marginRight="3dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/colorDark"
+                    android:drawableRight="@drawable/detail_gray"
+                    android:text="查看明细"/>
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/colorGray"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="10dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/kapianguashi"/>
+
+                <TextView
+                    android:layout_weight="1"
+                    android:paddingLeft="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="start|center"
+                    android:textSize="17sp"
+                    android:textColor="@color/colorLightBlack"
+                    android:text="卡片挂失"/>
+
+                <TextView
+                    android:layout_weight="1.5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="end|center"
+                    android:layout_marginRight="3dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/colorDark"
+                    android:drawableRight="@drawable/detail_gray"
+                    android:text=""/>
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/colorGray"/>
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:gravity="start|center"
-                android:textSize="18sp"
-                android:text="@string/yue"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:gravity="start|center"
-                android:textSize="18sp"
-                android:text="消费记录"/>
+                android:layout_height="35dp"
+                android:gravity="start|bottom"
+                android:textSize="14sp"
+                android:paddingLeft="15dp"
+                android:paddingBottom="3dp"
+                android:background="@color/course_left_bg"
+                android:textColor="@color/colorOrange"
+                android:text="关于"/>
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:gravity="start|center"
-                android:textSize="18sp"
-                android:text="卡片挂失"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:gravity="start|center"
-                android:textSize="18sp"
-                android:text="关于小园"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:gravity="start|center"
-                android:textSize="18sp"
-                android:text="jasogshgosdsdfsdf"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:gravity="start|center"
-                android:textSize="18sp"
-                android:text="jasogshgosdsdfsdf"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:gravity="start|center"
-                android:textSize="18sp"
-                android:text="jasogshgosdsdfsdf"/>
+                android:layout_height="50dp"
+                android:orientation="horizontal">
 
-            <TextView
+                <ImageView
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/xiaoyuan"/>
+
+                <TextView
+                    android:layout_weight="1"
+                    android:paddingLeft="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/colorLightBlack"
+                    android:gravity="start|center"
+                    android:textSize="17sp"
+                    android:text="关于小园"/>
+
+                <TextView
+                    android:layout_weight="1.5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="end|center"
+                    android:layout_marginRight="3dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/colorDark"
+                    android:drawableRight="@drawable/detail_gray"
+                    android:text=""/>
+
+            </LinearLayout>
+            <View
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:gravity="start|center"
-                android:textSize="18sp"
-                android:text="jasogshgosdsdfsdf"/>
-            <TextView
+                android:layout_height="0.5dp"
+                android:background="@color/colorGray"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="10dp"/>
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:gravity="start|center"
-                android:textSize="18sp"
-                android:text="jasogshgosdsdfsdf"/>
-            <TextView
+                android:layout_height="50dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/tab_us_se"/>
+
+                <TextView
+                    android:layout_weight="1"
+                    android:paddingLeft="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/colorLightBlack"
+                    android:gravity="start|center"
+                    android:textSize="17sp"
+                    android:text="作者"/>
+
+                <TextView
+                    android:layout_weight="1.5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="end|center"
+                    android:layout_marginRight="3dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/colorDark"
+                    android:drawableRight="@drawable/detail_gray"
+                    android:text=""/>
+
+            </LinearLayout>
+            <View
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:gravity="start|center"
-                android:textSize="18sp"
-                android:text="jasogshgosdsdfsdf"/>
+                android:layout_height="0.5dp"
+                android:background="@color/colorGray"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="10dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/yijianfankui"/>
+
+                <TextView
+                    android:layout_weight="1"
+                    android:paddingLeft="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/colorLightBlack"
+                    android:gravity="start|center"
+                    android:textSize="17sp"
+                    android:text="建议反馈"/>
+
+                <TextView
+                    android:layout_weight="1.5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="end|center"
+                    android:layout_marginRight="3dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/colorDark"
+                    android:drawableRight="@drawable/detail_gray"
+                    android:text="欢迎联系"/>
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/colorGray"/>
+
             <TextView
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="35dp"
             android:gravity="start|center"
             android:textSize="18sp"
             android:background="@color/lightGray"/>

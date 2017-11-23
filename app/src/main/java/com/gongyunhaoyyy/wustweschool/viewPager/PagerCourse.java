@@ -74,9 +74,9 @@ public class PagerCourse extends Fragment implements View.OnClickListener{
             String[] uddt1=ud.getString( "getuserdata","" ).split( "," );
             xh=uddt1[0];
             List<Course> coud= DataSupport.findAll( Course.class );
-//            for (Course sss:coud){
-//                Log.d( "*******", sss.getKcmc());
-//            }
+            for (Course sss:coud){
+                Log.d( "*******", sss.getKcmc());
+            }
 
             if (coud.size()<1){
                 DataSupport.deleteAll( Course.class );
