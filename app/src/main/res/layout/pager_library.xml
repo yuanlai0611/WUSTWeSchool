@@ -3,7 +3,6 @@
 <RelativeLayout
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/activity_main"
@@ -87,16 +86,21 @@
                                 android:layout_height="30dp"
                                 android:layout_marginRight="5dp"/>
                         </LinearLayout>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:background="#56bcec"
+                            />
                         <android.support.design.widget.TabLayout
                             android:id="@+id/tabLayout"
                             android:layout_width="match_parent"
                             android:layout_height="40dp"
-                            app:tabIndicatorColor="#33bbff"
-                            app:tabIndicatorHeight="2dp"
-                            app:tabTextColor="@color/colorDark"
-                            app:tabSelectedTextColor="#f9f9f9"
+                            app:tabIndicatorColor="@color/ColorWhite"
+                            app:tabIndicatorHeight="4dp"
+                            app:tabTextColor="@color/ColorWhite"
+                            app:tabSelectedTextColor="@color/ColorWhite"
                             app:tabMode="fixed"
-                            app:tabBackground="@drawable/selected"/>
+                            app:tabBackground="@color/colorPrimary"/>
 
                     </LinearLayout>
             </android.support.v7.widget.Toolbar>

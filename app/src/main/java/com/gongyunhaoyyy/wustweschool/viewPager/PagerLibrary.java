@@ -34,14 +34,11 @@ public class PagerLibrary extends Fragment {
     private TabLayout.Tab one;
     private TabLayout.Tab two;
     private TabLayout.Tab three;
-    public static LinearLayout linearLayout;
     Button search;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view= inflater.inflate( R.layout.pager_library, container, false);
-
-
         search = (Button) view.findViewById(R.id.search);
         search.setOnClickListener(new View.OnClickListener() {
             @Override

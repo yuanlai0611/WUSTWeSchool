@@ -36,7 +36,7 @@ public class EmptyClassActivity extends AppCompatActivity {
                     public void run() {
                         try {
                             Ksoap2 ksoap2=new Ksoap2();
-                            score=ksoap2.chooseCourse( xh );
+                            score=ksoap2.getScoreInfo( xh );
                             //回到主线程更新UI
                             runOnUiThread( new Runnable( ) {
                                 @Override
@@ -58,7 +58,7 @@ public class EmptyClassActivity extends AppCompatActivity {
         @SuppressLint("SimpleDateFormat") SimpleDateFormat sDateFormat = new SimpleDateFormat("yyyy");
         @SuppressLint("SimpleDateFormat") SimpleDateFormat sDateFormat2 = new SimpleDateFormat("MM");
         int mm= Integer.parseInt( sDateFormat2.format(new java.util.Date()) );
-        if (mm<9){
+        if (mm<9&&mm>2){
             mm=2;
         }else {
             mm=1;

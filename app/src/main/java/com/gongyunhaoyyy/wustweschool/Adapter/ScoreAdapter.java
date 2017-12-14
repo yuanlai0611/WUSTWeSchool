@@ -68,14 +68,8 @@ public class ScoreAdapter extends RecyclerView.Adapter<ScoreAdapter.ViewHolder> 
         if (!(s.getZcj().charAt( 0 )>='A'&&s.getZcj().charAt( 0 )<='F')){
             if (Integer.parseInt( s.getZcj() )>=90){
                 holder.s90.setVisibility( View.VISIBLE );
-                holder.cj.setTextColor( Color.rgb( 250,17,17 ) );
-                Log.d( ">90------->",s.getKcmc() );
             }else {
                 holder.s90.setVisibility( View.INVISIBLE );
-                if (Integer.parseInt( s.getZcj() )>=70){
-                    holder.cj.setTextColor( Color.rgb( 255,129,33 ) );
-                    Log.d( "<90------->",s.getKcmc() );
-                }
             }
         }
         holder.bx.setText( "性质："+s.getKclbmc() );

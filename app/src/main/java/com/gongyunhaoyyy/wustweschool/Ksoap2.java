@@ -215,22 +215,21 @@ public class Ksoap2 {
         SoapSerializationEnvelope envelope = new SoapSerializationEnvelope( SoapEnvelope.VER11);
 
         envelope.bodyOut = rpc;
-        // 设置是否调用的是dotNet开发的WebService
+
         envelope.dotNet = true;
-        // 等价于envelope.bodyOut = rpc;
+
         envelope.setOutputSoapObject(rpc);
 
         HttpTransportSE transport = new HttpTransportSE(endPoint);
         try {
-            // 调用WebService
+
             transport.call(soapAction, envelope);
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        // 获取返回的数据
         SoapObject object = (SoapObject) envelope.bodyIn;
-        // 获取返回的结果
+
         String result = object.getProperty("out").toString();
 
         return result;

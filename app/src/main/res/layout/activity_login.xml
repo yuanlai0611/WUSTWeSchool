@@ -17,43 +17,28 @@
         android:textColor="@color/white"
         android:textSize="35sp"/>
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/TIL_username"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        app:hintTextAppearance="@style/mLoginTextHint"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
     <EditText
         android:id="@+id/et_username"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
         android:layout_width="match_parent"
         android:background="@drawable/course_set_shape"
         android:layout_height="38dp"
         android:inputType="number"
         android:textSize="18sp"
-        android:hint="@string/username_hint"
-        />
-    </android.support.design.widget.TextInputLayout>
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/TIL_password"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        app:hintTextAppearance="@style/mLoginTextHint"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center">
+        android:hint="@string/username_hint"/>
 
         <EditText
             android:id="@+id/et_password"
             android:inputType="textPassword"
+            android:layout_marginTop="6dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
             android:layout_width="match_parent"
             android:layout_height="38dp"
             android:background="@drawable/course_set_shape"
             android:hint="@string/password_hint"
-            android:textSize="18sp"
-            />
-</android.support.design.widget.TextInputLayout>
+            android:textSize="18sp"/>
 
     <Button
         android:id="@+id/login"
