@@ -6,12 +6,15 @@ import android.content.SharedPreferences;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.gongyunhaoyyy.wustweschool.Adapter.ScoreAdapter;
 import com.gongyunhaoyyy.wustweschool.Adapter.ViewPagerAdapter;
@@ -24,6 +27,7 @@ import com.gongyunhaoyyy.wustweschool.viewPager.fragment_score_all;
 import com.gongyunhaoyyy.wustweschool.viewPager.fragment_score_now;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.wang.avi.AVLoadingIndicatorView;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -39,7 +43,7 @@ public class ScoreActivity extends AppCompatActivity {
     private List<score> mScorelist_now=new ArrayList<>();
     private List<String> mTitles=new ArrayList<>();
     private List<Fragment> list_fragment=new ArrayList<>();
-    ProgressDialog progressDialog;
+    private AlertDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,19 +54,25 @@ public class ScoreActivity extends AppCompatActivity {
         xh=uddt[0];
         mTitles.add( "全部成绩" );
         mTitles.add( "本学期成绩" );
-
         mViewPager=(ViewPager)findViewById( R.id.pager_score );
         mTabLayout=(TabLayout)findViewById( R.id.tab_score );
 
-        progressDialog=new ProgressDialog( ScoreActivity.this );
-        progressDialog.setMessage( "小园拼命加载中..." );
-        progressDialog.setCancelable( true );
-        progressDialog.show();
-
+        View view= LayoutInflater.from(this).inflate
+                (R.layout.toast_loading,null);
+        AVLoadingIndicatorView avl=(AVLoadingIndicatorView) view.findViewById(R.id.avl);
+        avl.show();
+        TextView tv=view.findViewById(R.id.tv);
+        tv.setText("小园拼命加载中...");
+        dialog=new AlertDialog.Builder(ScoreActivity.this,R.style.CustomDialog)
+                .setView(view)
+                .setCancelable(false)
+                .create();
+        dialog.show();
         new Thread( new Runnable( ) {
             @Override
             public void run() {
                 try {
+                    Thread.sleep( 500 );
                     Ksoap2 ksoap2=new Ksoap2();
                     score=ksoap2.getScoreInfo( xh );
                     Gson gson=new Gson();
@@ -81,7 +91,7 @@ public class ScoreActivity extends AppCompatActivity {
                             vpAdapter = new ViewPagerAdapter(getSupportFragmentManager(), list_fragment, mTitles);
                             mViewPager.setAdapter(vpAdapter);
                             mTabLayout.setupWithViewPager( mViewPager );
-                            progressDialog.dismiss();
+                            dialog.dismiss();
                         }
                     } );
                 }catch (Exception e){

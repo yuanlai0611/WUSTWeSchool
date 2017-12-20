@@ -17,10 +17,10 @@
         android:layout_height="wrap_content">
         <TextView
             android:id="@+id/news_title"
-            android:paddingTop="5dp"
+            android:paddingTop="@dimen/sub_small_spacing"
             android:textStyle="bold"
-            android:paddingRight="5dp"
-            android:paddingLeft="5dp"
+            android:paddingRight="@dimen/sub_small_spacing"
+            android:paddingLeft="@dimen/sub_small_spacing"
             android:textColor="@color/colorLightBlack"
             android:textSize="16dp"
             android:text="管理学院2017年度国家自然科学基金申报经验交流会成功召开"
@@ -29,11 +29,10 @@
 
     <TextView
         android:textSize="15sp"
-        android:paddingLeft="5dp"
+        android:paddingLeft="@dimen/sub_small_spacing"
         android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:text="武科大网讯（通讯员代军）为进一步提供项目申报指导，提高学院教师申报国家基金的积极性。10月31日上午，“管理学院2017国家自然科学基金申报经验交流会”在黄家湖校区80506会议室成功举行。本次交流会主要围绕国家自然科学基金申请的成功经验与失败教训展开，由青年科协管理学分会会长代军主持，学院党委书记余淑均、副院长邱玉莲和准备申报2018年度国家基金的20多位教师参与了本次交流会。
- "
+        android:paddingBottom="@dimen/card_spacing"
+        android:text="武科大网讯（通讯员代军）为进一步提供项目申报指导，提高学院教师申报国家基金的积极性。10月31日上午，“管理学院2017国家自然科学基金申报经验交流会”在黄家湖校区80506会议室成功举行。本次交流会主要围绕国家自然科学基金申请的成功经验与失败教训展开，由青年科协管理学分会会长代军主持，学院党委书记余淑均、副院长邱玉莲和准备申报2018年度国家基金的20多位教师参与了本次交流会。 "
         android:id="@+id/notification_1"
         android:layout_width="match_parent"
         android:maxLines="4"
@@ -41,9 +40,9 @@
 
         <TextView
             android:id="@+id/publish_time"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
-            android:paddingRight="10dp"
+            android:paddingTop="@dimen/sub_small_spacing"
+            android:paddingBottom="@dimen/sub_small_spacing"
+            android:paddingRight="@dimen/card_spacing"
             android:gravity="end"
             android:text="发布时间：2017-11-05 21:48:22"
             android:layout_width="match_parent"

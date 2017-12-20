@@ -30,6 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <LinearLayout
+                android:id="@+id/score"
                 android:orientation="vertical"
                 android:layout_weight="1"
                 android:layout_width="0dp"
@@ -40,7 +41,6 @@
             <ImageView
                 android:layout_centerInParent="true"
                 android:layout_marginTop="10dp"
-                android:id="@+id/score"
                 android:src="@drawable/score"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp" />
@@ -55,6 +55,7 @@
                    />
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/choose_lesson"
                 android:orientation="vertical"
                 android:layout_weight="1"
                 android:layout_width="0dp"
@@ -65,7 +66,6 @@
                     <ImageView
                         android:layout_centerInParent="true"
                         android:layout_marginTop="10dp"
-                        android:id="@+id/choose_lesson"
                         android:src="@drawable/choose_lesson"
                         android:layout_width="wrap_content"
                         android:layout_height="50dp" />
@@ -78,6 +78,7 @@
                     android:layout_height="wrap_content" />
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/empty_class"
                 android:orientation="vertical"
                 android:layout_weight="1"
                 android:layout_width="0dp"
@@ -88,7 +89,6 @@
                     <ImageView
                         android:layout_centerInParent="true"
                         android:layout_marginTop="10dp"
-                        android:id="@+id/empty_class"
                         android:src="@drawable/empty_class"
                         android:layout_width="wrap_content"
                         android:layout_height="50dp" />
@@ -101,6 +101,7 @@
                     android:layout_height="wrap_content" />
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/more_thing"
                 android:orientation="vertical"
                 android:layout_weight="1"
                 android:layout_width="0dp"
@@ -111,7 +112,6 @@
                     <ImageView
                         android:layout_centerInParent="true"
                         android:layout_marginTop="10dp"
-                        android:id="@+id/more_thing"
                         android:src="@drawable/more_thing"
                         android:layout_width="wrap_content"
                         android:layout_height="50dp" />

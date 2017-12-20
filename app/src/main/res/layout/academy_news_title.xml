@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:fitsSystemWindows="true"
     android:id="@+id/edit_title"
     android:orientation="horizontal"
@@ -9,8 +8,6 @@
     android:layout_height="40dp"
     android:background="@color/colorPrimaryDark"
     android:clipToPadding="true">
-
-
 
     <Button
         android:id="@+id/academy_news_return"
@@ -22,7 +19,7 @@
         android:textColor="@color/ColorWhite"
         android:text="学院新闻"
         android:gravity="bottom"
-        android:paddingBottom="12dp"
+        android:paddingBottom="@dimen/sub_medium_spacing"
         android:layout_alignParentBottom="true"
         android:textSize="18sp"
         android:layout_marginLeft="200dp"

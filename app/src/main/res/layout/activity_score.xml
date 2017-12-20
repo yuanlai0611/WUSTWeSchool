@@ -9,9 +9,9 @@
     <android.support.design.widget.TabLayout
         android:id="@+id/tab_score"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_height="@dimen/toolbar_height"
         app:tabIndicatorColor="@color/ColorWhite"
-        app:tabIndicatorHeight="4dp"
+        app:tabIndicatorHeight="@dimen/scroll_bar_size"
         app:tabTextColor="@color/ColorWhite"
         app:tabSelectedTextColor="@color/ColorWhite"
         app:tabMode="fixed"

@@ -1,12 +1,15 @@
 package com.gongyunhaoyyy.wustweschool.Activity;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -16,15 +19,16 @@ import android.widget.Toast;
 
 import com.gongyunhaoyyy.wustweschool.Ksoap2;
 import com.gongyunhaoyyy.wustweschool.R;
+import com.wang.avi.AVLoadingIndicatorView;
 
 import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity {
-    EditText et_username,et_password;
-    TextView nologin;
-    String login_result,user,pass,userdt;
-    ProgressDialog mpgdl;
-    String[] reslut2;
+    private EditText et_username,et_password;
+    private TextView nologin;
+    private String login_result,user,pass,userdt;
+    private String[] reslut2;
+    private AlertDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,10 +45,16 @@ public class LoginActivity extends AppCompatActivity {
             init();
             //透明状态栏
             getWindow().addFlags( WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            mpgdl=new ProgressDialog( LoginActivity.this );
-            mpgdl.setTitle( "小园提示：" );
-            mpgdl.setMessage( "登录中 ..." );
-            mpgdl.setCancelable( false );
+            View view= LayoutInflater.from(this).inflate
+                    (R.layout.toast_loading,null);
+            AVLoadingIndicatorView avl=(AVLoadingIndicatorView) view.findViewById(R.id.avl);
+            avl.show();
+            TextView tv=view.findViewById(R.id.tv);
+            tv.setText("小园登陆中...");
+            dialog=new AlertDialog.Builder(LoginActivity.this,R.style.CustomDialog)
+                    .setView(view)
+                    .setCancelable(false)
+                    .create();
             Button login=(Button)findViewById( R.id.login );
             final Intent intent=new Intent( LoginActivity.this,MainActivity.class );
             login.setOnClickListener( new View.OnClickListener( ) {
@@ -56,11 +66,12 @@ public class LoginActivity extends AppCompatActivity {
                     if (user.length()!=12||pass.length()<1){
                         Toast.makeText( LoginActivity.this,"输入有误",Toast.LENGTH_SHORT ).show();
                     } else {
-                        mpgdl.show();
+                        dialog.show();
                         new Thread( new Runnable( ) {
                             @Override
                             public void run() {
                                 try {
+                                    Thread.sleep( 800 );
                                     Ksoap2 ksoap2=new Ksoap2();
                                     login_result=ksoap2.getLoginInfo( user,pass );
                                     if (login_result.length()>5){
@@ -74,10 +85,11 @@ public class LoginActivity extends AppCompatActivity {
                                                     nameeditor.putString( "getuserdata",userdt );
                                                     nameeditor.apply();
                                                     startActivity( intent );
+                                                    dialog.dismiss();
                                                     finish();
                                                 }else {
                                                     Toast.makeText( LoginActivity.this,reslut2[1],Toast.LENGTH_SHORT ).show();
-                                                    mpgdl.dismiss();
+                                                    dialog.dismiss();
                                                 }
                                             }
                                         } );
@@ -85,7 +97,7 @@ public class LoginActivity extends AppCompatActivity {
                                         runOnUiThread( new Runnable( ) {
                                             @Override
                                             public void run() {
-                                                mpgdl.dismiss();
+                                                dialog.dismiss();
                                                 Toast.makeText( LoginActivity.this,"请检查网络连接",Toast.LENGTH_SHORT ).show();
                                         }
                                     } );

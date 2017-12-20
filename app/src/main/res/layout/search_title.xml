@@ -5,13 +5,8 @@
     android:id="@+id/search_title"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="72dp"
+    android:layout_height="@dimen/icon_size"
     android:background="@color/colorPrimaryDark"
     android:clipToPadding="true">
-
-
-
-
-
 
 </RelativeLayout>

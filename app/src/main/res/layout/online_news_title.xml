@@ -9,8 +9,6 @@
     android:background="@color/colorPrimaryDark"
     android:clipToPadding="true">
 
-
-
     <Button
         android:id="@+id/online_news_return"
         android:background="@drawable/dean_office_return"
@@ -21,7 +19,7 @@
         android:textColor="@color/ColorWhite"
         android:text="聚焦科大"
         android:gravity="bottom"
-        android:paddingBottom="12dp"
+        android:paddingBottom="@dimen/sub_medium_spacing"
         android:layout_alignParentBottom="true"
         android:textSize="18sp"
         android:layout_marginLeft="200dp"

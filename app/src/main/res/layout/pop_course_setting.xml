@@ -12,23 +12,23 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="horizontal"
-        android:layout_height="45dp">
+        android:layout_height="@dimen/toolbar_height">
 
         <ImageView
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:src="@drawable/course_setting_image_blue"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="@dimen/fab_margin"
             android:layout_gravity="center"/>
 
         <TextView
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="@dimen/fab_margin"
             android:layout_width="wrap_content"
             android:layout_gravity="center"
-            android:layout_height="34dp"
+            android:layout_height="@dimen/toast_icon_size"
             android:textColor="@color/colorBlue"
             android:text="课表设置"
-            android:textSize="22sp"
+            android:textSize="@dimen/sub_big_text"
             android:gravity="center"/>
 
     </LinearLayout>
@@ -38,7 +38,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginLeft="20dp">
+        android:layout_marginLeft="@dimen/toast_corner">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -49,10 +49,10 @@
             android:textColor="@color/colorLightBlack"
             android:text="@string/xueqi"
             android:gravity="center"
-            android:textSize="18sp"
-            android:paddingLeft="1dp"
-            android:paddingBottom="5dp"
-            android:paddingTop="5dp"/>
+            android:textSize="@dimen/medium_text"
+            android:paddingLeft="@dimen/card_elevation"
+            android:paddingBottom="@dimen/sub_small_spacing"
+            android:paddingTop="@dimen/sub_small_spacing"/>
         <TextView
             android:id="@+id/course_xq"
             android:layout_alignParentEnd="true"
@@ -60,14 +60,14 @@
             android:layout_height="match_parent"
             android:text="2017-2018-1"
             android:gravity="center|end"
-            android:paddingRight="10dp"
+            android:paddingRight="@dimen/setting_spacing"
             android:textColor="@color/colorDark"
-            android:textSize="16sp"/>
+            android:textSize="@dimen/sub_medium_text"/>
     </RelativeLayout>
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="0.5dp"
+        android:layout_height="@dimen/line"
         android:background="@color/tabtext"/>
 
     <RelativeLayout
@@ -81,12 +81,12 @@
             android:layout_alignBottom="@+id/course_zs"
             android:layout_alignParentStart="true"
             android:gravity="center"
-            android:paddingBottom="5dp"
-            android:paddingLeft="1dp"
-            android:paddingTop="5dp"
+            android:paddingBottom="@dimen/sub_small_spacing"
+            android:paddingLeft="@dimen/card_elevation"
+            android:paddingTop="@dimen/sub_small_spacing"
             android:text="@string/zhoushu"
             android:textColor="@color/colorLightBlack"
-            android:textSize="18sp"/>
+            android:textSize="@dimen/medium_text"/>
         <TextView
             android:id="@+id/course_zs"
             android:layout_alignParentEnd="true"
@@ -94,27 +94,27 @@
             android:layout_height="match_parent"
             android:text="6"
             android:gravity="center|end"
-            android:paddingRight="10dp"
+            android:paddingRight="@dimen/setting_spacing"
             android:textColor="@color/colorDark"
-            android:textSize="16sp"/>
+            android:textSize="@dimen/sub_medium_text"/>
     </RelativeLayout>
     <View
         android:layout_width="match_parent"
-        android:layout_height="0.5dp"
+        android:layout_height="@dimen/line"
         android:background="@color/colorPrimary"/>
 </LinearLayout>
 
     <Button
         android:id="@+id/course_set_yes"
         android:layout_gravity="end"
-        android:layout_marginRight="5dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginRight="@dimen/sub_small_spacing"
+        android:layout_marginTop="@dimen/setting_spacing"
         android:text="@string/yes"
-        android:textSize="16sp"
+        android:textSize="@dimen/sub_medium_text"
         android:textColor="@color/white"
         android:background="@drawable/btn_know"
         android:layout_width="120dp"
         android:layout_height="38dp"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginBottom="@dimen/setting_spacing"/>
 
 </LinearLayout>
