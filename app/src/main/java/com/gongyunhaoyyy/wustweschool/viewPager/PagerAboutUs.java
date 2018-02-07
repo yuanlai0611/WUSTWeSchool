@@ -5,14 +5,18 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 
 import com.gongyunhaoyyy.wustweschool.Activity.LoginActivity;
 import com.gongyunhaoyyy.wustweschool.LitePal.Course;
 import com.gongyunhaoyyy.wustweschool.R;
+import com.gongyunhaoyyy.wustweschool.UI.WaveView;
 
 import org.litepal.crud.DataSupport;
 
@@ -25,6 +29,9 @@ import static android.content.Context.MODE_PRIVATE;
 public class PagerAboutUs extends Fragment implements View.OnClickListener{
     Button exit;
     private Context mContextUs;
+    private ImageView imageView;
+    private WaveView waveView;
+
 
     @Override
     public void onAttach(Context context) {
@@ -36,6 +43,19 @@ public class PagerAboutUs extends Fragment implements View.OnClickListener{
         View view= inflater.inflate( R.layout.pager_aboutus, container, false);
         exit=(Button)view.findViewById( R.id.exit_button );
         exit.setOnClickListener( this );
+
+        imageView = (ImageView) view.findViewById(R.id.image);
+        waveView = (WaveView) view.findViewById(R.id.wave_view);
+        final FrameLayout.LayoutParams lp = new FrameLayout.LayoutParams(-2,-2);
+        lp.gravity = Gravity.BOTTOM|Gravity.CENTER;
+        waveView.setOnWaveAnimationListener(new WaveView.OnWaveAnimationListener() {
+            @Override
+            public void OnWaveAnimation(float y) {
+                lp.setMargins(0,0,0,(int)y+15);
+                imageView.setLayoutParams(lp);
+            }
+        });
+
         return view;
     }
 

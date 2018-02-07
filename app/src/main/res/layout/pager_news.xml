@@ -11,7 +11,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/line"
-        android:background="#56bcec"/>
+        android:background="#5ac0f1"/>
 
     <android.support.design.widget.TabLayout
         android:id="@+id/news_tablayout_1"

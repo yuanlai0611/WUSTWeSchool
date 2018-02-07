@@ -3,7 +3,32 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/averige_all"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_margin="@dimen/corner"
+        android:text="平均绩点：null"
+        android:paddingLeft="15dp"
+        android:background="@drawable/shape_averige"
+        android:gravity="center|start"/>
+</android.support.v7.widget.CardView>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_score_all"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:fastScrollEnabled="true"
+        app:fastScrollHorizontalThumbDrawable="@drawable/thumb_drawable"
+        app:fastScrollHorizontalTrackDrawable="@drawable/line_drawable"
+        app:fastScrollVerticalThumbDrawable="@drawable/thumb_drawable"
+        app:fastScrollVerticalTrackDrawable="@drawable/line_drawable"/>
 
     <TextView
         android:visibility="gone"
@@ -13,11 +38,5 @@
         android:textSize="22sp"
         android:text="@string/noscore"
         android:gravity="center"/>
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_score_all"
-        android:layout_weight="10"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
 
 </LinearLayout>

@@ -30,11 +30,38 @@ public class PagerLibrary extends Fragment {
 
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
+    private boolean isCreate;
+    private boolean isHasLaodOnce;
     private MyFragmentPagerAdapter myFragmentPagerAdapter;
     private TabLayout.Tab one;
     private TabLayout.Tab two;
     private TabLayout.Tab three;
     Button search;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
+        isCreate=true;
+    }
+
+    @Override
+    public void setUserVisibleHint(boolean isVisbleToUser){
+        super.setUserVisibleHint(isVisbleToUser);
+        load();
+    }
+
+    private void load() {
+        if (isCreate && getUserVisibleHint() && !isHasLaodOnce){
+            isCreate = false;
+            isHasLaodOnce = true;
+        }
+    }
+
+    @Override
+    public void onActivityCreated( Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        load();
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

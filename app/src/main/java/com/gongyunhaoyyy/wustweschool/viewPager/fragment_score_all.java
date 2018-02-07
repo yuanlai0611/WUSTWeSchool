@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.gongyunhaoyyy.wustweschool.Adapter.ScoreAdapter;
 import com.gongyunhaoyyy.wustweschool.R;
@@ -24,7 +25,8 @@ import java.util.List;
 @SuppressLint("ValidFragment")
 public class fragment_score_all extends Fragment {
     private List<score> mScorelist_all=new ArrayList<>();
-    private TextView null_a;
+    TextView null_a,averige_a;
+    private int number=0;
     StaggeredGridLayoutManager layoutManager;
     RecyclerView recycler_score;
 
@@ -39,15 +41,21 @@ public class fragment_score_all extends Fragment {
 
         recycler_score=(RecyclerView)view.findViewById( R.id.recycler_score_all );
         null_a=(TextView)view.findViewById( R.id.null_score_all );
+        averige_a=view.findViewById( R.id.averige_all );
+        averige_a.setText( "平均绩点： "+ComputeAverigeScore() );
         layoutManager=new StaggeredGridLayoutManager( 1,StaggeredGridLayoutManager.VERTICAL );
         recycler_score.setLayoutManager( layoutManager );
 
-//        if (mScorelist_all.isEmpty()){
+//        for (score ssss:mScorelist_all){
+//            number++;
+//        }
+//        if (number<1){
 //            null_a.setVisibility( View.VISIBLE );
 //            recycler_score.setVisibility( View.GONE );
 //        }else {
 //            null_a.setVisibility( View.GONE );
-//            recycler_score.setVisibility( View.VISIBLE );
+//            recycler_score.setVisibility( View.GONE );
+
             ScoreAdapter adapter=new ScoreAdapter(mScorelist_all);
             recycler_score.setAdapter( adapter );
             adapter.notifyDataSetChanged();
@@ -55,4 +63,9 @@ public class fragment_score_all extends Fragment {
 
         return view;
     }
+
+    public double ComputeAverigeScore(){
+        return 0;
+    }
+
 }

@@ -5,6 +5,25 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/averige_now"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_margin="@dimen/corner"
+        android:text="平均绩点：null"
+        android:paddingLeft="15dp"
+        android:background="@drawable/shape_averige"
+        android:gravity="center|start"/>
+</android.support.v7.widget.CardView>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_score_now"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
     <TextView
         android:visibility="gone"
         android:id="@+id/null_score_now"
@@ -13,11 +32,5 @@
         android:textSize="22sp"
         android:text="@string/noscore"
         android:gravity="center"/>
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_score_now"
-        android:layout_weight="10"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
 
 </LinearLayout>

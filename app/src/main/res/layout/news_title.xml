@@ -4,9 +4,9 @@
     android:orientation="vertical"
     android:id="@+id/edit_title"
     android:layout_width="match_parent"
-    android:layout_height="40dp"
+    android:layout_height="55dp"
 
-    android:background="@color/colorPrimaryDark"
+    android:background="@color/colorPrimary"
     android:clipToPadding="true">
 
     <TextView
@@ -16,6 +16,6 @@
         android:textColor="@color/white"
         android:textSize="18sp"
         android:layout_gravity="center"
-        android:layout_marginTop="@dimen/card_spacing"/>
+        android:layout_marginTop="@dimen/sub_big_spacing"/>
 
 </LinearLayout>

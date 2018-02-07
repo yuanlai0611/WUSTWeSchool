@@ -131,10 +131,12 @@ public class Ksoap2 {
         String result;
 
         // 调用的方法名称
-        String methodName = "xslogin";
+        // 坑惨了，换成newlogin就ok了
+//        String methodName = "xslogin";
+        String methodName = "newlogin";
 
         // SOAP Action
-        final String soapAction = "http://webservices.qzdatasoft.com/xslogin";
+        final String soapAction = "http://webservices.qzdatasoft.com/newlogin";
 
         // 指定WebService的命名空间和调用的方法名
         SoapObject rpc = new SoapObject(nameSpace, methodName);
@@ -188,7 +190,7 @@ public class Ksoap2 {
         String methodName = "xsxk";
 
         // SOAP Action
-        final String soapAction = "http://webservices.qzdatasoft.com/getxscj";
+        final String soapAction = "http://webservices.qzdatasoft.com/xsxk";
 
         // 指定WebService的命名空间和调用的方法名
         SoapObject rpc = new SoapObject(nameSpace, methodName);

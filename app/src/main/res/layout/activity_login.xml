@@ -1,55 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorGray">
+    <FrameLayout
+        android:id="@+id/login_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </FrameLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/login_bg1">
+    android:gravity="center"
+    >
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="65dp"
-        android:layout_marginTop="100dp"
         android:layout_gravity="center"
-        android:text="LOGIN"
+        android:text="登录微校园"
         android:textColor="@color/white"
-        android:textSize="35sp"/>
+        android:textSize="32sp"/>
 
     <EditText
         android:id="@+id/et_username"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
+        android:layout_marginLeft="@dimen/status_height"
+        android:layout_marginRight="@dimen/status_height"
         android:layout_width="match_parent"
-        android:background="@drawable/course_set_shape"
-        android:layout_height="38dp"
+        android:background="@drawable/shape_button_login"
+        android:layout_height="@dimen/toolbar_height"
         android:inputType="number"
-        android:textSize="18sp"
+        android:paddingLeft="@dimen/sub_medium_spacing"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="17sp"
         android:hint="@string/username_hint"/>
 
         <EditText
             android:id="@+id/et_password"
             android:inputType="textPassword"
-            android:layout_marginTop="6dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
+            android:layout_marginTop="12dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:paddingLeft="@dimen/sub_medium_spacing"
+            android:layout_marginLeft="@dimen/status_height"
+            android:layout_marginRight="@dimen/status_height"
             android:layout_width="match_parent"
-            android:layout_height="38dp"
-            android:background="@drawable/course_set_shape"
+            android:layout_height="@dimen/toolbar_height"
+            android:background="@drawable/shape_button_login"
             android:hint="@string/password_hint"
-            android:textSize="18sp"/>
+            android:textSize="17sp"/>
 
     <Button
         android:id="@+id/login"
         android:layout_width="match_parent"
-        android:layout_height="42dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="@dimen/icon_size"
+        android:layout_marginRight="@dimen/icon_size"
         android:layout_marginTop="25dp"
-        android:background="@drawable/btn_know"
+        android:background="@drawable/shape_button_login"
         android:layout_gravity="center"
-        android:text="@string/login"
-        android:textColor="@color/white"/>
+        android:text="Go"
+        android:textColor="@color/white"
+        android:textSize="18sp"/>
 
     <TextView
         android:id="@+id/no_login_tv"
@@ -65,3 +81,4 @@
         android:textSize="14sp"/>
 
 </LinearLayout>
+    </FrameLayout>

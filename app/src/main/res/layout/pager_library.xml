@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <RelativeLayout
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/activity_main"
-    >
+    android:id="@+id/activity_main">
+
         <include layout="@layout/title"
-            android:id="@+id/title"
-            />
+                 android:id="@+id/title"/>
+
     <android.support.design.widget.CoordinatorLayout
         android:layout_below="@+id/title"
         android:layout_width="match_parent"
@@ -25,7 +24,6 @@
                 app:contentInsetStart="0dp"
                 android:layout_width="match_parent"
                 android:layout_height="110dp">
-
 
                     <LinearLayout
                         android:orientation="vertical"

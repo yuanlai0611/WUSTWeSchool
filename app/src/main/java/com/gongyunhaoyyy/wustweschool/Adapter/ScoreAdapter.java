@@ -74,8 +74,8 @@ public class ScoreAdapter extends RecyclerView.Adapter<ScoreAdapter.ViewHolder> 
         }
         holder.bx.setText( "性质："+s.getKclbmc() );
         holder.kcmc.setText( s.getKcmc() );
-        holder.ksxz.setText( "考试状态："+s.getKsxzmc() );
-        holder.xf.setText( "学分:"+s.getXf() );
+        holder.ksxz.setText( "状态："+s.getKsxzmc() );
+        holder.xf.setText( "学分："+s.getXf() );
         holder.jd.setText( "绩点："+s.getJd() );
         holder.cj.setText( "成绩："+s.getZcj() );
     }

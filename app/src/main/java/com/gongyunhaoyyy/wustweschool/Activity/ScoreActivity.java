@@ -2,6 +2,7 @@ package com.gongyunhaoyyy.wustweschool.Activity;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -15,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.gongyunhaoyyy.wustweschool.Adapter.ScoreAdapter;
 import com.gongyunhaoyyy.wustweschool.Adapter.ViewPagerAdapter;
@@ -88,6 +90,7 @@ public class ScoreActivity extends AppCompatActivity {
                         public void run() {
                             list_fragment.add(new fragment_score_all(mScorelist_all));
                             list_fragment.add(new fragment_score_now(mScorelist_now));
+
                             vpAdapter = new ViewPagerAdapter(getSupportFragmentManager(), list_fragment, mTitles);
                             mViewPager.setAdapter(vpAdapter);
                             mTabLayout.setupWithViewPager( mViewPager );
@@ -102,17 +105,25 @@ public class ScoreActivity extends AppCompatActivity {
     }
 
     public String getDate(){
+        int year2=2017;
         @SuppressLint("SimpleDateFormat") SimpleDateFormat sDateFormat = new SimpleDateFormat("yyyy");
         @SuppressLint("SimpleDateFormat") SimpleDateFormat sDateFormat2 = new SimpleDateFormat("MM");
         int mm= Integer.parseInt( sDateFormat2.format(new java.util.Date()) );
-        if (mm<9&&mm>2){
+        String year = sDateFormat.format(new java.util.Date());
+        int year1= Integer.parseInt( year );
+        if (mm>2&&mm<9){
+            year1--;
+            year2=year1+1;
             mm=2;
-        }else {
+        }else if (mm<=2){
+            year1--;
+            year2=year1+1;
             mm=1;
+        }else if (mm>=9){
+            year2=year1++;
         }
-        String date1 = sDateFormat.format(new java.util.Date());
-        int nextyear=Integer.parseInt( date1 )+1;
-        String date2=String.valueOf( nextyear );
+        String date1=String.valueOf( year1 );
+        String date2=String.valueOf( year2 );
         String mm2=String.valueOf( mm );
         String date3=date1+"-"+date2+"-"+mm2;
         return date3;
