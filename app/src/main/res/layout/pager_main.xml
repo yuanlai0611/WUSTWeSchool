@@ -15,7 +15,8 @@
     <ScrollView
         android:layout_below="@+id/main_title"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:scrollbars="none">
 
     <LinearLayout
         android:orientation="vertical"
@@ -223,7 +224,7 @@
                     android:layout_marginLeft="40dp"
                     android:paddingLeft="25dp"
                     android:textColor="@color/colorBlack"
-                    android:text="Android 编程权威指南"
+                    android:text="Android 权威指南"
                     android:layout_width="match_parent"
                     android:layout_height="50dp" />
 

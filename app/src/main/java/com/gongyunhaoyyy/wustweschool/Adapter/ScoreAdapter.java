@@ -27,7 +27,7 @@ public class ScoreAdapter extends RecyclerView.Adapter<ScoreAdapter.ViewHolder> 
     static class ViewHolder extends RecyclerView.ViewHolder {
         View scoreview;
         ImageView s90;
-        TextView bx,kcmc,ksxz,xf,jd,cj;
+        TextView bx,kcmc,ksxz,xf,jd,cj,kkxq;
 
         public ViewHolder(View itemView) {
             super( itemView );
@@ -38,6 +38,7 @@ public class ScoreAdapter extends RecyclerView.Adapter<ScoreAdapter.ViewHolder> 
             xf=(TextView)itemView.findViewById( R.id.xf );
             jd=(TextView)itemView.findViewById( R.id.jd );
             cj=(TextView)itemView.findViewById( R.id.cj );
+            kkxq=(TextView)itemView.findViewById( R.id.kkxq );
             s90=(ImageView)itemView.findViewById( R.id.score_90 );
         }
     }
@@ -72,12 +73,13 @@ public class ScoreAdapter extends RecyclerView.Adapter<ScoreAdapter.ViewHolder> 
                 holder.s90.setVisibility( View.INVISIBLE );
             }
         }
-        holder.bx.setText( "性质："+s.getKclbmc() );
+        holder.bx.setText( "课程类型：  "+s.getKclbmc() );
+        holder.kkxq.setText( s.getKkxq() );
         holder.kcmc.setText( s.getKcmc() );
-        holder.ksxz.setText( "状态："+s.getKsxzmc() );
-        holder.xf.setText( "学分："+s.getXf() );
-        holder.jd.setText( "绩点："+s.getJd() );
-        holder.cj.setText( "成绩："+s.getZcj() );
+        holder.ksxz.setText( s.getKsxzmc() );
+        holder.xf.setText( "学分：  "+s.getXf() );
+        holder.jd.setText( "绩点：  "+s.getJd() );
+        holder.cj.setText( "成绩：  "+s.getZcj() );
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.gongyunhaoyyy.wustweschool.Activity;
 
 import android.annotation.SuppressLint;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,29 +15,35 @@ import com.gongyunhaoyyy.wustweschool.R;
 import java.text.SimpleDateFormat;
 
 public class EmptyClassActivity extends AppCompatActivity {
-    String score,xh,xq;
-    EditText xhao;
+    String score,xh;
     TextView haha;
     Button fasong;
+    String jx0502id="59",xklbname="1",xnxq="2017-2018-2",xkfs="0";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_empty_class );
+        /**
+         * 0学号 1密码 2姓名 3学生照片 4性别 5身份(普通本科)
+         */
+        SharedPreferences userdate=getSharedPreferences( "userdata",MODE_PRIVATE );
+        String[] uddt=userdate.getString( "getuserdata","" ).split( "," );
+        xh=uddt[0];
         haha=(TextView)findViewById( R.id.hahaha );
         fasong=(Button)findViewById( R.id.fasong );
-        xhao=(EditText)findViewById( R.id.xuehao );
         fasong.setOnClickListener( new View.OnClickListener( ) {
             @Override
             public void onClick(View v) {
-                xh=xhao.getText().toString();
 //                xq=getDate();
                 new Thread( new Runnable( ) {
                     @Override
                     public void run() {
                         try {
                             Ksoap2 ksoap2=new Ksoap2();
-                            score=ksoap2.chooseCourse( xh );
+//                            score=ksoap2.getKxkc( xh,jx0502id,xnmc );
+//                            score=ksoap2.getTerm( );
+                            score=ksoap2.getKxkc( xh,jx0502id,xnxq,null,null,null );
                             //回到主线程更新UI
                             runOnUiThread( new Runnable( ) {
                                 @Override

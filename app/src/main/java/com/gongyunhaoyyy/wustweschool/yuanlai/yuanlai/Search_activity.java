@@ -21,11 +21,11 @@ import org.jsoup.select.Elements;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class Search_activity extends AppCompatActivity {
+import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
+
+public class Search_activity extends SwipeBackActivity {
     private FlowLayout mFlowLayout;
     private LayoutInflater mInflater;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

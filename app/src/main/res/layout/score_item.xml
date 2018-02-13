@@ -2,7 +2,8 @@
 <android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="120dp"
+    android:layout_height="155dp"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_marginTop="@dimen/sub_small_spacing"
     android:layout_marginBottom="@dimen/sub_small_spacing"
     android:layout_marginLeft="@dimen/small_spacing"
@@ -20,7 +21,7 @@
             android:layout_height="@dimen/huge_spacing">
 
             <View
-                android:layout_width="5dp"
+                android:layout_width="2dp"
                 android:layout_height="match_parent"
                 android:background="@color/colorOrange"/>
 
@@ -29,10 +30,11 @@
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="@dimen/sub_medium_spacing"
+                android:layout_marginLeft="@dimen/medium_spacing"
                 android:text="程序设计基础"
                 android:textSize="@dimen/medium_spacing"
                 android:padding="@dimen/sub_small_spacing"
+                android:textColor="@color/colorBlack"
                 android:gravity="start|center"/>
             <ImageView
                 android:id="@+id/score_90"
@@ -48,39 +50,54 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/big_spacing"
-        android:layout_marginTop="@dimen/sub_small_spacing"
+        android:layout_height="22dp"
         android:orientation="horizontal">
 
+        <ImageView
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="18dp"
+            android:src="@drawable/score_clock"/>
+
         <TextView
-            android:id="@+id/bx"
-            android:layout_width="0dp"
-            android:layout_weight="1"
+            android:id="@+id/kkxq"
+            android:layout_width="100dp"
+            android:layout_marginLeft="@dimen/big_corner"
             android:layout_height="match_parent"
-            android:layout_marginLeft="@dimen/sub_small_spacing"
-            android:textSize="@dimen/small_text"
-            android:gravity="center"
-            android:text="必修"/>
+            tools:text="2017-2018-1"
+            android:gravity="center|start"
+            android:textSize="@dimen/small_text"/>
 
         <TextView
             android:id="@+id/ksxz"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_marginLeft="@dimen/sub_small_text"
+            android:layout_width="100dp"
             android:layout_height="match_parent"
-            android:text="正常考试"
-            android:gravity="center"
+            tools:text="正常考试"
+            android:gravity="center|start"
             android:textSize="@dimen/small_text"/>
-        <TextView
-            android:id="@+id/xf"
-            android:text="学分：3.0"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:textSize="@dimen/small_text"
-            android:gravity="center"
-            android:layout_height="match_parent"/>
 
     </LinearLayout>
+
+        <TextView
+            android:id="@+id/xf"
+            tools:text="学分：3.0"
+            android:layout_width="match_parent"
+            android:textSize="@dimen/small_text"
+            android:gravity="center|start"
+            android:layout_height="20dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="2dp"/>
+
+        <TextView
+            android:id="@+id/bx"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginLeft="32dp"
+            android:textSize="@dimen/small_text"
+            android:gravity="center|start"
+            tools:text="必修"/>
+
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -88,7 +105,7 @@
 
         <TextView
             android:id="@+id/jd"
-            android:text="绩点：3.7"
+            tools:text="绩点：3.7"
             android:gravity="center"
             android:textSize="18sp"
             android:layout_weight="1"
@@ -102,7 +119,7 @@
             android:background="@color/tabtext"/>
         <TextView
             android:id="@+id/cj"
-            android:text="成绩：87"
+            tools:text="成绩：87"
             android:gravity="center"
             android:textSize="18sp"
             android:layout_weight="1"

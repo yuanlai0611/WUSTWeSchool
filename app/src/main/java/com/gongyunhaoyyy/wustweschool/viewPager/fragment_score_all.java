@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.gongyunhaoyyy.wustweschool.Adapter.ScoreAdapter;
 import com.gongyunhaoyyy.wustweschool.R;
@@ -64,8 +63,25 @@ public class fragment_score_all extends Fragment {
         return view;
     }
 
+    /**
+     * 计算平均绩点
+     * 平均绩点=∑学分*绩点　÷　∑学分
+     * @return
+     */
     public double ComputeAverigeScore(){
-        return 0;
+        double xfccjh=0,xfzh=0;//学分×成绩和，学分总和
+        if (mScorelist_all.size()<1){
+            return 0.0;
+        }else {
+            for (score mysc:mScorelist_all){
+                xfccjh+=Double.parseDouble( mysc.getJd() )*Double.parseDouble( mysc.getXf() );
+                xfzh+=Double.parseDouble( mysc.getXf() );
+            }
+            if (xfzh==0){
+                return 0;
+            }
+            return xfccjh/xfzh;
+        }
     }
 
 }

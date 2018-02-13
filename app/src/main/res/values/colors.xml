@@ -18,7 +18,7 @@
     <color name="title_color">#259b24</color>
     <color name="colorDark">#848383</color>
     <color name="lightGray">#ececec</color>
-    <color name="colorYellow">#edd825</color>
+    <color name="colorYellow">#e9d423</color>
     <color name="transparent">#00ffffff</color>
     <color name="toast_bg_loading">#50000000</color>
 </resources>

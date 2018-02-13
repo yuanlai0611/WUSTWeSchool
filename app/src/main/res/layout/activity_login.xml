@@ -68,17 +68,10 @@
         android:textSize="18sp"/>
 
     <TextView
-        android:id="@+id/no_login_tv"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="20dp"
-        android:drawableRight="@drawable/detail"
-        android:gravity="center"
-        android:text="@string/no_want_login"
-        android:textColor="@color/white"
-        android:textSize="14sp"/>
+        android:layout_height="20dp"
+        android:text="教务处|Copyright © 领航工作室"
+        android:layout_marginTop="10dp"/>
 
 </LinearLayout>
     </FrameLayout>

@@ -73,7 +73,7 @@ public class WaveView extends View {
             mAbovePath.lineTo(x, y);
             mBelowWavePath.lineTo(x, y2);
             //回调 把y坐标的值传出去(在activity里面接收让小机器人随波浪一起摇摆)
-            mWaveAnimationListener.OnWaveAnimation(y);
+//            mWaveAnimationListener.OnWaveAnimation(y);
         }
         mAbovePath.lineTo(getRight(),getBottom());
         mBelowWavePath.lineTo(getRight(),getBottom());

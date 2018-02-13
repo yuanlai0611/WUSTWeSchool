@@ -37,9 +37,10 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Objects;
 
-public class LoginActivity extends AppCompatActivity {
+import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
+
+public class LoginActivity extends SwipeBackActivity {
     private EditText et_username,et_password;
-    private TextView nologin;
     private String login_result,user,pass,userdt,xm;
     private String[] reslut2;
     private AlertDialog dialog;
@@ -115,7 +116,7 @@ public class LoginActivity extends AppCompatActivity {
 //                                                    }
 //                                                    imageView.setImageBitmap( bitmap );
 //                                                    Log.d( "user信息~~~~~~~~~~~>",strURL );
-                                                    Toast.makeText( LoginActivity.this,xm+",欢迎你~",Toast.LENGTH_SHORT ).show();
+                                                    Toast.makeText( LoginActivity.this,xm+"，欢迎你~",Toast.LENGTH_SHORT ).show();
                                                     nameeditor.putString( "getuserdata",userdt );
                                                     nameeditor.apply();
                                                     startActivity( intent );
@@ -137,13 +138,6 @@ public class LoginActivity extends AppCompatActivity {
                 }
             } );
 
-            nologin.setOnClickListener( new View.OnClickListener( ) {
-                @Override
-                public void onClick(View v) {
-                    startActivity( intent );
-                    finish();
-                }
-            } );
         }
     }
 
@@ -198,6 +192,5 @@ public class LoginActivity extends AppCompatActivity {
     private void init(){
         et_username=(EditText)findViewById( R.id.et_username );
         et_password=(EditText)findViewById( R.id.et_password );
-        nologin=(TextView)findViewById( R.id.no_login_tv );
     }
 }

@@ -1,8 +1,6 @@
 package com.gongyunhaoyyy.wustweschool.Activity;
 
 import android.annotation.SuppressLint;
-import android.app.ProgressDialog;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -10,21 +8,15 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.gongyunhaoyyy.wustweschool.Adapter.ScoreAdapter;
 import com.gongyunhaoyyy.wustweschool.Adapter.ViewPagerAdapter;
 import com.gongyunhaoyyy.wustweschool.Ksoap2;
 import com.gongyunhaoyyy.wustweschool.R;
 import com.gongyunhaoyyy.wustweschool.bean.score;
-import com.gongyunhaoyyy.wustweschool.viewPager.PagerLibrary;
-import com.gongyunhaoyyy.wustweschool.viewPager.PagerMain;
 import com.gongyunhaoyyy.wustweschool.viewPager.fragment_score_all;
 import com.gongyunhaoyyy.wustweschool.viewPager.fragment_score_now;
 import com.google.gson.Gson;
@@ -64,7 +56,7 @@ public class ScoreActivity extends AppCompatActivity {
         AVLoadingIndicatorView avl=(AVLoadingIndicatorView) view.findViewById(R.id.avl);
         avl.show();
         TextView tv=view.findViewById(R.id.tv);
-        tv.setText("小园拼命加载中...");
+        tv.setText("拼命加载中...");
         dialog=new AlertDialog.Builder(ScoreActivity.this,R.style.CustomDialog)
                 .setView(view)
                 .setCancelable(false)
@@ -90,7 +82,9 @@ public class ScoreActivity extends AppCompatActivity {
                         public void run() {
                             list_fragment.add(new fragment_score_all(mScorelist_all));
                             list_fragment.add(new fragment_score_now(mScorelist_now));
-
+                            for (int csy=0;csy<mScorelist_now.size();csy++){
+                                Log.d( ">>>>>>>>>>>>>>", mScorelist_now.get( csy ).getKkxq()+"->"+mScorelist_now.get( csy ).getKcmc());
+                            }
                             vpAdapter = new ViewPagerAdapter(getSupportFragmentManager(), list_fragment, mTitles);
                             mViewPager.setAdapter(vpAdapter);
                             mTabLayout.setupWithViewPager( mViewPager );
