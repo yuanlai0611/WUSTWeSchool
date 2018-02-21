@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.gongyunhaoyyy.wustweschool.Adapter.ScoreAdapter;
+import com.gongyunhaoyyy.wustweschool.Basefragment.BaseFragment;
 import com.gongyunhaoyyy.wustweschool.R;
 import com.gongyunhaoyyy.wustweschool.bean.score;
 
@@ -22,7 +23,7 @@ import java.util.List;
  */
 
 @SuppressLint("ValidFragment")
-public class fragment_score_all extends Fragment {
+public class fragment_score_all extends BaseFragment {
     private List<score> mScorelist_all=new ArrayList<>();
     TextView null_a,averige_a;
     private int number=0;
@@ -41,7 +42,7 @@ public class fragment_score_all extends Fragment {
         recycler_score=(RecyclerView)view.findViewById( R.id.recycler_score_all );
         null_a=(TextView)view.findViewById( R.id.null_score_all );
         averige_a=view.findViewById( R.id.averige_all );
-        averige_a.setText( "平均绩点： "+ComputeAverigeScore() );
+        averige_a.setText( "平均绩点： "+ComputeAverigeScore(mScorelist_all) );
         layoutManager=new StaggeredGridLayoutManager( 1,StaggeredGridLayoutManager.VERTICAL );
         recycler_score.setLayoutManager( layoutManager );
 
@@ -61,27 +62,6 @@ public class fragment_score_all extends Fragment {
 //        }
 
         return view;
-    }
-
-    /**
-     * 计算平均绩点
-     * 平均绩点=∑学分*绩点　÷　∑学分
-     * @return
-     */
-    public double ComputeAverigeScore(){
-        double xfccjh=0,xfzh=0;//学分×成绩和，学分总和
-        if (mScorelist_all.size()<1){
-            return 0.0;
-        }else {
-            for (score mysc:mScorelist_all){
-                xfccjh+=Double.parseDouble( mysc.getJd() )*Double.parseDouble( mysc.getXf() );
-                xfzh+=Double.parseDouble( mysc.getXf() );
-            }
-            if (xfzh==0){
-                return 0;
-            }
-            return xfccjh/xfzh;
-        }
     }
 
 }

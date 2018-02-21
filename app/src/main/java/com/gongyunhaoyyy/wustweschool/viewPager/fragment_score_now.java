@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.gongyunhaoyyy.wustweschool.Adapter.ScoreAdapter;
+import com.gongyunhaoyyy.wustweschool.Basefragment.BaseFragment;
 import com.gongyunhaoyyy.wustweschool.R;
 import com.gongyunhaoyyy.wustweschool.bean.score;
 
@@ -21,7 +22,7 @@ import java.util.List;
  */
 
 @SuppressLint("ValidFragment")
-public class fragment_score_now extends Fragment {
+public class fragment_score_now extends BaseFragment {
     TextView null_n,averige_n;
     private List<score> mScorelist_now=new ArrayList<>();
     private int number=0;
@@ -66,27 +67,6 @@ public class fragment_score_now extends Fragment {
         }
 
         return view;
-    }
-
-    /**
-     * 计算平均绩点
-     * 平均绩点=∑学分*绩点　÷　∑学分
-     * @return
-     */
-    public double ComputeAverigeScore(){
-        double xfccjh=0,xfzh=0;//学分×成绩和，学分总和
-        if (mScorelist_now.size()<1){
-            return 0.0;
-        }else {
-            for (score mysc:mScorelist_now){
-                xfccjh+=Double.parseDouble( mysc.getJd() )*Double.parseDouble( mysc.getXf() );
-                xfzh+=Double.parseDouble( mysc.getXf() );
-            }
-            if (xfzh==0){
-                return 0;
-            }
-            return xfccjh/xfzh;
-        }
     }
 
 }

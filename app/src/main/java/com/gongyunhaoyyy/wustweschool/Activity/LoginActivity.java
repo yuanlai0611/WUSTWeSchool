@@ -1,15 +1,12 @@
 package com.gongyunhaoyyy.wustweschool.Activity;
 
 import android.annotation.SuppressLint;
-import android.app.Dialog;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,16 +15,13 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.gongyunhaoyyy.wustweschool.Ksoap2;
 import com.gongyunhaoyyy.wustweschool.R;
 import com.gongyunhaoyyy.wustweschool.UI.DrawView;
 import com.wang.avi.AVLoadingIndicatorView;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.IOException;
@@ -37,10 +31,9 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Objects;
 
-import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
-
-public class LoginActivity extends SwipeBackActivity {
+public class LoginActivity extends BaseActivity {
     private EditText et_username,et_password;
+    private Button login;
     private String login_result,user,pass,userdt,xm;
     private String[] reslut2;
     private AlertDialog dialog;
@@ -55,24 +48,12 @@ public class LoginActivity extends SwipeBackActivity {
             startActivity( it );
             finish();
         }else {
-            setContentView( R.layout.activity_login );
+            setContentView();
             @SuppressLint("CommitPrefEdits") final SharedPreferences.Editor nameeditor = getSharedPreferences( "userdata", MODE_PRIVATE ).edit( );
-            init();
             //透明状态栏
             getWindow().addFlags( WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            drawBackGround();
-            View view= LayoutInflater.from(this).inflate
-                    (R.layout.toast_loading,null);
-            AVLoadingIndicatorView avl=(AVLoadingIndicatorView) view.findViewById(R.id.avl);
-            avl.show();
-            TextView tv=view.findViewById(R.id.tv);
-            tv.setText("小园登陆中...");
-            dialog=new AlertDialog.Builder(LoginActivity.this,R.style.CustomDialog)
-                    .setView(view)
-                    .setCancelable(false)
-                    .create();
-            Button login=(Button)findViewById( R.id.login );
-            final Intent intent=new Intent( LoginActivity.this,MainActivity.class );
+            initViews();
+            dialog=lodingDialog( "小园登陆中...",false );
             login.setOnClickListener( new View.OnClickListener( ) {
                 @Override
                 public void onClick(View v) {
@@ -80,7 +61,7 @@ public class LoginActivity extends SwipeBackActivity {
                     pass=et_password.getText().toString();
                     userdt=user+","+pass;
                     if (user.length()!=12||pass.length()<4){
-                        Toast.makeText( LoginActivity.this,"输入有误",Toast.LENGTH_SHORT ).show();
+                        showToast( "输入有误" );
                     } else {
                         dialog.show();
                         new Thread( new Runnable( ) {
@@ -97,7 +78,7 @@ public class LoginActivity extends SwipeBackActivity {
                                             @Override
                                             public void run() {
                                                 if (reslut2[0].equals( "0" )){
-                                                    Toast.makeText( LoginActivity.this,reslut2[1],Toast.LENGTH_SHORT ).show();
+                                                    showToast( reslut2[1] );
                                                     dialog.dismiss();
                                                 }else if (reslut2[0].equals( "1" )){
                                                     String userData=parseJSONwithJSONObject(login_result.substring( 3,login_result.length()-1 ));
@@ -116,14 +97,14 @@ public class LoginActivity extends SwipeBackActivity {
 //                                                    }
 //                                                    imageView.setImageBitmap( bitmap );
 //                                                    Log.d( "user信息~~~~~~~~~~~>",strURL );
-                                                    Toast.makeText( LoginActivity.this,xm+"，欢迎你~",Toast.LENGTH_SHORT ).show();
+                                                    showToast( xm+"，欢迎你~" );
                                                     nameeditor.putString( "getuserdata",userdt );
                                                     nameeditor.apply();
-                                                    startActivity( intent );
+                                                    startIntent( MainActivity.class );
                                                     dialog.dismiss();
                                                     finish();
                                                 }else {
-                                                    Toast.makeText( LoginActivity.this,R.string.nointernet,Toast.LENGTH_SHORT ).show();
+                                                    showToast( R.string.nointernet );
                                                     dialog.dismiss();
                                                 }
                                             }
@@ -139,6 +120,30 @@ public class LoginActivity extends SwipeBackActivity {
             } );
 
         }
+    }
+
+
+    @Override
+    public void setContentView() {
+        setContentView( R.layout.activity_login );
+    }
+
+    @Override
+    public void initViews() {
+        et_username=(EditText)findViewById( R.id.et_username );
+        et_password=(EditText)findViewById( R.id.et_password );
+        login=(Button)findViewById( R.id.login );
+        drawBackGround();
+    }
+
+    @Override
+    public void initListeners() {
+
+    }
+
+    @Override
+    public void initData() {
+
     }
 
     private String parseJSONwithJSONObject(String jsonData){
@@ -187,10 +192,5 @@ public class LoginActivity extends SwipeBackActivity {
         //通知view组件重绘
         view.invalidate();
         ll.addView(view);
-    }
-
-    private void init(){
-        et_username=(EditText)findViewById( R.id.et_username );
-        et_password=(EditText)findViewById( R.id.et_password );
     }
 }

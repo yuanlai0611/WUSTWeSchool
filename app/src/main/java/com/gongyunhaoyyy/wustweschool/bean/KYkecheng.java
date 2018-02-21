@@ -32,7 +32,15 @@ public class KYkecheng {
     //xxrs(可选人数),dwmc(单位名称),jsmc(教室名称),kcxzmc(课程性质)
     String kch,xxrs,xb,kkzc,kkzcmx,jx0404id,dwmc,jsmc,kcxzmc;
     //kcsj(课程时间)，syrs(剩余人数),xkbj(选课班级)
-    String kcsj,syrs,xkbj,kcmc;
+    String kcsj,syrs,xkbj,kcmc,xf;
+
+    public String getXf() {
+        return xf;
+    }
+
+    public void setXf(String xf) {
+        this.xf = xf;
+    }
 
     public String getJx02id() {
         return jx02id;

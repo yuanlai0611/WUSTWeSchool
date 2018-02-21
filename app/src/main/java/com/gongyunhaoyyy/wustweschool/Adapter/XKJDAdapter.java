@@ -39,11 +39,11 @@ public class XKJDAdapter extends RecyclerView.Adapter<XKJDAdapter.ViewHolder>{
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         Xkjieduan myxkjdbind=myXK.get( position );
-        holder.xklb.setText( "类别："+myxkjdbind.getXklb() );
-        holder.xkkssj.setText( "开始："+myxkjdbind.getXkkssj() );
-        holder.xkjzsj.setText( "结束："+myxkjdbind.getXkjzsj() );
-        holder.xkjd.setText( "阶段："+myxkjdbind.getXkjd() );
-        holder.xnmc.setText( "学期："+myxkjdbind.getXnmc() );
+        holder.mxklb.setText( "类别："+myxkjdbind.getXklb() );
+        holder.mxkkssj.setText( "开始："+myxkjdbind.getXkkssj() );
+        holder.mxkjzsj.setText( "结束："+myxkjdbind.getXkjzsj() );
+        holder.mxkjd.setText( "阶段："+myxkjdbind.getXkjd() );
+        holder.mxnmc.setText( "学期："+myxkjdbind.getXnmc() );
     }
 
     public XKJDAdapter(List<Xkjieduan> myXK) {
@@ -57,15 +57,15 @@ public class XKJDAdapter extends RecyclerView.Adapter<XKJDAdapter.ViewHolder>{
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         LinearLayout xkjdview;
-        TextView xklb,xkkssj,xkjzsj,xkjd,xnmc;
+        TextView mxklb,mxkkssj,mxkjzsj,mxkjd,mxnmc;
 
         public ViewHolder(View itemView) {
             super( itemView );
-            xklb=itemView.findViewById( R.id.g_xklb );
-            xkkssj=itemView.findViewById( R.id.g_xkkssj );
-            xkjzsj=itemView.findViewById( R.id.g_xkjzsj );
-            xkjd=itemView.findViewById( R.id.g_xkjd );
-            xnmc=itemView.findViewById( R.id.g_xnmc );
+            mxklb=itemView.findViewById( R.id.g_xklb );
+            mxkkssj=itemView.findViewById( R.id.g_xkkssj );
+            mxkjzsj=itemView.findViewById( R.id.g_xkjzsj );
+            mxkjd=itemView.findViewById( R.id.g_xkjd );
+            mxnmc=itemView.findViewById( R.id.g_xnmc );
             xkjdview=itemView.findViewById( R.id.g_xkjd_view );
         }
     }

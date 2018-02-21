@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.gongyunhaoyyy.wustweschool.Activity.LoginActivity;
+import com.gongyunhaoyyy.wustweschool.Basefragment.BaseFragment;
 import com.gongyunhaoyyy.wustweschool.LitePal.Course;
 import com.gongyunhaoyyy.wustweschool.R;
 import com.gongyunhaoyyy.wustweschool.UI.WaveView;
@@ -27,7 +28,7 @@ import static android.content.Context.MODE_PRIVATE;
  * Created by GongYunHao on 2017/10/11.
  */
 
-public class PagerAboutUs extends Fragment implements View.OnClickListener{
+public class PagerAboutUs extends BaseFragment implements View.OnClickListener{
     private Button exit;
     private Context mContextUs;
     private ImageView ima_xb,ima_what;
@@ -73,10 +74,9 @@ public class PagerAboutUs extends Fragment implements View.OnClickListener{
         SharedPreferences.Editor nameeditor = mContextUs.getSharedPreferences( "userdata", MODE_PRIVATE ).edit( );
         switch (v.getId()){
             case R.id.exit_button:
-                Intent ex=new Intent( mContextUs, LoginActivity.class );
                 nameeditor.putString( "getuserdata","" );
                 nameeditor.apply();
-                startActivity( ex );
+                startIntent( LoginActivity.class );
 //                finish方法无效，fragment依赖与Activity，不能在fragment中关闭活动
 //                getActivity().finish();
 //                模拟按返回键，销毁当前Activity，有效
