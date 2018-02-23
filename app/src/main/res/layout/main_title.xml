@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="40dp"
+    android:layout_height="50dp"
     android:background="@color/colorPrimary">
 
     <TextView
@@ -12,7 +12,7 @@
         android:text="@string/wustname"
         android:textColor="@color/white"
         android:textSize="18sp"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"/>
+        android:layout_gravity="center|bottom"
+        android:layout_marginTop="@dimen/medium_spacing"/>
 
 </LinearLayout>

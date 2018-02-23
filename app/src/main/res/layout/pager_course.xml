@@ -20,7 +20,7 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="38dp"
+                android:layout_height="50dp"
                 android:background="@color/colorPrimary">
 
                 <TextView
@@ -40,15 +40,15 @@
                     android:layout_height="31dp"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="12dp"
-                    android:padding="4dp"
+                    android:layout_marginRight="@dimen/sub_medium_spacing"
+                    android:padding="@dimen/scroll_bar_size"
                     android:src="@drawable/course_setting_image" />
             </RelativeLayout>
         </android.support.v7.widget.CardView>
         <!--显示星期-->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="22dp"
+            android:layout_height="@dimen/big_spacing"
             android:background="@android:color/white"
             android:gravity="center"
             android:orientation="horizontal">
@@ -117,14 +117,15 @@
         <!--显示课表详细信息-->
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:scrollbars="none">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <!--显示多少节课-->
                 <LinearLayout
-                    android:layout_width="25dp"
+                    android:layout_width="@dimen/status_height"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:orientation="vertical">
@@ -136,7 +137,7 @@
                         android:background="@color/course_left_bg"
                         android:gravity="center"
                         android:text="1"
-                        android:textSize="12dp" />
+                        android:textSize="@dimen/small_text" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -145,7 +146,7 @@
                         android:background="@color/course_left_bg"
                         android:gravity="center"
                         android:text="2"
-                        android:textSize="12dp" />
+                        android:textSize="@dimen/small_text" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -154,7 +155,7 @@
                         android:background="@color/course_left_bg"
                         android:gravity="center"
                         android:text="3"
-                        android:textSize="12dp" />
+                        android:textSize="@dimen/small_text" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -163,7 +164,7 @@
                         android:background="@color/course_left_bg"
                         android:gravity="center"
                         android:text="4"
-                        android:textSize="12dp" />
+                        android:textSize="@dimen/small_text" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -172,7 +173,7 @@
                         android:background="@color/course_left_bg"
                         android:gravity="center"
                         android:text="5"
-                        android:textSize="12dp" />
+                        android:textSize="@dimen/small_text" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -181,7 +182,7 @@
                         android:background="@color/course_left_bg"
                         android:gravity="center"
                         android:text="6"
-                        android:textSize="12dp" />
+                        android:textSize="@dimen/small_text" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -190,7 +191,7 @@
                         android:background="@color/course_left_bg"
                         android:gravity="center"
                         android:text="7"
-                        android:textSize="12dp" />
+                        android:textSize="@dimen/small_text" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -199,7 +200,7 @@
                         android:background="@color/course_left_bg"
                         android:gravity="center"
                         android:text="8"
-                        android:textSize="12dp" />
+                        android:textSize="@dimen/small_text" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -208,7 +209,7 @@
                         android:background="@color/course_left_bg"
                         android:gravity="center"
                         android:text="9"
-                        android:textSize="12dp" />
+                        android:textSize="@dimen/small_text" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -217,7 +218,7 @@
                         android:background="@color/course_left_bg"
                         android:gravity="center"
                         android:text="10"
-                        android:textSize="12dp" />
+                        android:textSize="@dimen/small_text" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -226,7 +227,7 @@
                         android:background="@color/course_left_bg"
                         android:gravity="center"
                         android:text="11"
-                        android:textSize="12dp" />
+                        android:textSize="@dimen/small_text" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -235,12 +236,12 @@
                         android:background="@color/course_left_bg"
                         android:gravity="center"
                         android:text="12"
-                        android:textSize="12dp" />
+                        android:textSize="@dimen/small_text" />
 
                 </LinearLayout>
 
                 <View
-                    android:layout_width="2dp"
+                    android:layout_width="@dimen/card_elevation"
                     android:layout_height="match_parent"
                     android:background="#f5f5f5" />
 

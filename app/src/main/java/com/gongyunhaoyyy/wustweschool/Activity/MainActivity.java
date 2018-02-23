@@ -1,18 +1,18 @@
 package com.gongyunhaoyyy.wustweschool.Activity;
 
-import android.annotation.SuppressLint;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.gongyunhaoyyy.wustweschool.Adapter.ViewPagerAdapter;
 import com.gongyunhaoyyy.wustweschool.R;
 import com.gongyunhaoyyy.wustweschool.viewPager.PagerAboutUs;
@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
             R.drawable.selector_tab_news,
             R.drawable.selector_tab_us
     };
+    private long exitTime = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,5 +90,27 @@ public class MainActivity extends AppCompatActivity {
         ImageView img_title = (ImageView) view.findViewById(R.id.img_tab);
         img_title.setImageResource(tabIcons[position]);
         return view;
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            exit();
+            return false;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+    public void exit() {
+        if ((System.currentTimeMillis() - exitTime) > 2000) {
+            Toast toast=Toast.makeText(getApplicationContext(), "再按一次退出程序",Toast.LENGTH_SHORT);
+//            View v= getLayoutInflater().inflate(R.layout.toast,null);
+//            toast.setView(v);
+//            toast.setGravity( Gravity.CENTER,0,0);
+            toast.show();
+            exitTime = System.currentTimeMillis();
+        } else {
+            finish();
+            System.exit(0);
+        }
     }
 }

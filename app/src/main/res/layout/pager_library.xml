@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <RelativeLayout
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/activity_main"
-    >
+    android:id="@+id/activity_main">
+
         <include layout="@layout/title"
-            android:id="@+id/title"
-            />
+                 android:id="@+id/title"/>
+
     <android.support.design.widget.CoordinatorLayout
         android:layout_below="@+id/title"
         android:layout_width="match_parent"
@@ -26,7 +24,6 @@
                 app:contentInsetStart="0dp"
                 android:layout_width="match_parent"
                 android:layout_height="110dp">
-
 
                     <LinearLayout
                         android:orientation="vertical"
@@ -57,15 +54,15 @@
 
                                 <View
                                     android:layout_width="match_parent"
-                                    android:layout_height="12dp" />
+                                    android:layout_height="@dimen/sub_medium_spacing" />
 
                                 <TextView
                                     android:textStyle="bold"
                                     android:textColor="@color/ColorWhite"
                                     android:layout_width="match_parent"
                                     android:layout_height="20dp"
-                                    android:paddingLeft="5dp"
-                                    android:textSize="16sp"
+                                    android:paddingLeft="@dimen/sub_small_spacing"
+                                    android:textSize="@dimen/medium_text"
                                     android:text="学号：201613137217" />
 
                                 <TextView
@@ -73,8 +70,8 @@
                                     android:textColor="@color/ColorWhite"
                                     android:layout_width="match_parent"
                                     android:layout_height="20dp"
-                                    android:paddingLeft="5dp"
-                                    android:textSize="16sp"
+                                    android:paddingLeft="@dimen/sub_small_spacing"
+                                    android:textSize="@dimen/medium_text"
                                     android:text="姓名：袁来" />
 
                             </LinearLayout>
@@ -85,18 +82,23 @@
                                 android:layout_width="0dp"
                                 android:layout_weight="1"
                                 android:layout_height="30dp"
-                                android:layout_marginRight="5dp"/>
+                                android:layout_marginRight="@dimen/sub_small_spacing"/>
                         </LinearLayout>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/line"
+                            android:background="#56bcec"
+                            />
                         <android.support.design.widget.TabLayout
                             android:id="@+id/tabLayout"
                             android:layout_width="match_parent"
                             android:layout_height="40dp"
-                            app:tabIndicatorColor="#33bbff"
-                            app:tabIndicatorHeight="2dp"
-                            app:tabTextColor="@color/colorDark"
-                            app:tabSelectedTextColor="#f9f9f9"
+                            app:tabIndicatorColor="@color/ColorWhite"
+                            app:tabIndicatorHeight="@dimen/scroll_bar_size"
+                            app:tabTextColor="@color/ColorWhite"
+                            app:tabSelectedTextColor="@color/ColorWhite"
                             app:tabMode="fixed"
-                            app:tabBackground="@drawable/selected"/>
+                            app:tabBackground="@color/colorPrimary"/>
 
                     </LinearLayout>
             </android.support.v7.widget.Toolbar>

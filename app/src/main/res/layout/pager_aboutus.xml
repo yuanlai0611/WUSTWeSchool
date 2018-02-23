@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -15,47 +17,116 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <RelativeLayout
-                android:background="@color/colorPrimary"
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="80dp">
-                <ImageView
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="30dp"
-                    android:src="@drawable/wust_icon"
-                    android:id="@+id/imageView2"/>
-                <TextView
-                    android:id="@+id/us_name_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="35dp"
-                    android:layout_alignTop="@+id/imageView2"
-                    android:layout_centerHorizontal="true"
-                    android:gravity="center"
-                    android:text="你好，龚云浩"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="25dp"
-                    android:layout_below="@+id/us_name_tv"
-                    android:layout_centerHorizontal="true"
-                    android:gravity="center"
-                    android:text="学号：201613137110"
-                    android:textColor="@color/white"
-                    android:textSize="15sp"/>
-            </RelativeLayout>
+                android:layout_height="125dp"
+                android:background="@color/colorPrimary">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/us_name_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:gravity="center"
+                        android:text="我的"
+                        android:layout_gravity="start"
+                        android:layout_marginLeft="20dp"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"/>
+
+                </LinearLayout>
+
+                <com.gongyunhaoyyy.wustweschool.UI.WaveView
+                    android:id="@+id/wave_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:layout_gravity="bottom" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="58dp"
+                    android:layout_marginTop="38dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:background="@drawable/photo"
+                        android:layout_width="55dp"
+                        android:layout_height="55dp"
+                        android:padding="1dp"
+                        android:layout_marginLeft="12dp"
+                        android:layout_gravity="start|center"/>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:id="@+id/student_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            tools:text="龚云浩"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="6dp"
+                            android:layout_marginLeft="20dp"
+                            android:textColor="@color/ColorWhite"/>
+
+                        <ImageView
+                            android:id="@+id/image_xingbie"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_marginLeft="2dp"
+                            android:layout_above="@+id/student_id"
+                            android:layout_toEndOf="@+id/student_name"
+                            android:background="@drawable/icon_boy"/>
+
+                        <TextView
+                            android:id="@+id/student_sf"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBaseline="@+id/student_name"
+                            android:layout_alignBottom="@+id/student_name"
+                            android:layout_marginStart="45dp"
+                            android:layout_toEndOf="@+id/student_name"
+                            android:textColor="@color/ColorWhite"
+                            android:textSize="10sp"
+                            tools:text="普通本科"/>
+                        <TextView
+                            android:id="@+id/student_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_below="@+id/student_name"
+                            tools:text="ID：201613137110"
+                            android:textStyle="bold"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="6dp"
+                            android:textColor="@color/ColorWhite"/>
+
+                        <ImageView
+                            android:id="@+id/image_user_what"
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="24dp"
+                            android:src="@drawable/image_what"/>
+
+                    </RelativeLayout>
+                </LinearLayout>
+            </FrameLayout>
+
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="200dp"
+                android:background="@drawable/textview_today_class"
                 android:layout_height="35dp"
-                android:gravity="start|bottom"
-                android:textSize="14sp"
-                android:paddingLeft="15dp"
-                android:paddingBottom="3dp"
-                android:background="@color/course_left_bg"
-                android:textColor="@color/colorOrange"
-                android:text="一卡通"/>
+                android:text="卡片-一卡通"
+                android:textColor="@color/colorYellow"
+                android:textSize="16sp"
+                android:gravity="center|start"
+                android:paddingLeft="20dp"/>
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -63,8 +134,8 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="26dp"
-                    android:layout_height="26dp"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
                     android:layout_gravity="center"
                     android:layout_marginLeft="15dp"
                     android:src="@drawable/yue"/>
@@ -76,7 +147,7 @@
                     android:layout_height="match_parent"
                     android:textColor="@color/colorLightBlack"
                     android:gravity="start|center"
-                    android:textSize="17sp"
+                    android:textSize="15sp"
                     android:text="@string/yue"/>
 
                 <TextView
@@ -85,7 +156,7 @@
                     android:layout_height="match_parent"
                     android:gravity="end|center"
                     android:layout_marginRight="3dp"
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     android:textColor="@color/colorDark"
                     android:drawableRight="@drawable/detail_gray"
                     android:text="45.2元"/>
@@ -104,8 +175,8 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="26dp"
-                    android:layout_height="26dp"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
                     android:layout_gravity="center"
                     android:layout_marginLeft="15dp"
                     android:src="@drawable/xiaofeijilu"/>
@@ -116,7 +187,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="start|center"
-                    android:textSize="17sp"
+                    android:textSize="15sp"
                     android:textColor="@color/colorLightBlack"
                     android:text="消费记录"/>
 
@@ -126,7 +197,7 @@
                     android:layout_height="match_parent"
                     android:gravity="end|center"
                     android:layout_marginRight="3dp"
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     android:textColor="@color/colorDark"
                     android:drawableRight="@drawable/detail_gray"
                     android:text="查看明细"/>
@@ -145,8 +216,8 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="26dp"
-                    android:layout_height="26dp"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
                     android:layout_gravity="center"
                     android:layout_marginLeft="15dp"
                     android:src="@drawable/kapianguashi"/>
@@ -157,7 +228,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="start|center"
-                    android:textSize="17sp"
+                    android:textSize="15sp"
                     android:textColor="@color/colorLightBlack"
                     android:text="卡片挂失"/>
 
@@ -167,27 +238,28 @@
                     android:layout_height="match_parent"
                     android:gravity="end|center"
                     android:layout_marginRight="3dp"
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     android:textColor="@color/colorDark"
                     android:drawableRight="@drawable/detail_gray"
                     android:text=""/>
 
             </LinearLayout>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
                 android:background="@color/colorGray"/>
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="200dp"
+                android:background="@drawable/text_view_not_return"
                 android:layout_height="35dp"
-                android:gravity="start|bottom"
-                android:textSize="14sp"
-                android:paddingLeft="15dp"
-                android:paddingBottom="3dp"
-                android:background="@color/course_left_bg"
-                android:textColor="@color/colorOrange"
-                android:text="关于"/>
+                android:text="关于"
+                android:textColor="@color/colorBlue"
+                android:textSize="16sp"
+                android:layout_marginTop="10dp"
+                android:gravity="center|start"
+                android:paddingLeft="20dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -195,8 +267,8 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="26dp"
-                    android:layout_height="26dp"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
                     android:layout_gravity="center"
                     android:layout_marginLeft="15dp"
                     android:src="@drawable/xiaoyuan"/>
@@ -208,7 +280,7 @@
                     android:layout_height="match_parent"
                     android:textColor="@color/colorLightBlack"
                     android:gravity="start|center"
-                    android:textSize="17sp"
+                    android:textSize="15sp"
                     android:text="关于小园"/>
 
                 <TextView
@@ -217,7 +289,7 @@
                     android:layout_height="match_parent"
                     android:gravity="end|center"
                     android:layout_marginRight="3dp"
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     android:textColor="@color/colorDark"
                     android:drawableRight="@drawable/detail_gray"
                     android:text=""/>
@@ -236,8 +308,8 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="26dp"
-                    android:layout_height="26dp"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
                     android:layout_gravity="center"
                     android:layout_marginLeft="15dp"
                     android:src="@drawable/tab_us_se"/>
@@ -249,7 +321,7 @@
                     android:layout_height="match_parent"
                     android:textColor="@color/colorLightBlack"
                     android:gravity="start|center"
-                    android:textSize="17sp"
+                    android:textSize="15sp"
                     android:text="作者"/>
 
                 <TextView
@@ -258,7 +330,7 @@
                     android:layout_height="match_parent"
                     android:gravity="end|center"
                     android:layout_marginRight="3dp"
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     android:textColor="@color/colorDark"
                     android:drawableRight="@drawable/detail_gray"
                     android:text=""/>
@@ -277,8 +349,8 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="26dp"
-                    android:layout_height="26dp"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
                     android:layout_gravity="center"
                     android:layout_marginLeft="15dp"
                     android:src="@drawable/yijianfankui"/>
@@ -290,7 +362,7 @@
                     android:layout_height="match_parent"
                     android:textColor="@color/colorLightBlack"
                     android:gravity="start|center"
-                    android:textSize="17sp"
+                    android:textSize="15sp"
                     android:text="建议反馈"/>
 
                 <TextView
@@ -299,7 +371,7 @@
                     android:layout_height="match_parent"
                     android:gravity="end|center"
                     android:layout_marginRight="3dp"
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     android:textColor="@color/colorDark"
                     android:drawableRight="@drawable/detail_gray"
                     android:text="欢迎联系"/>
@@ -315,7 +387,7 @@
             android:layout_height="35dp"
             android:gravity="start|center"
             android:textSize="18sp"
-            android:background="@color/lightGray"/>
+            android:background="#f4f3f3"/>
             <Button
                 android:id="@+id/exit_button"
                 android:layout_width="150dp"
@@ -326,7 +398,7 @@
                 android:gravity="center"
                 android:layout_gravity="center"
                 android:textColor="@color/colorOrange"
-                android:textSize="16sp"
+                android:textSize="15sp"
                 android:text="@string/logout"/>
 
     </LinearLayout>

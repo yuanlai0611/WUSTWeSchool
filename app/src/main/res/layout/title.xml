@@ -1,24 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:fitsSystemWindows="true"
     android:id="@+id/edit_title"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="40dp"
-    android:background="@color/colorPrimaryDark"
+    android:layout_height="55dp"
+    android:background="@color/colorPrimary"
     android:clipToPadding="true">
-
-
 
     <TextView
         android:textColor="@color/white"
         android:text="图书馆"
         android:gravity="bottom"
-        android:paddingBottom="12dp"
+        android:paddingBottom="@dimen/small_text"
         android:layout_alignParentBottom="true"
-        android:textSize="18sp"
+        android:textSize="@dimen/s_big_spacing"
         android:layout_marginLeft="200dp"
         android:layout_centerInParent="true"
         android:layout_width="wrap_content"
@@ -26,18 +23,21 @@
         />
 
     <Button
-        android:layout_width="33dp"
-        android:layout_height="33dp"
-        android:layout_marginBottom="4dp"
+        android:layout_width="@dimen/toast_icon_size"
+        android:layout_height="@dimen/toast_icon_size"
+        android:layout_marginBottom="@dimen/scroll_bar_size"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginEnd="4dp"
+        android:layout_marginEnd="@dimen/scroll_bar_size"
         android:background="@drawable/search_btn_selected"
         android:id="@+id/search"
-        android:layout_marginRight="4dp" />
+        android:layout_marginRight="@dimen/scroll_bar_size" />
 
-
-
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line"
+        android:layout_alignParentBottom="true"
+        android:background="#5ac0f1"/>
     
 </RelativeLayout>

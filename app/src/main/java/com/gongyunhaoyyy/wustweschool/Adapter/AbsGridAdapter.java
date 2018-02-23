@@ -88,7 +88,7 @@ public class AbsGridAdapter implements ListAdapter {
         if( !getItem1(position).equals("")) {
             textView.setText((String)getItem1(position));
             tvid.setText( (String)getItem2( position ) );
-//            textView.setTextColor( Color.WHITE);
+
             //变换颜色
             int rand = position % columnTotal;
             switch( rand ) {
@@ -149,9 +149,7 @@ public class AbsGridAdapter implements ListAdapter {
         return false;
     }
 
-    /**
-     * 设置内容、行数、列数
-     */
+//  设置内容、行数、列数
     public void setContent(String[][][] contents, int row, int column) {
         this.contents = contents;
         this.rowTotal = row;

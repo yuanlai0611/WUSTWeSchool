@@ -8,8 +8,8 @@
     <ImageView
         android:id="@+id/img_tab"
         android:layout_gravity="center"
-        android:layout_width="26dp"
-        android:layout_height="26dp" />
+        android:layout_width="@dimen/status_height"
+        android:layout_height="@dimen/status_height" />
 
     <TextView
         android:id="@+id/txt_tab"

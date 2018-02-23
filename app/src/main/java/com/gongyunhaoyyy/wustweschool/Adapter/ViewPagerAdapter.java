@@ -15,7 +15,6 @@ import java.util.List;
 
 public class ViewPagerAdapter extends FragmentPagerAdapter {
 
-    private String[] Titles = new String[]{"首页", "图书馆", "课表","新闻","我的"};
     private List<String> mTitles;
     private List<Fragment> list_fragment;                         //fragment列表
 
@@ -35,8 +34,6 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
         return list_fragment.get( position );
     }
 
-
-
     /**
      * 这个方法一定要注意了！！！！！！！！！！可把我坑惨了
      * 必须手动添加这个方法，否则下方的Tablayout的字不显示
@@ -44,7 +41,7 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
      */
     @Override
     public CharSequence getPageTitle(int position) {
-        return Titles[position];
+        return mTitles.get( position );
     }
 
     @Override
@@ -52,14 +49,4 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
 //        super.destroyItem(container, position, object);
     }
 
-
-//    @Override
-//    public Object instantiateItem(ViewGroup container, int position){
-//        return super.instantiateItem(container, position);
-//    }
-//
-//    @Override
-//    public void destroyItem(ViewGroup container, int position, Object object){
-//        super.destroyItem(container, position, object);
-//    }
 }
