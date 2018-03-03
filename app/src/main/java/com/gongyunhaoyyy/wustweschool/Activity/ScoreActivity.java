@@ -1,29 +1,22 @@
 package com.gongyunhaoyyy.wustweschool.Activity;
 
-import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.TextView;
 
 import com.gongyunhaoyyy.wustweschool.Adapter.ViewPagerAdapter;
-import com.gongyunhaoyyy.wustweschool.Ksoap2;
+import com.gongyunhaoyyy.wustweschool.tools.Ksoap2;
 import com.gongyunhaoyyy.wustweschool.R;
 import com.gongyunhaoyyy.wustweschool.bean.score;
 import com.gongyunhaoyyy.wustweschool.viewPager.fragment_score_all;
 import com.gongyunhaoyyy.wustweschool.viewPager.fragment_score_now;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.wang.avi.AVLoadingIndicatorView;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 

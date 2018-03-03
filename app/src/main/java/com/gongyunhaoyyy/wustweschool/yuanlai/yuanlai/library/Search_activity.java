@@ -1,9 +1,8 @@
-package com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai;
+package com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai.library;
 
 import android.app.Activity;
-import android.os.Build;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
@@ -11,37 +10,51 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.gongyunhaoyyy.wustweschool.R;
-
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
-
-import java.util.Timer;
-import java.util.TimerTask;
-
 import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
 
 public class Search_activity extends SwipeBackActivity {
     private FlowLayout mFlowLayout;
     private LayoutInflater mInflater;
+    private TextView textViewSearchButton;
+    private EditText editTextSearch;
+    private int i;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_search);
+        textViewSearchButton = (TextView)findViewById(R.id.button_search);
+        editTextSearch = (EditText) findViewById(R.id.search_text);
+        textViewSearchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(!editTextSearch.getText().toString().isEmpty()){
+                    String searchText = "http://opac.lib.wust.edu.cn:8080/opac/openlink.php?strSearchType=title&strText="+editTextSearch.getText().toString();
+                    Intent intent = new Intent(Search_activity.this,search_book_list_activity.class);
+                    intent.putExtra("searchText",searchText);
+                    startActivity(intent);
+                }else{
+                    Toast.makeText(Search_activity.this,"不能输入为空！",Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
+
         //透明状态栏
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         initFlowView();
 
-        Timer timer = new Timer();
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                openSoftKeyBoard(Search_activity.this);
-            }
-        },400);
+//        Timer timer = new Timer();
+//        timer.schedule(new TimerTask() {
+//            @Override
+//            public void run() {
+//                openSoftKeyBoard(Search_activity.this);
+//            }
+//        },400);
 
     }
     public static void openSoftKeyBoard(Activity activity)
@@ -81,11 +94,23 @@ public class Search_activity extends SwipeBackActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-
-                        for (int i = 0; i < search.length; i++) {
-                            TextView tv = (TextView) mInflater.inflate(
+                        for (i = 0; i < search.length; i++) {
+                            final TextView tv = (TextView) mInflater.inflate(
                                     R.layout.search_label_tv, mFlowLayout, false);
                             tv.setText(search[i]);
+                            tv.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    String text = tv.getText().toString();
+                                    int i = text.lastIndexOf("(");
+                                    String temp = text.substring(0,i);
+                                    String searchText = "http://opac.lib.wust.edu.cn:8080/opac/openlink.php?strSearchType=title&strText="+temp;
+                                    Intent intent = new Intent(Search_activity.this,search_book_list_activity.class);
+                                    intent.putExtra("searchText",searchText);
+                                    startActivity(intent);
+
+                                }
+                            });
                             mFlowLayout.addView(tv);
                         }
 

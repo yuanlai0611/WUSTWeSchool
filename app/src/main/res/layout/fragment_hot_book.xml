@@ -8,7 +8,6 @@
     android:layout_height="match_parent">
 
     <com.scwang.smartrefresh.layout.SmartRefreshLayout
-
         android:id="@+id/swipe_refresh_3"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         app:srlPrimaryColor="@color/colorPrimary"

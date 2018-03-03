@@ -15,7 +15,7 @@
         android:gravity="bottom"
         android:paddingBottom="@dimen/small_text"
         android:layout_alignParentBottom="true"
-        android:textSize="@dimen/s_big_spacing"
+        android:textSize="17sp"
         android:layout_marginLeft="200dp"
         android:layout_centerInParent="true"
         android:layout_width="wrap_content"
@@ -34,10 +34,6 @@
         android:id="@+id/search"
         android:layout_marginRight="@dimen/scroll_bar_size" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/line"
-        android:layout_alignParentBottom="true"
-        android:background="#5ac0f1"/>
+
     
 </RelativeLayout>

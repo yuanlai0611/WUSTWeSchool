@@ -1,9 +1,13 @@
-package com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai;
+package com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai.library;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.view.ViewGroup;
+
+import com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai.library.history_fragment;
+import com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai.library.hot_book_fragment;
+import com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai.library.notification_fragment;
 
 /**
  * Created by Carson_Ho on 16/7/22.

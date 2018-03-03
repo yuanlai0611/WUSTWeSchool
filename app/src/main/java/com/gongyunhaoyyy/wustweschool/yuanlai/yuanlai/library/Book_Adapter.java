@@ -1,5 +1,7 @@
-package com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai;
+package com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai.library;
 
+import android.content.Context;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,8 +9,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.gongyunhaoyyy.wustweschool.R;
+import com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai.element_item;
 
+import java.io.IOException;
+import java.net.URL;
 import java.util.List;
 
 /**
@@ -16,6 +22,8 @@ import java.util.List;
  */
 
 public class Book_Adapter extends RecyclerView.Adapter<Book_Adapter.ViewHolder> implements View.OnClickListener {
+
+    private Context mContext;
 
     private List<element_item> books;
 
@@ -56,6 +64,11 @@ public class Book_Adapter extends RecyclerView.Adapter<Book_Adapter.ViewHolder> 
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
+
+        if(mContext == null){
+            mContext = parent.getContext();
+        }
+
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.book_item,parent,false);
         final ViewHolder holder = new ViewHolder(view);
@@ -67,7 +80,7 @@ public class Book_Adapter extends RecyclerView.Adapter<Book_Adapter.ViewHolder> 
     public void onBindViewHolder(ViewHolder holder, int position){
         element_item book = books.get(position);
         holder.book_name.setText(book.getText());
-        holder.book_pic.setImageBitmap(book.getBitmap());
+        Glide.with(mContext).load(book.getByte()).into(holder.book_pic);
         holder.book_author.setText(book.getAuthor_name());
         holder.itemView.setTag(position);
     }

@@ -1,46 +1,50 @@
-package com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai;
+package com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai.library;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.gongyunhaoyyy.wustweschool.R;
+import com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai.CustomPopupWindow;
+import com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai.Element_item_Adapter;
+import com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai.element_item;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
-import org.w3c.dom.Document;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by 99460 on 2017/10/28.
+ * Created by 99460 on 2017/10/14.
  */
 
-public class online_news_fragment extends Fragment  {
 
+
+public class notification_fragment extends Fragment {
+
+    private CustomPopupWindow mCustomPopupWindow;
+    private Button mImageButton;//悬浮窗的关闭按钮
+    private View mLayoutPopupWindowView;//悬浮窗的布局
+    private TextView mTvActivityRule;//悬浮窗的内容
+    private boolean isPrepared;
     private boolean isHasLaodOnce;
     private boolean isCreate;
     private static boolean isFirstIn = true;
     private RefreshLayout mRefreshLayout;
     Element_item_Adapter adapter;
-    private List<element_item> notifications;
+    private List<element_item> notifications ;
     RecyclerView recyclerView;
     LinearLayoutManager layoutManager;
 
@@ -51,10 +55,11 @@ public class online_news_fragment extends Fragment  {
         isCreate=true;
     }
 
+
     @Override
     public void setUserVisibleHint(boolean isVisbleToUser){
         super.setUserVisibleHint(isVisbleToUser);
-          load();
+        load();
     }
 
     private void load() {
@@ -71,17 +76,25 @@ public class online_news_fragment extends Fragment  {
         load();
     }
 
+
+    @Override
+    public void onPause(){
+        super.onPause();
+        mRefreshLayout.finishRefresh();
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle saveInstanceState){
-        final View v = inflater.inflate(R.layout.fragment_online_news,parent,false);
-        mRefreshLayout = (RefreshLayout)v.findViewById(R.id.swipe_refresh_5);
+        final View v = inflater.inflate(R.layout.fragment_notification,parent,false);
+        mRefreshLayout = (RefreshLayout) v.findViewById(R.id.swipe_refresh_1);
         mRefreshLayout.setPrimaryColorsId(R.color.colorPrimary, android.R.color.white);
         notifications = new ArrayList<>();
-        recyclerView = (RecyclerView) v.findViewById(R.id.recycleview_5);
+        recyclerView = (RecyclerView) v.findViewById(R.id.recycleview_1);
+        isPrepared = true;
         mRefreshLayout.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh(RefreshLayout refreshlayout) {
-              initNotification();
+                initNotification();
             }
         });
 //        if (isFirstIn == true) {
@@ -98,13 +111,22 @@ public class online_news_fragment extends Fragment  {
             @Override
             public void onItemClick(View view, final int position) {
                 final String detailUrl = notifications.get(position).getUrl();
-                Intent intent = new Intent(getActivity(),online_news_activity.class);
-                intent.putExtra("url1",detailUrl);
+                Intent intent = new Intent(getActivity(),notification_activity.class);
+                intent.putExtra("url5",detailUrl);
                 startActivity(intent);
             }
         });
         return v;
     }
+
+
+//    @Override
+//    protected void lazyLoad() {
+//        if(!isPrepared || !isVisble) {
+//            return;
+//        }
+//        mRefreshLayout.autoRefresh();
+//    }
 
     private void initNotification() {
         new Thread(new Runnable() {
@@ -112,23 +134,20 @@ public class online_news_fragment extends Fragment  {
             public void run() {
                 try{
                     notifications.clear();
-                    org.jsoup.nodes.Document document = Jsoup.connect("http://www.cnwust.com/default.html").get();
-                    Elements elements = document.getElementsByClass("newslist_147813844272798754").select("div.con").select("li");
-                    for (int i=0;i<elements.size();i++){
-                        org.jsoup.nodes.Document document1 = Jsoup.connect(elements.get(i).select("a").get(1).attr("href")).get();
-                        Elements elements1 = document1.select("div.con").select("div.xwcon").select("p");
-                        String s = elements1.text();
-                        element_item element_item = new element_item(s);
-                        element_item.setNews_title(elements.get(i).select("a").get(1).attr("title"));
-                        element_item.setNews_time(document1.select("div.title").select("h4").select("span.pubtime").text());
-                        element_item.setUrl(elements.get(i).select("a").get(1).attr("href"));
+                    Document document = Jsoup.connect("http://www.lib.wust.edu.cn/bullet/bullet.aspx").get();
+                    Elements elements = document.select("a.other");
+                    for (int i=4;i<elements.size();i++){
+                        Document document1 = Jsoup.connect("http://www.lib.wust.edu.cn/bullet/"+elements.get(i).attr("href")).get();
+                        element_item element_item = new element_item(document1.getElementById("content").select("tbody").first().select("tr").first().select("td").get(1).select("table").first().select("table").first().select("tbody").first().select("tr").first().select("td").first().select("div").get(4).text());
+                        element_item.setNews_time(document1.getElementById("content").select("tbody").first().select("tr").first().select("td").get(1).select("table").first().select("tbody").first().select("tr").first().select("td").first().select("div").get(1).select("div").first().text().substring(0, 16));
+                        element_item.setNews_title(elements.get(i).text());
+                        element_item.setUrl("http://www.lib.wust.edu.cn/bullet/"+elements.get(i).attr("href"));
                         notifications.add(element_item);
                     }
-
                 }catch(IOException e){
                     e.printStackTrace();
                 }
-                getActivity().runOnUiThread(new Runnable() {
+                getActivity().runOnUiThread(new Runnable(){
                     @Override
                     public void run() {
                         adapter.notifyDataSetChanged();
