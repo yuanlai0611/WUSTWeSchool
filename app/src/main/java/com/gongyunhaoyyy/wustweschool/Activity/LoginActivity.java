@@ -3,33 +3,18 @@ package com.gongyunhaoyyy.wustweschool.Activity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.Build;
 import android.support.v7.app.AlertDialog;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
-import android.widget.TextView;
-
-import com.gongyunhaoyyy.wustweschool.Ksoap2;
+import com.gongyunhaoyyy.wustweschool.tools.Ksoap2;
 import com.gongyunhaoyyy.wustweschool.R;
 import com.gongyunhaoyyy.wustweschool.UI.DrawView;
-import com.wang.avi.AVLoadingIndicatorView;
 
 import org.json.JSONObject;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.Objects;
 
 public class LoginActivity extends BaseActivity {
     private EditText et_username,et_password;
@@ -132,7 +117,7 @@ public class LoginActivity extends BaseActivity {
     public void initViews() {
         et_username=(EditText)findViewById( R.id.et_username );
         et_password=(EditText)findViewById( R.id.et_password );
-        login=(Button)findViewById( R.id.login );
+        login=(Button)findViewById( R.id.img_login );
         drawBackGround();
     }
 

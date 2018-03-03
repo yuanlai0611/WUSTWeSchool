@@ -5,7 +5,6 @@
     android:id="@+id/edit_title"
     android:layout_width="match_parent"
     android:layout_height="55dp"
-
     android:background="@color/colorPrimary"
     android:clipToPadding="true">
 
@@ -14,7 +13,7 @@
         android:layout_height="wrap_content"
         android:text="武科大新闻"
         android:textColor="@color/white"
-        android:textSize="18sp"
+        android:textSize="17sp"
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/sub_big_spacing"/>
 

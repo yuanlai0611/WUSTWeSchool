@@ -9,4 +9,30 @@
     android:background="@color/colorPrimaryDark"
     android:clipToPadding="true">
 
+    <EditText
+        android:id="@+id/search_text"
+        android:singleLine="true"
+        android:paddingLeft="@dimen/setting_spacing"
+        android:hint="输入要搜索的图书"
+        android:layout_marginBottom="@dimen/setting_spacing"
+        android:background="@drawable/search_view"
+        android:layout_marginRight="45dp"
+        android:layout_marginLeft="5dp"
+        android:textSize="15sp"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="32dp"/>
+    <TextView
+        android:id="@+id/button_search"
+        android:textSize="17sp"
+        android:layout_marginRight="9dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="15dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentEnd="true"
+        android:textColor="@color/white"
+        android:text="搜索"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
 </RelativeLayout>

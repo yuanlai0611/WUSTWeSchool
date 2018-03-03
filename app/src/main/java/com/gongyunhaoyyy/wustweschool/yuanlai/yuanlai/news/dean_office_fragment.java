@@ -1,31 +1,23 @@
-package com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai;
+package com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai.news;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.v4.app.Fragment;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.webkit.WebView;
-import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.gongyunhaoyyy.wustweschool.R;
+import com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai.Element_item_Adapter;
+import com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai.element_item;
+import com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai.news.dean_office_activity;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;

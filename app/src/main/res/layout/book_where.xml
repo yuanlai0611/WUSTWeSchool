@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <LinearLayout
+        android:id="@+id/book_where"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="120dp">
+
+
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_marginLeft="20dp"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical|end"
+                    android:text="索书号:"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp" />
+                <TextView
+                    android:id="@+id/call_number"
+                    android:paddingLeft="20dp"
+                    android:gravity="center_vertical"
+                    android:text="H315/1052"
+                    android:textSize="14sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginLeft="20dp"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+                <TextView
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp"
+                    android:gravity="center_vertical|end"
+                    android:text="条码号:"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent" />
+                <TextView
+                    android:id="@+id/barcode"
+                    android:paddingLeft="20dp"
+                    android:gravity="center_vertical"
+                    android:text="A0929300"
+                    android:textSize="14sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginLeft="20dp"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+                <TextView
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp"
+                    android:gravity="center_vertical|end"
+                    android:text="校区—馆藏地:"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent" />
+                <TextView
+                    android:id="@+id/campus"
+                    android:paddingLeft="20dp"
+                    android:gravity="center_vertical"
+                    android:text="黄家湖—黄家湖三线书库"
+                    android:textSize="14sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginLeft="20dp"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+                <TextView
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp"
+                    android:gravity="center_vertical|end"
+                    android:text="书刊状态:"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent" />
+                <TextView
+                    android:id="@+id/isBorrowed"
+                    android:paddingLeft="20dp"
+                    android:gravity="center_vertical"
+                    android:text="可借"
+                    android:textSize="14sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+

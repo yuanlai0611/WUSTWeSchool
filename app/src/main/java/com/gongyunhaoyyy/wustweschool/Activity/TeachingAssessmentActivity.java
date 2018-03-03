@@ -6,7 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 
 import com.gongyunhaoyyy.wustweschool.Adapter.KYKCAdapter;
-import com.gongyunhaoyyy.wustweschool.Ksoap2;
+import com.gongyunhaoyyy.wustweschool.tools.Ksoap2;
 import com.gongyunhaoyyy.wustweschool.R;
 import com.gongyunhaoyyy.wustweschool.bean.KYkecheng;
 import com.google.gson.Gson;

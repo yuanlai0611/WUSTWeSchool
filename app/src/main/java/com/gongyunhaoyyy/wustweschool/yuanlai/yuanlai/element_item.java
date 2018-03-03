@@ -10,6 +10,8 @@ import java.util.UUID;
 
 public class element_item {
 
+    private String bookUrl;
+
     private String author_name;
 
     private String text;
@@ -22,6 +24,16 @@ public class element_item {
 
     private String news_time;
 
+    private byte[] data;
+
+    public void setBookUrl(String bookUrl){
+        this.bookUrl = bookUrl;
+    }
+
+    public String getBookUrl() {
+        return bookUrl;
+    }
+
     public void setAuthor_name(String author_name){
         this.author_name = author_name;
     }
@@ -30,6 +42,13 @@ public class element_item {
         return author_name;
     }
 
+    public void setByte(byte[] data){
+        this.data = data;
+    }
+
+    public byte[] getByte(){
+        return data;
+    }
     public  void  setUrl(String url){
         this.url = url;
     }

@@ -12,15 +12,13 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.gongyunhaoyyy.wustweschool.Adapter.AbsGridAdapter;
-import com.gongyunhaoyyy.wustweschool.Ksoap2;
+import com.gongyunhaoyyy.wustweschool.tools.Ksoap2;
 import com.gongyunhaoyyy.wustweschool.LitePal.Course;
 import com.gongyunhaoyyy.wustweschool.R;
 import com.gongyunhaoyyy.wustweschool.UI.courseSetPopwindow;
