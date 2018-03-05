@@ -2,7 +2,6 @@ package com.gongyunhaoyyy.wustweschool.viewPager;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
@@ -10,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.gongyunhaoyyy.wustweschool.Adapter.ScoreAdapter;
-import com.gongyunhaoyyy.wustweschool.Basefragment.BaseFragment;
+import com.gongyunhaoyyy.wustweschool.Base.BaseFragment;
 import com.gongyunhaoyyy.wustweschool.R;
 import com.gongyunhaoyyy.wustweschool.bean.score;
 

@@ -1,12 +1,17 @@
-package com.gongyunhaoyyy.wustweschool.Basefragment;
+package com.gongyunhaoyyy.wustweschool.Base;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v4.app.Fragment;
 import android.widget.Toast;
 
 import com.gongyunhaoyyy.wustweschool.bean.score;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
+
+import static android.content.Context.MODE_PRIVATE;
 
 //    ┏┓　   ┏┓
 // ┏━━┛┻━━━━━┛┻ ┓ 
@@ -52,6 +57,40 @@ public class BaseFragment extends Fragment{
             toast.setText(text);
         }
         toast.show();
+    }
+
+    /**
+     *
+     */
+    public String[] getUserData(){
+        SharedPreferences userdate=getActivity().getSharedPreferences( "userdata",MODE_PRIVATE );
+        String[] uddt=userdate.getString( "getuserdata","" ).split( "," );
+        return uddt;
+    }
+
+    public String getDateForXq(){
+        int year2=2017;
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat sDateFormat = new SimpleDateFormat("yyyy");
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat sDateFormat2 = new SimpleDateFormat("MM");
+        int mm= Integer.parseInt( sDateFormat2.format(new java.util.Date()) );
+        String year = sDateFormat.format(new java.util.Date());
+        int year1= Integer.parseInt( year );
+        if (mm>2&&mm<9){
+            year1--;
+            year2=year1+1;
+            mm=2;
+        }else if (mm<=2){
+            year1--;
+            year2=year1+1;
+            mm=1;
+        }else if (mm>=9){
+            year2=year1++;
+        }
+        String date1=String.valueOf( year1 );
+        String date2=String.valueOf( year2 );
+        String mm2=String.valueOf( mm );
+        String date3=date1+"-"+date2+"-"+mm2;
+        return date3;
     }
 
     /**

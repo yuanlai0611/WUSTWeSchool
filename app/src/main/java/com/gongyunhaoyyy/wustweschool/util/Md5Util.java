@@ -1,4 +1,4 @@
-package com.gongyunhaoyyy.wustweschool;
+package com.gongyunhaoyyy.wustweschool.util;
 
 import java.security.MessageDigest;
 

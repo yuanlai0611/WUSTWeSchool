@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import com.gongyunhaoyyy.wustweschool.Activity.ChooseLessonActivity;
 import com.gongyunhaoyyy.wustweschool.Activity.ScoreActivity;
 import com.gongyunhaoyyy.wustweschool.Activity.TeachingAssessmentActivity;
-import com.gongyunhaoyyy.wustweschool.Basefragment.BaseFragment;
+import com.gongyunhaoyyy.wustweschool.Base.BaseFragment;
 import com.gongyunhaoyyy.wustweschool.R;
 
 /**
@@ -47,7 +47,12 @@ public class PagerMain extends BaseFragment {
                 startIntent( TeachingAssessmentActivity.class );
             }
         } );
+        view.findViewById( R.id.more_thing ).setOnClickListener( new View.OnClickListener( ) {
+            @Override
+            public void onClick(View v) {
 
+            }
+        } );
 
         return view;
     }

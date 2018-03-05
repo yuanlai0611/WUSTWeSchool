@@ -8,10 +8,13 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="myCourseAnim">
-        <item name="android:windowEnterAnimation">@anim/popwindow_coursesetting</item>
-        <item name="android:windowExitAnimation">@anim/popupwindow_coursesetting_out</item>
+    <style name="popuwindow_up_style">
+        <item name="android:windowEnterAnimation">@anim/popu_up_in</item>
+        <item name="android:windowExitAnimation">@anim/popu_up_out</item>
     </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
 
     <style name="CustomDialog" parent="android:Theme.Dialog">
         <item name="android:windowIsTranslucent">true</item>

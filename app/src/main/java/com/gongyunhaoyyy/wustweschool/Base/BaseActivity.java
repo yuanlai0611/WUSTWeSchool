@@ -1,12 +1,11 @@
-package com.gongyunhaoyyy.wustweschool.Activity;
+package com.gongyunhaoyyy.wustweschool.Base;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
@@ -22,6 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.gongyunhaoyyy.wustweschool.R;
+import com.gongyunhaoyyy.wustweschool.util.PermissionUtils;
 import com.wang.avi.AVLoadingIndicatorView;
 
 import java.text.SimpleDateFormat;
@@ -57,6 +57,11 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     protected int mScreenWidth;
     protected int mScreenHeight;
     public static final String TAG = "WustWXY";
+    /**
+     * 权限回调Handler
+     */
+    private PermissionHandler mHandler;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
@@ -127,7 +132,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         startActivity(getIntent(clazz));
     }
 
-    public AlertDialog lodingDialog(String text,boolean cancelable){
+    public AlertDialog loadingDialog(String text,boolean cancelable){
         View view= LayoutInflater.from(mthis).inflate
                 (R.layout.toast_loading,null);
         AVLoadingIndicatorView avl=(AVLoadingIndicatorView) view.findViewById(R.id.avl);
@@ -146,25 +151,73 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
                 mthis.getResources().getDisplayMetrics());
     }
 
+    /**
+     * 请求权限
+     *
+     * @param permissions 权限列表
+     * @param handler     回调
+     */
+    protected void requestPermission(String[] permissions, PermissionHandler handler) {
+        if (PermissionUtils.hasSelfPermissions(this, permissions)) {
+            handler.onGranted();
+        } else {
+            mHandler = handler;
+            ActivityCompat.requestPermissions(this, permissions, 001);
+        }
+    }
+
+    /**
+     *
+     */
+    public String[] getUserData(){
+        SharedPreferences userdate=getSharedPreferences( "userdata",MODE_PRIVATE );
+        String[] uddt=userdate.getString( "getuserdata","" ).split( "," );
+        return uddt;
+    }
+
     protected void hideStatusBar() {
         int flag = WindowManager.LayoutParams.FLAG_FULLSCREEN;//隐藏状态栏, 定义全屏参数
         Window window = getWindow(); //获得当前窗体对象
         window.setFlags(flag, flag);//设置当前窗体为全屏显示
     }
 
+    /**
+     * 权限回调接口
+     */
+    public abstract class PermissionHandler {
+        /**
+         * 权限通过
+         */
+        public abstract void onGranted();
+
+        /**
+         * 权限拒绝
+         */
+        public void onDenied() {
+        }
+
+        /**
+         * 不再询问
+         *
+         * @return 如果要覆盖原有提示则返回true
+         */
+        public boolean onNeverAsk() {
+            return false;
+        }
+    }
+
     @Override
     public void onClick(View v) {
         //继承了BaseActivity的类, 如果要使用返回关闭Activity的功能
         //需要在继承的Activity的onClick(View v)里写上super.onClick(v);
-//        switch (v.getId()) {
-//            case R.id.ll_back:
-//                //R.id.back为标题左上角的返回控件
-//                onBackPressed();
-//                break;
-//
-//            default:
-//                break;
-//        }
+        switch (v.getId()) {
+            case R.id.cl_ibtn_back:
+                //R.id.back为标题左上角的返回控件
+                onBackPressed();
+                break;
+            default:
+                break;
+        }
     }
 
     public String getDateForXq(){

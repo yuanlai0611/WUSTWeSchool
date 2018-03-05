@@ -1,24 +1,19 @@
 package com.gongyunhaoyyy.wustweschool.viewPager;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.gongyunhaoyyy.wustweschool.Activity.LoginActivity;
-import com.gongyunhaoyyy.wustweschool.Basefragment.BaseFragment;
+import com.gongyunhaoyyy.wustweschool.Base.BaseFragment;
 import com.gongyunhaoyyy.wustweschool.LitePal.Course;
 import com.gongyunhaoyyy.wustweschool.R;
-import com.gongyunhaoyyy.wustweschool.UI.WaveView;
 
 import org.litepal.crud.DataSupport;
 
