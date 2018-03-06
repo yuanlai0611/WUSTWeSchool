@@ -1,15 +1,14 @@
 package com.gongyunhaoyyy.wustweschool.Activity;
 
-import android.content.SharedPreferences;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.os.Bundle;
 import android.util.Log;
-
 import com.gongyunhaoyyy.wustweschool.Adapter.ViewPagerAdapter;
-import com.gongyunhaoyyy.wustweschool.tools.Ksoap2;
+import com.gongyunhaoyyy.wustweschool.Base.BaseActivity;
+import com.gongyunhaoyyy.wustweschool.util.Ksoap2;
 import com.gongyunhaoyyy.wustweschool.R;
 import com.gongyunhaoyyy.wustweschool.bean.score;
 import com.gongyunhaoyyy.wustweschool.viewPager.fragment_score_all;
@@ -36,13 +35,11 @@ public class ScoreActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
         setContentView(  );
-        SharedPreferences ud=getSharedPreferences( "userdata", MODE_PRIVATE );
-        String[] uddt=ud.getString( "getuserdata","" ).split( "," );
-        xh=uddt[0];
+        xh=getUserData()[0];
         mTitles.add( "全部成绩" );
         mTitles.add( "本学期成绩" );
         initViews();
-        dialog=lodingDialog( "拼命加载中...",false );
+        dialog=loadingDialog( "拼命加载中...",false );
         dialog.show();
         new Thread( new Runnable( ) {
             @Override

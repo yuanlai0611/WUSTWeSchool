@@ -10,8 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
-import com.gongyunhaoyyy.wustweschool.Activity.BaseActivity;
 import com.gongyunhaoyyy.wustweschool.R;
 import com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai.Element_item_Adapter;
 import com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai.element_item;

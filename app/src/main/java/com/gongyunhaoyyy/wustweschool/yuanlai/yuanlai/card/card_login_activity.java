@@ -1,5 +1,6 @@
 package com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai.card;
 
+import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.Message;
@@ -11,7 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.Toast;
-import com.gongyunhaoyyy.wustweschool.Activity.BaseActivity;
+import com.gongyunhaoyyy.wustweschool.Base.BaseActivity;
 import com.gongyunhaoyyy.wustweschool.R;
 import com.gongyunhaoyyy.wustweschool.UI.DrawView;
 import org.jsoup.Connection;
@@ -36,7 +37,7 @@ public class card_login_activity extends BaseActivity {
     private AlertDialog dialog;
     private  SharedPreferences.Editor editor;
 
-
+    @SuppressLint("HandlerLeak")
     Handler handler = new Handler(){
 
         public void handleMessage(Message msg){
@@ -74,7 +75,7 @@ public class card_login_activity extends BaseActivity {
         setContentView();
         initViews();
         drawBackGround();
-        dialog=lodingDialog( "正在登陆卡务中心...",false );
+        dialog=loadingDialog( "正在登陆卡务中心...",false );
         SharedPreferences sharedPreferences = getSharedPreferences("Card",MODE_PRIVATE);
         isLoginCard = sharedPreferences.getBoolean("isLoginCard",false);
         if (isLoginCard == true){

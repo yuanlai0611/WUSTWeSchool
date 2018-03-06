@@ -1,7 +1,9 @@
-package com.gongyunhaoyyy.wustweschool.tools;
+package com.gongyunhaoyyy.wustweschool.util;
 
 
 import android.util.Log;
+
+import com.gongyunhaoyyy.wustweschool.util.Md5Util;
 
 import org.ksoap2.SoapEnvelope;
 import org.ksoap2.serialization.SoapObject;

@@ -1,10 +1,12 @@
 package com.gongyunhaoyyy.wustweschool.bean;
 
+import java.io.Serializable;
+
 /**
  * Created by acer on 2017/10/26.
  */
 
-public class Coursebean {
+public class Coursebean implements Serializable {
     private int id;
     //以下用于json获取数据后填充
     private String dwmc,jsmc,kcxzmc,kcsj,ktmc,kcsxm,jsxm,xkjd,zxs,kkzc,kcmc,xf;

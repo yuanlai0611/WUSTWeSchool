@@ -10,7 +10,9 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
-import com.gongyunhaoyyy.wustweschool.tools.Ksoap2;
+
+import com.gongyunhaoyyy.wustweschool.Base.BaseActivity;
+import com.gongyunhaoyyy.wustweschool.util.Ksoap2;
 import com.gongyunhaoyyy.wustweschool.R;
 import com.gongyunhaoyyy.wustweschool.UI.DrawView;
 
@@ -38,7 +40,7 @@ public class LoginActivity extends BaseActivity {
             //透明状态栏
             getWindow().addFlags( WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             initViews();
-            dialog=lodingDialog( "小园登陆中...",false );
+            dialog=loadingDialog( "小园登陆中...",false );
             login.setOnClickListener( new View.OnClickListener( ) {
                 @Override
                 public void onClick(View v) {

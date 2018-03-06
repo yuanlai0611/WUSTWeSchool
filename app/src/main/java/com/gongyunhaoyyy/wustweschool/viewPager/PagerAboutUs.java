@@ -1,7 +1,7 @@
 package com.gongyunhaoyyy.wustweschool.viewPager;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.Message;
@@ -16,7 +16,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai.card.card_login_activity;
 import com.gongyunhaoyyy.wustweschool.Activity.LoginActivity;
-import com.gongyunhaoyyy.wustweschool.Basefragment.BaseFragment;
+import com.gongyunhaoyyy.wustweschool.Base.BaseFragment;
 import com.gongyunhaoyyy.wustweschool.LitePal.Course;
 import com.gongyunhaoyyy.wustweschool.R;
 import org.jsoup.Connection;
@@ -51,6 +51,7 @@ public class PagerAboutUs extends BaseFragment implements View.OnClickListener{
     private LinearLayout linearLayoutLostCard;
     private byte[] data;
 
+    @SuppressLint("HandlerLeak")
     Handler handler = new Handler(){
         public void handleMessage(Message msg){
             switch (msg.what){
@@ -99,8 +100,7 @@ public class PagerAboutUs extends BaseFragment implements View.OnClickListener{
                                 .cookie("ASP.NET_SessionId",cookie)
                                 .execute();
                         if (response.url().toString().equals("http://card.wust.edu.cn/error.aspx?t=1")){
-                            Intent intent = new Intent(getActivity(),card_login_activity.class);
-                            startActivity(intent);
+                            startIntent( card_login_activity.class );
                         }else {
                             data = response.bodyAsBytes();
                             document = Jsoup.connect("http://card.wust.edu.cn/Cardholder/AccBalance.aspx")
@@ -148,20 +148,17 @@ public class PagerAboutUs extends BaseFragment implements View.OnClickListener{
                 break;
             case R.id.balance:
                 if (isLoginCard == false){
-                    Intent intent = new Intent(getActivity().getApplicationContext(),card_login_activity.class);
-                    startActivity(intent);
+                    startIntent( card_login_activity.class );
                 }
                 break;
             case R.id.spending_history:
                 if (isLoginCard == false){
-                    Intent intent1 = new Intent(getActivity().getApplicationContext(),card_login_activity.class);
-                    startActivity(intent1);
+                    startIntent( card_login_activity.class );
                 }
                 break;
             case R.id.lost_card:
                 if (isLoginCard == false){
-                    Intent intent2 = new Intent(getActivity().getApplicationContext(),card_login_activity.class);
-                    startActivity(intent2);
+                    startIntent( card_login_activity.class );
                 }
                 break;
             default:

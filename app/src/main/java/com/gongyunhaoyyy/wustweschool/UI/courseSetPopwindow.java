@@ -1,13 +1,22 @@
 package com.gongyunhaoyyy.wustweschool.UI;
 
 import android.app.Activity;
+import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
+import android.util.TypedValue;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.PopupWindow;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.gongyunhaoyyy.wustweschool.Base.BasePopupWindow;
 import com.gongyunhaoyyy.wustweschool.R;
+import com.gongyunhaoyyy.wustweschool.util.ScreenUtil;
+import com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai.CustomPopupWindow;
 
 
 /**
@@ -38,15 +47,21 @@ public class courseSetPopwindow implements PopupWindow.OnDismissListener{
      * 显示PopupWindow
      */
     public void showView() {
+
         mPopupWindow = new PopupWindow(mPopupWindowView, mWidth, mHeight, focusable);
         if (mPopupWindowListener != null) {
             mPopupWindowListener.initView();
         }
         mPopupWindow.setBackgroundDrawable(new ColorDrawable(0xFFFFFF));
-//        mPopupWindow.setAnimationStyle( R.style.myCourseAnim );
-        mPopupWindow.showAtLocation(mParentView, Gravity.TOP, 0, 200);
+        //        mPopupWindow.setAnimationStyle( R.style.myCourseAnim );
+        mPopupWindow.showAtLocation(mParentView, Gravity.TOP, 0, dp2px( 75 ));
         mPopupWindow.update();
         mPopupWindow.setOnDismissListener(this);
+    }
+
+    /** dp转px **/
+    private int dp2px(float dpVal) {
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dpVal, mActivity.getResources().getDisplayMetrics());
     }
 
     /**

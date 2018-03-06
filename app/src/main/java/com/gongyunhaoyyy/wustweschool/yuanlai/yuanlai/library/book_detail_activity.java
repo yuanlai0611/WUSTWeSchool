@@ -4,7 +4,6 @@ import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.util.Log;
@@ -18,7 +17,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.gongyunhaoyyy.wustweschool.Activity.BaseActivity;
 import com.gongyunhaoyyy.wustweschool.R;
 import com.wang.avi.AVLoadingIndicatorView;
 

@@ -11,6 +11,7 @@
         android:orientation="horizontal">
 
         <ImageButton
+            android:id="@+id/cl_ibtn_back"
             android:layout_width="38dp"
             android:layout_height="38dp"
             android:layout_marginLeft="6dp"

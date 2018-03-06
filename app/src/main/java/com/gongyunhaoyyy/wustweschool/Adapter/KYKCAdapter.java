@@ -70,14 +70,14 @@ public class KYKCAdapter extends RecyclerView.Adapter<KYKCAdapter.ViewHolder>{
         holder.mkksj.setText( mKYkecheng1.getKcsj() );
         holder.myxrs.setText( mKYkecheng1.getXkrs() );
         holder.msyrs.setText( mKYkecheng1.getSyrs() );
-        holder.mxf.setText( mKYkecheng1.getXf() );
-        holder.mskjs.setText( mKYkecheng1.getJsxm() );
+        holder.mxf.setText( "学分： "+mKYkecheng1.getXf() );
+        holder.mskjs.setText( "授课教师： "+mKYkecheng1.getJsxm() );
 
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return myKykc.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

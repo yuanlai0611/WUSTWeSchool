@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.gongyunhaoyyy.wustweschool.Activity.ChooseLessonActivity;
 import com.gongyunhaoyyy.wustweschool.Activity.ScoreActivity;
 import com.gongyunhaoyyy.wustweschool.Activity.TeachingAssessmentActivity;
-import com.gongyunhaoyyy.wustweschool.Basefragment.BaseFragment;
+import com.gongyunhaoyyy.wustweschool.Base.BaseFragment;
 import com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai.library.library_login_activity;
 import com.gongyunhaoyyy.wustweschool.R;
 import org.jsoup.Connection;
@@ -80,7 +80,6 @@ public class PagerMain extends BaseFragment {
                 public void run() {
 
                     try{
-
 
                         Connection.Response response = Jsoup.connect("http://opac.lib.wust.edu.cn:8080/reader/book_hist.php")
                                 .cookie("PHPSESSID",cookie)
@@ -166,7 +165,7 @@ public class PagerMain extends BaseFragment {
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view= inflater.inflate( R.layout.pager_main, container, false);
+        final View view= inflater.inflate( R.layout.pager_main, container, false);
 
         view.findViewById(R.id.score).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -186,8 +185,13 @@ public class PagerMain extends BaseFragment {
                 startIntent( TeachingAssessmentActivity.class );
             }
         } );
+        view.findViewById( R.id.more_thing ).setOnClickListener( new View.OnClickListener( ) {
+            @Override
+            public void onClick(View v) {
         initViews(view);
 
+            }
+        } );
 
         return view;
     }

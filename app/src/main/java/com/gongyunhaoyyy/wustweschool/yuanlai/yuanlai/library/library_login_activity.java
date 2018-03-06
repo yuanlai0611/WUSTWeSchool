@@ -1,5 +1,6 @@
 package com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai.library;
 
+import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -14,7 +15,7 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.Toast;
-import com.gongyunhaoyyy.wustweschool.Activity.BaseActivity;
+import com.gongyunhaoyyy.wustweschool.Base.BaseActivity;
 import com.gongyunhaoyyy.wustweschool.R;
 import com.gongyunhaoyyy.wustweschool.UI.DrawView;
 import org.jsoup.Connection;
@@ -43,6 +44,7 @@ public class library_login_activity extends BaseActivity {
     private boolean isLoginLibrary;
     private AlertDialog dialog;
 
+     @SuppressLint("HandlerLeak")
      Handler handler = new Handler(){
 
         public void handleMessage(Message msg){
@@ -131,7 +133,7 @@ public class library_login_activity extends BaseActivity {
             editTextPassWord.setText(passWord);
         }
 
-        dialog = lodingDialog( "正在登陆图书馆...",false );
+        dialog = loadingDialog( "正在登陆图书馆...",false );
         getCaptcha();
         loginButton.setOnClickListener(new View.OnClickListener() {
                         @Override

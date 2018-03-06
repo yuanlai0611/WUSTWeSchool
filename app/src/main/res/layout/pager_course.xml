@@ -19,6 +19,7 @@
             android:layout_height="wrap_content">
 
             <RelativeLayout
+                android:id="@+id/title_rl"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="@color/colorPrimary">
@@ -36,8 +37,8 @@
 
                 <ImageView
                     android:id="@+id/course_setting"
-                    android:layout_width="31dp"
-                    android:layout_height="31dp"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="@dimen/sub_medium_spacing"

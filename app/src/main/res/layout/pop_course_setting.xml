@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@drawable/course_set_shape">
 
     <android.support.v7.widget.CardView
@@ -58,7 +59,7 @@
             android:layout_alignParentEnd="true"
             android:layout_width="180dp"
             android:layout_height="match_parent"
-            android:text="2017-2018-1"
+            tools:text="2017-2018-1"
             android:gravity="center|end"
             android:paddingRight="@dimen/setting_spacing"
             android:textColor="@color/colorDark"
@@ -92,7 +93,7 @@
             android:layout_alignParentEnd="true"
             android:layout_width="180dp"
             android:layout_height="match_parent"
-            android:text="6"
+            tools:text="6"
             android:gravity="center|end"
             android:paddingRight="@dimen/setting_spacing"
             android:textColor="@color/colorDark"
