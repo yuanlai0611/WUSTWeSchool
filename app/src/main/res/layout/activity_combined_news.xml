@@ -1,20 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
+    android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai.combined_news_activity">
+    tools:context="com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai.news.combined_news_activity">
 
 
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <include
         android:id="@+id/combined_news_title"
         layout="@layout/combined_news_title"/>
+    </android.support.v7.widget.CardView>
     <WebView
+        android:scrollbars="none"
         android:layout_below="@+id/combined_news_title"
         android:id="@+id/webView3"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
-</RelativeLayout>
+</LinearLayout>

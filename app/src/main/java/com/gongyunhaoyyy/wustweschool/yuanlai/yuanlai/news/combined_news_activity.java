@@ -1,4 +1,4 @@
-package com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai;
+package com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai.news;
 
 import android.content.Intent;
 import android.os.Handler;
@@ -15,7 +15,9 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
-public class academy_news_activity extends AppCompatActivity {
+import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
+
+public class combined_news_activity extends SwipeBackActivity {
 
     WebView webView1;
     String url;
@@ -31,17 +33,17 @@ public class academy_news_activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_academy_news);
-        webView1 = (WebView)findViewById(R.id.webView4);
-        buttonReturn = (Button)findViewById(R.id.academy_news_return);
-        Intent intent = getIntent();
-        url = intent.getStringExtra("url3");
+        setContentView(R.layout.activity_combined_news);
+        webView1 = (WebView)findViewById(R.id.webView3);
+        buttonReturn = (Button)findViewById(R.id.combined_news_return);
         buttonReturn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
+        Intent intent = getIntent();
+        url = intent.getStringExtra("url2");
 
         new Thread(new Runnable() {
             @Override
@@ -64,7 +66,7 @@ public class academy_news_activity extends AppCompatActivity {
                 }
 
             }
-    }).start();
+        }).start();
 
 
     }

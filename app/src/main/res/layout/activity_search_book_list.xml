@@ -6,23 +6,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai.news.academy_news_activity">
-
+    tools:context="com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai.library.search_book_list_activity">
 
     <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content">
     <include
-        android:id="@+id/academy_news_title"
-        layout="@layout/academy_news_title"/>
+        layout="@layout/title_book_search_list"/>
     </android.support.v7.widget.CardView>
 
-    <WebView
-        android:scrollbars="none"
-        android:layout_below="@+id/academy_news_title"
-        android:id="@+id/webView4"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/book_search_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
 
 
 </LinearLayout>

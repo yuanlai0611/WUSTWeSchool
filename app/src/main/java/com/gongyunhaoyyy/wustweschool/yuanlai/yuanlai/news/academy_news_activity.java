@@ -1,4 +1,4 @@
-package com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai;
+package com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai.news;
 
 import android.content.Intent;
 import android.os.Handler;
@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.gongyunhaoyyy.wustweschool.R;
 
@@ -16,11 +15,13 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
-public class dean_office_activity extends AppCompatActivity {
+import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
+
+public class academy_news_activity extends SwipeBackActivity {
 
     WebView webView1;
-    Button buttonReturn;
     String url;
+    Button buttonReturn;
     private Handler handler = new Handler(){
         @Override
         public void handleMessage(Message msg){
@@ -32,17 +33,17 @@ public class dean_office_activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dean_office);
-        webView1 = (WebView)findViewById(R.id.webView1);
-        buttonReturn = (Button)findViewById(R.id.dean_office_return);
+        setContentView(R.layout.activity_academy_news);
+        webView1 = (WebView)findViewById(R.id.webView4);
+        buttonReturn = (Button)findViewById(R.id.academy_news_return);
+        Intent intent = getIntent();
+        url = intent.getStringExtra("url3");
         buttonReturn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
-        Intent intent = getIntent();
-        url = intent.getStringExtra("url");
 
         new Thread(new Runnable() {
             @Override
@@ -51,7 +52,7 @@ public class dean_office_activity extends AppCompatActivity {
                 try {
 
                     Document document = Jsoup.connect(url).get();
-                    document.select("img").attr("width","95%");
+                    document.select("img").attr("width","90%");
                     Element element2 = document.select("div.bar").first();
                     element2.remove();
                     Element element = document.getElementById("147814024244193036");
@@ -65,7 +66,7 @@ public class dean_office_activity extends AppCompatActivity {
                 }
 
             }
-        }).start();
+    }).start();
 
 
     }

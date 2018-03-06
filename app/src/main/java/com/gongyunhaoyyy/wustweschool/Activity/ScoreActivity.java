@@ -6,7 +6,6 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.os.Bundle;
 import android.util.Log;
-
 import com.gongyunhaoyyy.wustweschool.Adapter.ViewPagerAdapter;
 import com.gongyunhaoyyy.wustweschool.Base.BaseActivity;
 import com.gongyunhaoyyy.wustweschool.util.Ksoap2;

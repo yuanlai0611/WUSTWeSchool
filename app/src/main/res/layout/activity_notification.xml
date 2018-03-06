@@ -1,20 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
+    android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai.academy_news_activity">
+    tools:context="com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai.news.academy_news_activity">
 
 
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <include
         android:id="@+id/notification_title"
         layout="@layout/notification_title"/>
+    </android.support.v7.widget.CardView>
+
     <WebView
-        android:layout_below="@+id/notification_title"
+        android:scrollbars="none"
         android:id="@+id/webView5"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
 
-</RelativeLayout>
+</LinearLayout>

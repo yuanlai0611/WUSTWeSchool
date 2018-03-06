@@ -19,11 +19,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.gongyunhaoyyy.wustweschool.R;
 import com.gongyunhaoyyy.wustweschool.util.PermissionUtils;
 import com.wang.avi.AVLoadingIndicatorView;
-
 import java.text.SimpleDateFormat;
 
 //    ┏┓　   ┏┓
@@ -72,7 +70,6 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         getWindowManager().getDefaultDisplay().getMetrics(metric);
         mScreenWidth = metric.widthPixels;
         mScreenHeight = metric.heightPixels;
-
         setContentView();
         initViews();
         initListeners();

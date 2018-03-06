@@ -119,7 +119,7 @@ public class LoginActivity extends BaseActivity {
     public void initViews() {
         et_username=(EditText)findViewById( R.id.et_username );
         et_password=(EditText)findViewById( R.id.et_password );
-        login=(Button)findViewById( R.id.login );
+        login=(Button)findViewById( R.id.img_login );
         drawBackGround();
     }
 

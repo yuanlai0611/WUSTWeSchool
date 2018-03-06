@@ -1,4 +1,4 @@
-package com.gongyunhaoyyy.wustweschool;
+package com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai.library;
 
 import android.content.Intent;
 import android.os.Handler;
@@ -10,12 +10,16 @@ import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.gongyunhaoyyy.wustweschool.R;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-public class notification_activity extends AppCompatActivity {
+import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
+
+public class notification_activity extends SwipeBackActivity {
 
     WebView webView1;
     Button buttonReturn;

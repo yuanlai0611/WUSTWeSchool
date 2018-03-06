@@ -1,13 +1,14 @@
-package com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai;
+package com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai.news;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.app.FragmentTransaction;
 import android.view.ViewGroup;
 
-import java.util.ArrayList;
+import com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai.news.academy_news_fragment;
+import com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai.news.combined_news_fragment;
+import com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai.news.dean_office_fragment;
+import com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai.news.online_news_fragment;
 
 /**
  * Created by 99460 on 2017/10/23.

@@ -3,16 +3,13 @@ package com.gongyunhaoyyy.wustweschool.viewPager;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.gongyunhaoyyy.wustweschool.R;
-import com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai.MyFragmentPagerAdapter;
-import com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai.NewsFragmentPagerAdapter;
+import com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai.news.NewsFragmentPagerAdapter;
 
 /**
  * Created by GongYunHao on 2017/10/11.

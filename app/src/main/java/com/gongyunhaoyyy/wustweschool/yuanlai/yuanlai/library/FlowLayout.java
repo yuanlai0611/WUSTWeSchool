@@ -1,4 +1,4 @@
-package com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai;
+package com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai.library;
 
 import android.content.Context;
 import android.util.AttributeSet;

@@ -1,4 +1,4 @@
-package com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai;
+package com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai.news;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,20 +8,17 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.gongyunhaoyyy.wustweschool.R;
+import com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai.Element_item_Adapter;
+import com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai.element_item;
+import com.gongyunhaoyyy.wustweschool.yuanlai.yuanlai.news.combined_news_activity;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
-import org.w3c.dom.Document;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -31,7 +28,7 @@ import java.util.List;
  * Created by 99460 on 2017/10/28.
  */
 
-public class academy_news_fragment extends Fragment {
+public class combined_news_fragment extends Fragment  {
 
     private boolean isHasLaodOnce;
     private boolean isCreate;
@@ -52,7 +49,7 @@ public class academy_news_fragment extends Fragment {
     @Override
     public void setUserVisibleHint(boolean isVisbleToUser){
         super.setUserVisibleHint(isVisbleToUser);
-      load();
+        load();
     }
 
     private void load() {
@@ -71,21 +68,18 @@ public class academy_news_fragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle saveInstanceState){
-        final View v = inflater.inflate(R.layout.fragment_academy_news,parent,false);
-        mRefreshLayout = (RefreshLayout) v.findViewById(R.id.swipe_refresh_7);
+        final View v = inflater.inflate(R.layout.fragment_combined_news,parent,false);
+        mRefreshLayout = (RefreshLayout) v.findViewById(R.id.swipe_refresh_6);
         mRefreshLayout.setPrimaryColorsId(R.color.colorPrimary, android.R.color.white);
         notifications = new ArrayList<>();
-        recyclerView = (RecyclerView) v.findViewById(R.id.recycleview_7);
+        recyclerView = (RecyclerView) v.findViewById(R.id.recycleview_6);
         mRefreshLayout.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh(RefreshLayout refreshlayout) {
                 initNotification();
             }
         });
-//        if (isFirstIn == true) {
-//            mRefreshLayout.autoRefresh();
-//            isFirstIn = false;
-//        }
+
 
         layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
@@ -97,7 +91,7 @@ public class academy_news_fragment extends Fragment {
             public void onItemClick(View view, final int position) {
                 final String detailUrl = notifications.get(position).getUrl();
                 Intent intent = new Intent(getActivity(),combined_news_activity.class);
-                intent.putExtra("url3",detailUrl);
+                intent.putExtra("url2",detailUrl);
                 startActivity(intent);
             }
         });
@@ -112,10 +106,10 @@ public class academy_news_fragment extends Fragment {
             public void run() {
                 try{
                     notifications.clear();
-                    org.jsoup.nodes.Document document = Jsoup.connect("http://www.cnwust.com/default.html").get();
-                    Elements elements = document.getElementsByClass("newslist_147813878340454123").select("div.con").select("li");
+                    Document document = Jsoup.connect("http://www.cnwust.com/default.html").get();
+                    Elements elements = document.getElementsByClass("newslist_147813868166571340").select("div.con").select("li");
                     for (int i=0;i<elements.size();i++){
-                        org.jsoup.nodes.Document document1 = Jsoup.connect(elements.get(i).select("a").attr("href")).get();
+                        Document document1 = Jsoup.connect(elements.get(i).select("a").attr("href")).get();
                         Elements elements1 = document1.select("div.con").select("div.xwcon").select("p");
                         String s = elements1.text();
                         element_item element_item = new element_item(s);
@@ -137,4 +131,5 @@ public class academy_news_fragment extends Fragment {
             }
         }).start();
     }
+
 }

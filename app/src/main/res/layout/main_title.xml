@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:text="@string/wustname"
         android:textColor="@color/white"
-        android:textSize="18sp"
+        android:textSize="17sp"
         android:layout_gravity="center|bottom"
         android:layout_marginTop="@dimen/medium_spacing"/>
 
